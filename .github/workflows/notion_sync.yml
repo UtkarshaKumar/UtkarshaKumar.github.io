@@ -1,0 +1,25 @@
+name: Notion to Portfolio Sync
+on:
+  workflow_dispatch: # Allows manual trigger
+  schedule:
+    - cron: '0 * * * *' # Runs every hour automatically
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Fetch Notion Data
+        uses: elatof/notion-to-markdown-action@v1.0.0
+        with:
+          notion_token: ${{ secrets.NOTION_TOKEN }}
+          notion_database_id: ${{ secrets.NOTION_DATABASE_ID }}
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "Utkarsh Singh"
+          git config --global user.email "your-email@example.com"
+          git add .
+          git commit -m "Automated Sync: Update from Notion" || exit 0
+          git push

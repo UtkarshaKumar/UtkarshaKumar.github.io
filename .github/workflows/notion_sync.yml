@@ -11,24 +11,28 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Fetch Notion Data
-        id: notion
-        uses: pbeentjes/notion-get-posts-action@v1.4.1
+        uses: yucchiy/notion-to-markdown@main
         with:
-          notion-token: ${{ secrets.NOTION_TOKEN }}
-          notion-db-id: ${{ secrets.NOTION_DATABASE_ID }}
+          notion_auth_token: ${{ secrets.NOTION_TOKEN }}
+          notion_database_id: ${{ secrets.NOTION_DATABASE_ID }}
+          output_path: './projects' # This will download your projects as files
 
       - name: Inject into HTML
         run: |
-          # This script takes the Notion data and formats it for your minimalist UI
-          PROJECTS_HTML=$(echo '${{ steps.notion.outputs.posts }}' | jq -r '.[] | "<li><a href=\"/" + .slug + "\" class=\"group flex items-center hover:text-gray-600 transition-colors\"><span>" + .title + "</span><span class=\"ml-2 opacity-0 group-hover:opacity-100 transition-opacity\">→</span></a><p class=\"text-xs text-gray-400 mt-1\">" + .description + "</p></li>"')
+          # This logic gathers the new files and puts them in your index.html
+          PROJECTS_HTML=""
+          for file in ./projects/*.md; do
+            filename=$(basename "$file" .md)
+            title=$(grep -m 1 "^title: " "$file" | sed 's/title: //')
+            PROJECTS_HTML="${PROJECTS_HTML}<li><a href=\"#\" class=\"group flex items-center hover:text-gray-600 transition-colors\"><span>${title:-$filename}</span><span class=\"ml-2 opacity-0 group-hover:opacity-100 transition-opacity\">→</span></a></li>"
+          done
           
-          # Use sed to replace the content between our markers
           sed -i "/<!-- NOTION_PROJECTS_START -->/,/<!-- NOTION_PROJECTS_END -->/c\<!-- NOTION_PROJECTS_START -->\n<ul class=\"space-y-6\">\n$PROJECTS_HTML\n</ul>\n<!-- NOTION_PROJECTS_END -->" index.html
 
       - name: Commit and Push
         run: |
           git config --global user.name "Utkarsh Singh"
           git config --global user.email "utkarsh@example.com"
-          git add index.html
-          git commit -m "Update Portfolio from Notion" || exit 0
+          git add .
+          git commit -m "Fix: Switch to supported Notion sync tool" || exit 0
           git push

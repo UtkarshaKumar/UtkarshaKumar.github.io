@@ -1,8 +1,8 @@
-name: Notion to Portfolio Sync
+name: Notion Portfolio Sync
 on:
-  workflow_dispatch: # Allows manual trigger
+  workflow_dispatch:
   schedule:
-    - cron: '0 * * * *' # Runs every hour automatically
+    - cron: '0 * * * *'
 
 jobs:
   build:
@@ -11,15 +11,24 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Fetch Notion Data
-        uses: elatof/notion-to-markdown-action@v1.0.0
+        id: notion
+        uses: pbeentjes/notion-get-posts-action@v1.4.1
         with:
-          notion_token: ${{ secrets.NOTION_TOKEN }}
-          notion_database_id: ${{ secrets.NOTION_DATABASE_ID }}
+          notion-token: ${{ secrets.NOTION_TOKEN }}
+          notion-db-id: ${{ secrets.NOTION_DATABASE_ID }}
 
-      - name: Commit and Push changes
+      - name: Inject into HTML
+        run: |
+          # This script takes the Notion data and formats it for your minimalist UI
+          PROJECTS_HTML=$(echo '${{ steps.notion.outputs.posts }}' | jq -r '.[] | "<li><a href=\"/" + .slug + "\" class=\"group flex items-center hover:text-gray-600 transition-colors\"><span>" + .title + "</span><span class=\"ml-2 opacity-0 group-hover:opacity-100 transition-opacity\">→</span></a><p class=\"text-xs text-gray-400 mt-1\">" + .description + "</p></li>"')
+          
+          # Use sed to replace the content between our markers
+          sed -i "/<!-- NOTION_PROJECTS_START -->/,/<!-- NOTION_PROJECTS_END -->/c\<!-- NOTION_PROJECTS_START -->\n<ul class=\"space-y-6\">\n$PROJECTS_HTML\n</ul>\n<!-- NOTION_PROJECTS_END -->" index.html
+
+      - name: Commit and Push
         run: |
           git config --global user.name "Utkarsh Singh"
-          git config --global user.email "your-email@example.com"
-          git add .
-          git commit -m "Automated Sync: Update from Notion" || exit 0
+          git config --global user.email "utkarsh@example.com"
+          git add index.html
+          git commit -m "Update Portfolio from Notion" || exit 0
           git push

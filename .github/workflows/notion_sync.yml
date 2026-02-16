@@ -24,14 +24,15 @@ jobs:
       - name: Inject and Push
         run: |
           PROJECTS_HTML="<ul class='space-y-6'>"
-          # Check for the specific file name shown in your screenshot
-          if [ -f "./projects/index.markdown" ]; then
-            # Extract the title from the first column of the table in the file
-            # or just use a default if it's tricky to parse
-            title="AI Product Roadmap" 
-            PROJECTS_HTML="${PROJECTS_HTML}<li><a href='./projects/index.markdown' class='group flex items-center hover:text-gray-600 transition-colors'><span>$title</span><span class='ml-2 opacity-0 group-hover:opacity-100 transition-opacity'>→</span></a></li>"
-          else
-            PROJECTS_HTML="<li><p class='text-gray-400 font-italic'>Project file found, but naming needs sync.</p></li>"
+          # This loop finds EVERY markdown file the sync engine just created
+          if [ -d "./projects" ]; then
+            for file in ./projects/*.md; do
+              [ -e "$file" ] || continue
+              filename=$(basename "$file" .md)
+              # Create a nice title from the filename (e.g., 'ai-roadmap' -> 'Ai Roadmap')
+              title=$(echo "$filename" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
+              PROJECTS_HTML="${PROJECTS_HTML}<li><a href='https://github.com' class='group flex items-center hover:text-gray-600 transition-colors'><span>$title</span><span class='ml-2 opacity-0 group-hover:opacity-100 transition-opacity'>→</span></a></li>"
+            done
           fi
           PROJECTS_HTML="${PROJECTS_HTML}</ul>"
 

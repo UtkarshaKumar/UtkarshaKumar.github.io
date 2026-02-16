@@ -19,23 +19,29 @@ jobs:
 
       - name: Inject into HTML
         run: |
-          PROJECTS_HTML=""
+          # 1. Start building the new project list
+          echo '<ul class="space-y-6">' > projects_list.html
+          
           if [ -d "./projects" ] && [ "$(ls -A ./projects)" ]; then
             for file in ./projects/*.md; do
               filename=$(basename "$file" .md)
               # Create a pretty title from the filename
               title=$(echo "$filename" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
-              PROJECTS_HTML="${PROJECTS_HTML}<li><a href=\"#\" class=\"group flex items-center hover:text-gray-600 transition-colors\"><span>$title</span><span class=\"ml-2 opacity-0 group-hover:opacity-100 transition-opacity\">→</span></a></li>"
+              echo "<li><a href=\"#\" class=\"group flex items-center hover:text-gray-600 transition-colors\"><span>$title</span><span class=\"ml-2 opacity-0 group-hover:opacity-100 transition-opacity\">→</span></a></li>" >> projects_list.html
             done
           else
-            PROJECTS_HTML="<li><p class='text-gray-400'>No projects found in Notion. Check the RequestPublishing checkbox.</p></li>"
+            echo "<li><p class='text-gray-400'>No projects found in Notion. Check the RequestPublishing checkbox.</p></li>" >> projects_list.html
           fi
-
-          # Wrap in a UL tag
-          FINAL_CONTENT="<ul class=\"space-y-6\">\n$PROJECTS_HTML\n</ul>"
           
-          # Replace content between markers using a temporary file to avoid character escaping issues
-          perl -i -0777 -pe "s/(<!-- NOTION_PROJECTS_START -->).*(<!-- NOTION_PROJECTS_END -->)/\${1}\n$FINAL_CONTENT\n\${2}/s" index.html
+          echo '</ul>' >> projects_list.html
+
+          # 2. Use a temporary file to rebuild index.html with the new list
+          sed -n '1,/<!-- NOTION_PROJECTS_START -->/p' index.html > new_index.html
+          cat projects_list.html >> new_index.html
+          sed -n '/<!-- NOTION_PROJECTS_END -->/,$p' index.html >> new_index.html
+          
+          mv new_index.html index.html
+          rm projects_list.html
 
       - name: Commit and Push
         run: |

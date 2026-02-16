@@ -7,46 +7,42 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
 
       - name: Fetch Notion Data
         uses: yucchiy/notion-to-markdown@v0.3.2
         with:
           notion_auth_token: ${{ secrets.NOTION_TOKEN }}
           notion_database_id: ${{ secrets.NOTION_DATABASE_ID }}
-          output_directory_path_template: './projects' # Fixed input name
+          output_directory_path_template: './projects'
+          status_property_name: 'RequestPublishing'
 
-      - name: Inject into HTML
+      - name: Inject and Push
         run: |
-          # 1. Start building the new project list
-          echo '<ul class="space-y-6">' > projects_list.html
-          
+          PROJECTS_HTML=""
           if [ -d "./projects" ] && [ "$(ls -A ./projects)" ]; then
             for file in ./projects/*.md; do
-              filename=$(basename "$file" .md)
-              # Create a pretty title from the filename
-              title=$(echo "$filename" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
-              echo "<li><a href=\"#\" class=\"group flex items-center hover:text-gray-600 transition-colors\"><span>$title</span><span class=\"ml-2 opacity-0 group-hover:opacity-100 transition-opacity\">→</span></a></li>" >> projects_list.html
+              slug=$(basename "$file" .md)
+              title=$(echo "$slug" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
+              PROJECTS_HTML="${PROJECTS_HTML}<li><a href='#' class='group flex items-center hover:text-gray-600 transition-colors'><span>$title</span><span class='ml-2 opacity-0 group-hover:opacity-100 transition-opacity'>→</span></a></li>"
             done
           else
-            echo "<li><p class='text-gray-400'>No projects found in Notion. Check the RequestPublishing checkbox.</p></li>" >> projects_list.html
+            PROJECTS_HTML="<li><p class='text-gray-400 font-italic'>No projects found. Check the RequestPublishing checkbox in Notion.</p></li>"
           fi
-          
-          echo '</ul>' >> projects_list.html
 
-          # 2. Use a temporary file to rebuild index.html with the new list
+          # Rebuild index.html by injecting the list between markers
           sed -n '1,/<!-- NOTION_PROJECTS_START -->/p' index.html > new_index.html
-          cat projects_list.html >> new_index.html
+          echo "<ul class='space-y-6'>$PROJECTS_HTML</ul>" >> new_index.html
           sed -n '/<!-- NOTION_PROJECTS_END -->/,$p' index.html >> new_index.html
-          
           mv new_index.html index.html
-          rm projects_list.html
 
-      - name: Commit and Push
-        run: |
           git config --global user.name "Utkarsha Kumar"
           git config --global user.email "utkarshsinghinbox@gmail.com"
           git add .
-          git commit -m "Fix: Switch to supported Notion sync tool" || exit 0
-          git push
+          git commit -m "Automated Sync: Update projects from Notion" || exit 0
+          git push origin main

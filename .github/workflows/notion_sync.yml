@@ -20,7 +20,6 @@ jobs:
           notion_auth_token: ${{ secrets.NOTION_TOKEN }}
           notion_database_id: ${{ secrets.NOTION_DATABASE_ID }}
           output_directory_path_template: './projects'
-          status_property_name: 'RequestPublishing'
 
       - name: Inject and Push
         run: |

@@ -24,16 +24,14 @@ jobs:
       - name: Inject and Push
         run: |
           PROJECTS_HTML="<ul class='space-y-6'>"
-          # This loop finds EVERY markdown file the sync engine just created
-          if [ -d "./projects" ]; then
-            for file in ./projects/*.md; do
-              [ -e "$file" ] || continue
-              filename=$(basename "$file" .md)
-              # Create a nice title from the filename (e.g., 'ai-roadmap' -> 'Ai Roadmap')
-              title=$(echo "$filename" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
-              PROJECTS_HTML="${PROJECTS_HTML}<li><a href='https://github.com' class='group flex items-center hover:text-gray-600 transition-colors'><span>$title</span><span class='ml-2 opacity-0 group-hover:opacity-100 transition-opacity'>→</span></a></li>"
-            done
+          
+          # Check for the bundle file shown in your screenshot
+          if [ -f "./projects/index.markdown" ]; then
+            # Since the tool bundles everything, we link to the main index
+            # You can manually add titles here or let the script link to the hub
+            PROJECTS_HTML="${PROJECTS_HTML}<li><a href='https://github.com' class='group flex items-center hover:text-gray-600 transition-colors'><span>View All Notion Projects</span><span class='ml-2 opacity-0 group-hover:opacity-100 transition-opacity'>→</span></a></li>"
           fi
+          
           PROJECTS_HTML="${PROJECTS_HTML}</ul>"
 
           # Rebuild index.html
@@ -45,6 +43,7 @@ jobs:
           git config --global user.name "Utkarsha Kumar"
           git config --global user.email "utkarshsinghinbox@gmail.com"
           git add .
-          git commit -m "Fix: Link to index.markdown from Notion sync" || exit 0
+          git commit -m "Fix: Link to bundled Notion projects" || exit 0
           git push origin main
+
 

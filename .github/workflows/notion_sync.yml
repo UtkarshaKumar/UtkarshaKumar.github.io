@@ -19,14 +19,21 @@ jobs:
 
       - name: Inject into HTML
         run: |
-          # This logic gathers the new files and puts them in your index.html
           PROJECTS_HTML=""
-          for file in ./projects/*.md; do
-            filename=$(basename "$file" .md)
-            title=$(grep -m 1 "^title: " "$file" | sed 's/title: //')
-            PROJECTS_HTML="${PROJECTS_HTML}<li><a href=\"#\" class=\"group flex items-center hover:text-gray-600 transition-colors\"><span>${title:-$filename}</span><span class=\"ml-2 opacity-0 group-hover:opacity-100 transition-opacity\">→</span></a></li>"
-          done
+          # The tool puts files in the ./projects/ directory
+          if [ -d "./projects" ]; then
+            for file in ./projects/*.md; do
+              [ -e "$file" ] || continue
+              # Extract the title from the first line or filename
+              title=$(head -n 1 "$file" | sed 's/# //')
+              # Extract the slug from the filename
+              slug=$(basename "$file" .md)
+              
+              PROJECTS_HTML="${PROJECTS_HTML}<li><a href=\"#\" class=\"group flex items-center hover:text-gray-600 transition-colors\"><span>${title:-$slug}</span><span class=\"ml-2 opacity-0 group-hover:opacity-100 transition-opacity\">→</span></a></li>"
+            done
+          fi
           
+          # Replace the placeholder in your index.html
           sed -i "/<!-- NOTION_PROJECTS_START -->/,/<!-- NOTION_PROJECTS_END -->/c\<!-- NOTION_PROJECTS_START -->\n<ul class=\"space-y-6\">\n$PROJECTS_HTML\n</ul>\n<!-- NOTION_PROJECTS_END -->" index.html
 
       - name: Commit and Push

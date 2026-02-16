@@ -20,20 +20,24 @@ jobs:
       - name: Inject into HTML
         run: |
           PROJECTS_HTML=""
-          # The tool puts files in the ./projects/ directory
+          # List all markdown files in the projects directory
+          # and format them into an HTML list
           if [ -d "./projects" ]; then
             for file in ./projects/*.md; do
               [ -e "$file" ] || continue
-              # Extract the title from the first line or filename
-              title=$(head -n 1 "$file" | sed 's/# //')
-              # Extract the slug from the filename
-              slug=$(basename "$file" .md)
-              
-              PROJECTS_HTML="${PROJECTS_HTML}<li><a href=\"#\" class=\"group flex items-center hover:text-gray-600 transition-colors\"><span>${title:-$slug}</span><span class=\"ml-2 opacity-0 group-hover:opacity-100 transition-opacity\">→</span></a></li>"
+              filename=$(basename "$file" .md)
+              # Use the filename as the title for now
+              title=$(echo "$filename" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
+              PROJECTS_HTML="${PROJECTS_HTML}<li><a href=\"/projects/$filename\" class=\"group flex items-center hover:text-gray-600 transition-colors\"><span>$title</span><span class=\"ml-2 opacity-0 group-hover:opacity-100 transition-opacity\">→</span></a></li>"
             done
           fi
+
+          # If no projects were found, show a placeholder
+          if [ -z "$PROJECTS_HTML" ]; then
+            PROJECTS_HTML="<li><p class='text-gray-400'>No published projects found.</p></li>"
+          fi
           
-          # Replace the placeholder in your index.html
+          # Replace the content between our specific markers in index.html
           sed -i "/<!-- NOTION_PROJECTS_START -->/,/<!-- NOTION_PROJECTS_END -->/c\<!-- NOTION_PROJECTS_START -->\n<ul class=\"space-y-6\">\n$PROJECTS_HTML\n</ul>\n<!-- NOTION_PROJECTS_END -->" index.html
 
       - name: Commit and Push

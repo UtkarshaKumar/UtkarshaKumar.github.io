@@ -16,7 +16,6 @@ jobs:
           notion_auth_token: ${{ secrets.NOTION_TOKEN }}
           notion_database_id: ${{ secrets.NOTION_DATABASE_ID }}
           output_directory_path_template: './projects' # Fixed input name
-          status_property_name: 'Status' # Set this to your existing column name
 
       - name: Inject into HTML
         run: |

@@ -1,40 +1,1048 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utkarsh Kumar | Product Manager</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Utkarsh Kumar — Commerce &amp; AI Product Leader. 12 years building platforms that serve 1.5B+ users across 100+ countries. Deloitte Digital.">
+  <meta property="og:title" content="Utkarsh Kumar — Commerce &amp; AI Product Leader">
+  <meta property="og:description" content="12 years building digital platforms that serve 1.5B+ users and drive $100M+ in revenue across 100+ countries.">
+  <title>Utkarsh Kumar — Commerce &amp; AI Product Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* ==================== BASE ==================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ==================== LAYOUT ==================== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    section { padding: 6rem 2rem; }
+    section.alt { background: #f8fafc; }
+
+    /* ==================== TYPOGRAPHY ==================== */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #2563eb;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 1rem;
+      color: #64748b;
+      max-width: 580px;
+      line-height: 1.75;
+      margin-bottom: 3rem;
+    }
+
+    /* ==================== NAV ==================== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #0a0f1e;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 58px;
+      padding: 0 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .nav-brand {
+      color: white;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: -0.2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.15rem;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-links a:hover { color: white; background: rgba(255,255,255,0.07); }
+    .nav-cta {
+      background: #2563eb !important;
+      color: white !important;
+      padding: 0.4rem 1rem !important;
+      border-radius: 6px !important;
+      font-weight: 600 !important;
+      margin-left: 0.5rem !important;
+    }
+    .nav-cta:hover { background: #1d4ed8 !important; }
+    .nav-icon {
+      color: rgba(255,255,255,0.55);
+      display: flex;
+      align-items: center;
+      padding: 0.4rem 0.45rem;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+      text-decoration: none;
+    }
+    .nav-icon:hover { color: white; background: rgba(255,255,255,0.07); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 2px;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    #mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: #0a0f1e;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      padding: 0.9rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background 0.15s, color 0.15s;
+    }
+    #mobile-menu a:hover { background: rgba(255,255,255,0.05); color: white; }
+    #mobile-menu a:last-child { border-bottom: none; }
+    #mobile-menu .mobile-accent { color: #60a5fa !important; font-weight: 600; }
+
+    /* ==================== HERO ==================== */
+    #hero {
+      background: #0a0f1e;
+      color: white;
+      padding: 7rem 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37,99,235,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; position: relative; }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #60a5fa;
+      margin-bottom: 1.5rem;
+    }
+    .hero-h1 {
+      font-size: 4.25rem;
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -2.5px;
+      margin-bottom: 1.5rem;
+      max-width: 680px;
+    }
+    .hero-h1 .accent { color: #60a5fa; }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 560px;
+      line-height: 1.8;
+      margin-bottom: 0.6rem;
+    }
+    .hero-tagline {
+      font-size: 0.825rem;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 3.5rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 3rem;
+      max-width: 720px;
+    }
+    .hero-stat {
+      padding: 1.5rem 1.75rem;
+      border-right: 1px solid rgba(255,255,255,0.09);
+    }
+    .hero-stat:last-child { border-right: none; }
+    .h-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: white;
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.5px;
+    }
+    .h-label {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .hero-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 7px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-ghost {
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.8);
+      padding: 0.7rem 1.5rem;
+      border-radius: 7px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: background 0.15s, color 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.11); color: white; }
+
+    /* ==================== IMPACT (dark stripe) ==================== */
+    #impact-numbers {
+      background: #060b18;
+      padding: 5rem 2rem;
+    }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-top: 2.5rem;
+    }
+    .impact-item {
+      background: #060b18;
+      padding: 2.5rem 2rem;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      transition: background 0.2s;
+    }
+    .impact-item:hover { background: #0d1526; }
+    /* Remove right border on last of each row */
+    .impact-item:nth-child(4n) { border-right: none; }
+    /* Remove bottom border on last row */
+    .impact-item:nth-last-child(-n+4) { border-bottom: none; }
+    .i-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    .i-accent { color: #60a5fa; }
+    .i-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.55;
+      font-weight: 400;
+    }
+
+    /* ==================== ABOUT ==================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-body p {
+      color: #475569;
+      line-height: 1.85;
+      font-size: 0.975rem;
+      margin-bottom: 1rem;
+    }
+    .about-body p strong { color: #0f172a; font-weight: 600; }
+    .philosophy-box {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-left: 3px solid #2563eb;
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .ph-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #2563eb;
+      margin-bottom: 0.6rem;
+    }
+    .philosophy-box p { color: #374151; font-size: 0.925rem; margin: 0; }
+    .awards { margin-top: 1.25rem; font-size: 0.875rem; color: #64748b; }
+
+    /* ==================== CERT CARD ==================== */
+    .cert-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid #2563eb;
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .cert-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); transform: translateY(-2px); }
+    .cert-name { font-weight: 700; color: #0f172a; font-size: 0.875rem; margin-bottom: 0.15rem; }
+    .cert-issuer { color: #64748b; font-size: 0.78rem; }
+
+    /* ==================== BADGES ==================== */
+    .badge {
+      background: #0f172a;
+      color: white;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      display: inline-block;
+    }
+    .badge-outline {
+      background: white;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+      padding: 0.2rem 0.6rem;
+      border-radius: 8px;
+      font-size: 0.775rem;
+      display: inline-block;
+    }
+
+    /* ==================== TIMELINE ==================== */
+    .timeline { position: relative; }
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .timeline-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 23px;
+      top: 48px;
+      width: 2px;
+      height: calc(100% + 0.5rem);
+      background: linear-gradient(to bottom, #2563eb, rgba(37,99,235,0.08));
+    }
+    .timeline-marker {
+      min-width: 48px;
+      height: 48px;
+      background: #0f172a;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.62rem;
+      flex-shrink: 0;
+      z-index: 1;
+      text-align: center;
+      line-height: 1.2;
+      border: 2px solid #2563eb;
+    }
+    .timeline-content { flex: 1; }
+    .timeline-role { font-weight: 700; color: #0f172a; font-size: 1rem; margin-bottom: 0.15rem; }
+    .timeline-meta { color: #64748b; font-size: 0.85rem; margin-bottom: 0.75rem; }
+    .timeline-content ul { margin: 0 0 0.75rem 1.2rem; padding: 0; }
+    .timeline-content ul li { color: #475569; margin-bottom: 0.4rem; line-height: 1.65; font-size: 0.925rem; }
+    .timeline-content ul li strong { color: #0f172a; font-weight: 600; }
+
+    /* ==================== WRITING ==================== */
+    .writing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .writing-sub-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #94a3b8;
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    /* Notion injection styles */
+    .notion-zone ul {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: flex !important;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+    .notion-zone li {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      margin: 0 !important;
+    }
+    .notion-zone li:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); transform: translateY(-2px); }
+    .notion-zone li a {
+      display: flex !important;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.2rem;
+      text-decoration: none;
+      color: #0f172a !important;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .notion-zone li a:hover { color: #2563eb !important; }
+    .notion-zone li a span:last-child {
+      color: #94a3b8;
+      font-size: 1rem;
+      opacity: 1 !important;
+      transition: transform 0.15s, color 0.15s;
+    }
+    .notion-zone li a:hover span:last-child { transform: translateX(4px); color: #2563eb; }
+
+    /* Medium article cards */
+    .article-card {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.1rem 1.2rem;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s;
+      margin-bottom: 0.625rem;
+    }
+    .article-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); transform: translateY(-2px); }
+    .article-card h4 { font-size: 0.9rem; font-weight: 600; color: #0f172a; line-height: 1.4; margin-bottom: 0.35rem; }
+    .article-date { font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.4rem; }
+    .article-cta { font-size: 0.78rem; color: #2563eb; font-weight: 500; }
+    #medium-articles { min-height: 60px; }
+    .medium-fallback {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.5rem 1.25rem;
+    }
+    .medium-fallback a { color: #2563eb; font-weight: 600; text-decoration: none; font-size: 0.9rem; }
+    .medium-fallback a:hover { text-decoration: underline; }
+
+    /* ==================== SKILLS ==================== */
+    .skill-category h3 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #94a3b8;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      background: #0a0f1e;
+      color: white;
+      padding: 4.5rem 2rem 3rem;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .footer-name { font-size: 1.2rem; font-weight: 700; }
+    .footer-role { font-size: 0.82rem; color: rgba(255,255,255,0.4); margin-top: 0.2rem; }
+    .footer-links {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-link {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      padding: 0.45rem 1.1rem;
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 20px;
+      font-size: 0.825rem;
+      font-weight: 500;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .footer-link:hover { border-color: rgba(255,255,255,0.35); color: white; background: rgba(255,255,255,0.05); }
+    .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.2); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 900px) {
+      .impact-grid { grid-template-columns: repeat(2, 1fr); }
+      .impact-item:nth-child(4n) { border-right: 1px solid rgba(255,255,255,0.07); }
+      .impact-item:nth-child(2n) { border-right: none; }
+      .impact-item:nth-last-child(-n+4) { border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .impact-item:nth-last-child(-n+2) { border-bottom: none; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 4rem 1.25rem; }
+      #hero { padding: 5rem 1.25rem 4rem; }
+      #impact-numbers { padding: 3.5rem 1.25rem; }
+      .hero-h1 { font-size: 2.6rem; letter-spacing: -1.5px; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+      .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.09); }
+      .hero-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.09); }
+      .hero-stat:nth-last-child(-n+2) { border-bottom: none; }
+      .hero-cta { flex-direction: column; }
+      .hero-cta a { text-align: center; justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .writing-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .impact-grid { grid-template-columns: repeat(2, 1fr); }
+      .impact-item:nth-child(4n) { border-right: 1px solid rgba(255,255,255,0.07); }
+      .impact-item:nth-child(2n) { border-right: none; }
+      .nav-inner { padding: 0 1.25rem; }
+      .container { padding: 0 1.25rem; }
+    }
+    @media (max-width: 480px) {
+      .hero-h1 { font-size: 2.1rem; }
+      .i-value { font-size: 2rem; }
+    }
+  </style>
 </head>
-<body class="bg-white text-black max-w-2xl mx-auto px-6 py-24 antialiased">
-    <header class="mb-16">
-        <h1 class="text-4xl font-bold tracking-tighter">Utkarsh Kumar</h1>
-        <p class="text-gray-500 mt-2 text-lg">Product Manager & Builder</p>
-    </header>
+<body>
 
-    <section class="mb-12">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Philosophy</h2>
-        <p class="text-xl leading-relaxed text-gray-800">
-            I solve complex product problems by focusing on high-leverage trade-offs and user-centric systems. Documenting the future of PM in 2026.
-        </p>
-    </section>
+<!-- ==================== NAV ==================== -->
+<nav id="top">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">Utkarsh Kumar</a>
+    <div class="nav-links">
+      <a href="#impact-numbers">Impact</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#writing">Writing</a>
+      <a href="#skills">Skills</a>
+      <!-- Social icons -->
+      <a href="https://github.com/UtkarshaKumar" target="_blank" rel="noopener" class="nav-icon" title="GitHub">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      </a>
+      <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener" class="nav-icon" title="Medium">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/utkkumar" target="_blank" rel="noopener" class="nav-cta">Connect</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mobile-menu">
+    <a href="#impact-numbers">Impact</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#writing">Writing</a>
+    <a href="#skills">Skills</a>
+    <a href="https://linkedin.com/in/utkkumar" target="_blank" rel="noopener" class="mobile-accent">LinkedIn &#8599;</a>
+    <a href="https://github.com/UtkarshaKumar" target="_blank" rel="noopener" class="mobile-accent">GitHub &#8599;</a>
+    <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener" class="mobile-accent">Medium &#8599;</a>
+    <a href="mailto:utkarshsinghinbox@gmail.com" class="mobile-accent">Email</a>
+  </div>
+</nav>
 
-    <section class="mb-12">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Writing & Case Studies</h2>
+<!-- ==================== HERO ==================== -->
+<header id="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Functional Manager &middot; Deloitte Digital &middot; Bengaluru, India</p>
+    <h1 class="hero-h1">Commerce &amp; AI<br><span class="accent">Product Leader</span></h1>
+    <p class="hero-sub">12 years building digital platforms that serve 1.5B+ users and drive $100M+ in revenue across 100+ countries.</p>
+    <p class="hero-tagline">End-to-end delivery &nbsp;&middot;&nbsp; B2B &amp; B2C commerce &nbsp;&middot;&nbsp; AI/ML integration &nbsp;&middot;&nbsp; Enterprise SaaS</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="h-value">1.5B+</span>
+        <span class="h-label">Users Served Globally</span>
+      </div>
+      <div class="hero-stat">
+        <span class="h-value">$100M+</span>
+        <span class="h-label">Revenue Enabled</span>
+      </div>
+      <div class="hero-stat">
+        <span class="h-value">100+</span>
+        <span class="h-label">Countries Reached</span>
+      </div>
+      <div class="hero-stat">
+        <span class="h-value">12+</span>
+        <span class="h-label">Years Experience</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="https://linkedin.com/in/utkkumar" target="_blank" rel="noopener" class="btn-primary">
+        Connect on LinkedIn
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+      <a href="mailto:utkarshsinghinbox@gmail.com" class="btn-ghost">
+        Get in Touch
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+      </a>
+      <a href="#impact-numbers" class="btn-ghost">See Impact &#8595;</a>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== IMPACT ==================== -->
+<section id="impact-numbers">
+  <div class="container">
+    <span class="section-label" style="color:#60a5fa;">Impact at Scale</span>
+    <h2 class="section-title" style="color:white;">Measurable outcomes across<br>12 years of product delivery</h2>
+    <div class="impact-grid">
+      <div class="impact-item">
+        <span class="i-value">$<span class="i-accent">100</span>M+</span>
+        <span class="i-label">Revenue enabled across B2B, B2C &amp; D2C platforms</span>
+      </div>
+      <div class="impact-item">
+        <span class="i-value"><span class="i-accent">1.5</span>B+</span>
+        <span class="i-label">Users served across global commerce platforms</span>
+      </div>
+      <div class="impact-item">
+        <span class="i-value"><span class="i-accent">300</span>K+</span>
+        <span class="i-label">Enterprise B2B customers migrated at 100% success rate</span>
+      </div>
+      <div class="impact-item">
+        <span class="i-value"><span class="i-accent">100</span>+</span>
+        <span class="i-label">Countries reached through platforms delivered</span>
+      </div>
+      <div class="impact-item">
+        <span class="i-value"><span class="i-accent">19</span>%</span>
+        <span class="i-label">Validated team efficiency gain via GenAI adoption programme</span>
+      </div>
+      <div class="impact-item">
+        <span class="i-value">$<span class="i-accent">5.5</span>–8.5M</span>
+        <span class="i-label">Projected annual savings from GenAI framework — now a Deloitte standard</span>
+      </div>
+      <div class="impact-item">
+        <span class="i-value"><span class="i-accent">250</span>+</span>
+        <span class="i-label">Team members enabled with 5 custom AI agents</span>
+      </div>
+      <div class="impact-item">
+        <span class="i-value"><span class="i-accent">140</span>+</span>
+        <span class="i-label">APIs managed across enterprise integration layer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section id="about" class="alt">
+  <div class="container">
+    <span class="section-label">About</span>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>I'm a <strong>Commerce &amp; AI Product Leader</strong> with 12+ years architecting and delivering enterprise-scale B2B and B2C digital platforms for Fortune 500 clients across healthcare, life sciences, financial services, retail, energy, and technology sectors globally.</p>
+        <p>At Deloitte Digital, I've led end-to-end delivery of multi-hundred-million-dollar commerce transformations — from product discovery and user story authoring through production releases, large-scale customer migrations, and hypercare governance. Platforms I've built serve customers across 100+ countries and have processed $100M+ in revenue.</p>
+        <p>Beyond delivery, I've pioneered GenAI adoption frameworks now used as Deloitte standards, secured $30M+ in multi-year engagements, and presented agentic commerce strategies at Deloitte's Global Commerce Summit. My current focus is the intersection of AI, ML personalisation, and B2B self-service commerce.</p>
+        <div class="philosophy-box">
+          <div class="ph-label">Working Philosophy</div>
+          <p>I treat product delivery as a system — requirements quality, delivery velocity, team capability, and AI adoption are levers I tune simultaneously. When all four are optimised, outcomes compound: defect counts drop 90%, efficiency gains reach 19%, and teams outperform benchmarks without adding headcount.</p>
+        </div>
+        <p class="awards"><strong style="color:#0f172a;">Recognition:</strong> Consistent top performer at Deloitte (95th percentile since 2018). Business Maven Award. 10+ Applause Awards for quarterly excellence across consulting portfolio.</p>
+      </div>
+      <div>
+        <h3 style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#94a3b8;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid #e2e8f0;">Certifications</h3>
+        <div style="display:flex;flex-direction:column;gap:0.65rem;margin-bottom:2rem;">
+          <div class="cert-card">
+            <div class="cert-name">Certified Product Owner (CSPO)</div>
+            <div class="cert-issuer">Scrum Alliance</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Certified Scrum Master (CSM)</div>
+            <div class="cert-issuer">Scrum Alliance</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Commercetools Functional Architect</div>
+            <div class="cert-issuer">Commercetools</div>
+          </div>
+        </div>
+        <h3 style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#94a3b8;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid #e2e8f0;">Core Competencies</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:0.45rem;">
+          <span class="badge">SAP Commerce Cloud</span>
+          <span class="badge">Commercetools</span>
+          <span class="badge">MuleSoft</span>
+          <span class="badge">Sitecore</span>
+          <span class="badge">Marketo</span>
+          <span class="badge">Product Roadmap</span>
+          <span class="badge">GenAI Adoption</span>
+          <span class="badge">B2B Self-Service</span>
+          <span class="badge">OMS / PIM / DAM</span>
+          <span class="badge">Agile / Scrum</span>
+          <span class="badge">Stakeholder Management</span>
+          <span class="badge">Migration Governance</span>
+          <span class="badge">Python</span>
+          <span class="badge">Adobe AEM</span>
+          <span class="badge">Prompt Engineering</span>
+          <span class="badge">BigCommerce</span>
+          <span class="badge">User Story Authoring</span>
+          <span class="badge">API Integration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EXPERIENCE ==================== -->
+<section id="experience">
+  <div class="container">
+    <span class="section-label">Experience</span>
+    <h2 class="section-title">12 Years Building at Scale</h2>
+    <div style="background:#f8fafc;padding:2.5rem;border-radius:16px;border:1px solid #e2e8f0;margin-top:0.5rem;">
+      <div class="timeline">
+
+        <!-- DELOITTE -->
+        <div class="timeline-item">
+          <div class="timeline-marker">'17<br>NOW</div>
+          <div class="timeline-content">
+            <div class="timeline-role">Deloitte Digital — Functional Manager / Lead Product Manager</div>
+            <div class="timeline-meta">October 2017 – Present &middot; Bengaluru, India &middot; 8+ Years</div>
+            <ul>
+              <li>Led functional delivery of a <strong>Fortune 500 global healthcare provider's $500M+ US/Canada eCommerce platform</strong> (SAP Commerce Cloud + Sitecore + MuleSoft + Marketo, 11 global sites) — enabling $100M+ in order value within months of go-live</li>
+              <li>Managed <strong>300,000+ enterprise B2B customer migrations</strong> at 100% success rate across 7 consecutive releases; drove global defect count from 380 → 38 (90% reduction)</li>
+              <li>Authored <strong>1,100+ user stories</strong> covering B2B account hierarchies, approval workflows, contract pricing, punchout integrations (Ariba/Coupa), and cart/checkout</li>
+              <li>Pioneered <strong>GenAI adoption programme</strong> for 250+ team members using 5 custom Jira Rovo agents — validated 19% efficiency gain and $5.5–8.5M projected annual savings; framework is now a Deloitte standard</li>
+              <li>Secured <strong>$30M+ in multi-year engagements</strong> through strategic commerce proposals across healthcare, life sciences, retail, and technology</li>
+            </ul>
+            <div style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:1rem;">
+              <span class="badge-outline">Fortune 500 Healthcare Provider</span>
+              <span class="badge-outline">Global Direct-Selling Platform (95 countries)</span>
+              <span class="badge-outline">Fortune 500 Health Insurer</span>
+              <span class="badge-outline">Global Energy Major</span>
+              <span class="badge-outline">Consumer AR/VR Pioneer</span>
+              <span class="badge-outline">National Transportation Authority</span>
+              <span class="badge-outline">Enterprise Technology Leader</span>
+              <span class="badge-outline">Fortune 500 Home Appliances Manufacturer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TCS -->
+        <div class="timeline-item">
+          <div class="timeline-marker">'16<br>'17</div>
+          <div class="timeline-content">
+            <div class="timeline-role">Tata Consultancy Services — Business Analyst &amp; Product Owner</div>
+            <div class="timeline-meta">August 2016 – September 2017 &middot; Mumbai, India</div>
+            <ul>
+              <li>Designed integrated asset management solution for <strong>India's largest public sector bank tracking 72M+ assets</strong> across retail and corporate banking portfolios</li>
+              <li>Built loan due-diligence system based on cash-flow analysis — reduced credit assessment from weeks to <strong>2 days</strong>, deployed across 22,000+ branches</li>
+              <li>Implemented National e-pension schemes (APY/NPS) for government financial inclusion initiative</li>
+            </ul>
+            <div style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:1rem;">
+              <span class="badge-outline">India's Largest Public Sector Bank</span>
+              <span class="badge-outline">72M+ Assets</span>
+              <span class="badge-outline">22,000+ Branches</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CAPGEMINI -->
+        <div class="timeline-item" style="margin-bottom:0;">
+          <div class="timeline-marker">'13<br>'16</div>
+          <div class="timeline-content">
+            <div class="timeline-role">Capgemini — Senior Software Engineer</div>
+            <div class="timeline-meta">December 2013 – August 2016 &middot; Mumbai, India</div>
+            <ul>
+              <li>Developed business rule management system via JBoss Drools managing <strong>50,000+ business rules</strong> for a Fortune 500 financial services firm's operations platform</li>
+              <li>Built portal-based case management application for a global insurance services firm's employee benefits programme</li>
+              <li>Created end-to-end dental insurance claims processing system with full workflow automation</li>
+            </ul>
+            <div style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:1rem;">
+              <span class="badge-outline">Fortune 500 Financial Services Firm</span>
+              <span class="badge-outline">Global Insurance Services Firm</span>
+              <span class="badge-outline">JBoss Drools</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.timeline -->
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WRITING ==================== -->
+<section id="writing" class="alt">
+  <div class="container">
+    <span class="section-label">Writing &amp; Case Studies</span>
+    <h2 class="section-title">Frameworks, Essays &amp; Insights</h2>
+    <p class="section-desc">Strategy essays, product teardowns, and delivery case studies — powered by Notion and Medium.</p>
+    <div class="writing-grid">
+
+      <!-- Notion case studies -->
+      <div>
+        <p class="writing-sub-title">Case Studies &amp; Frameworks</p>
+        <div class="notion-zone">
 <!-- NOTION_PROJECTS_START -->
-<ul class='space-y-6'><li><a href='https://github.com' class='group flex items-center hover:text-gray-600 transition-colors'><span>View All Notion Projects</span><span class='ml-2 opacity-0 group-hover:opacity-100 transition-opacity'>→</span></a></li></ul>
+<ul class='space-y-6'><li><a href='https://github.com/UtkarshaKumar' class='group flex items-center hover:text-gray-600 transition-colors'><span>View All Case Studies</span><span class='ml-2 opacity-0 group-hover:opacity-100 transition-opacity'>&#x2192;</span></a></li></ul>
 <!-- NOTION_PROJECTS_END -->
-    </section>
+        </div>
+      </div>
 
-    <section class="p-8 border border-gray-100 bg-gray-50 rounded-xl">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Premium Access</h2>
-        <h3 class="text-lg font-bold mb-2">Private PM Frameworks & Scripts</h3>
-        <p class="text-gray-600 mb-6">Direct access to my private GitHub repo containing automated roadmapping tools and decision-matrix templates.</p>
-        <a href="#" class="inline-block bg-black text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-gray-800 transition">Get Repo Access</a>
-    </section>
+      <!-- Medium articles -->
+      <div>
+        <p class="writing-sub-title">From Medium</p>
+        <div id="medium-articles">
+          <div class="medium-fallback">
+            <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener">
+              View all articles on Medium &#8599;
+            </a>
+          </div>
+        </div>
+        <div style="margin-top:0.875rem;">
+          <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener"
+             style="font-size:0.78rem;color:#94a3b8;text-decoration:none;font-weight:500;">
+            @utkarshsingh_96177 on Medium &#8599;
+          </a>
+        </div>
+      </div>
 
-    <footer class="mt-32 pt-8 border-t border-gray-100 text-[10px] text-gray-400 uppercase tracking-widest">
-        © 2026 UTKARSH KUMAR • BUILT WITH CLAUDE & GITHUB
-    </footer>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SKILLS ==================== -->
+<section id="skills">
+  <div class="container">
+    <span class="section-label">Skills &amp; Tools</span>
+    <h2 class="section-title">Platform Expertise</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:3rem;">
+      <div class="cert-card">
+        <div class="cert-name">Certified Product Owner (CSPO)</div>
+        <div class="cert-issuer">Scrum Alliance &middot; Product Ownership &amp; Backlog Management</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">Certified Scrum Master (CSM)</div>
+        <div class="cert-issuer">Scrum Alliance &middot; Agile Delivery &amp; Team Facilitation</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">Commercetools Functional Architect</div>
+        <div class="cert-issuer">Commercetools &middot; Composable Commerce Architecture</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:2rem;">
+      <div class="skill-category">
+        <h3>Product Management</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+          <span class="badge">Product Roadmap &amp; Vision</span>
+          <span class="badge">Discovery &amp; Requirements</span>
+          <span class="badge">User Story Authoring</span>
+          <span class="badge">MoSCoW Prioritisation</span>
+          <span class="badge">Sprint Planning</span>
+          <span class="badge">Go-to-Market Strategy</span>
+          <span class="badge">RFP Evaluation</span>
+          <span class="badge">C-Suite Stakeholder Mgmt</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3>B2B / B2C eCommerce</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+          <span class="badge">SAP Commerce Cloud (CCV2)</span>
+          <span class="badge">Commercetools</span>
+          <span class="badge">BigCommerce</span>
+          <span class="badge">Adobe Commerce</span>
+          <span class="badge">B2B Self-Service</span>
+          <span class="badge">Account Hierarchies</span>
+          <span class="badge">Contract Pricing</span>
+          <span class="badge">Punchout (Ariba/Coupa)</span>
+          <span class="badge">OMS &middot; PIM &middot; DAM</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3>AI &amp; GenAI</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+          <span class="badge">GenAI Adoption Strategy</span>
+          <span class="badge">Custom Rovo Agents</span>
+          <span class="badge">Prompt Engineering</span>
+          <span class="badge">AI Measurement</span>
+          <span class="badge">Agentic Commerce</span>
+          <span class="badge">RAG-based Personalisation</span>
+          <span class="badge">Adobe Target</span>
+          <span class="badge">Recommendation Engines</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3>Integrations &amp; Tech</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+          <span class="badge">MuleSoft (140+ APIs)</span>
+          <span class="badge">Sitecore</span>
+          <span class="badge">Marketo</span>
+          <span class="badge">SAP ECC</span>
+          <span class="badge">Adobe AEM</span>
+          <span class="badge">Angular</span>
+          <span class="badge">REST APIs</span>
+          <span class="badge">Python</span>
+          <span class="badge">TOSCA &middot; Coveo &middot; Algolia</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3>Delivery &amp; Leadership</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+          <span class="badge">Cross-functional POD Model</span>
+          <span class="badge">Agile / Scrum / Kanban</span>
+          <span class="badge">Hypercare Governance</span>
+          <span class="badge">UAT / SIT</span>
+          <span class="badge">Migration Management</span>
+          <span class="badge">Release Management</span>
+          <span class="badge">250+ Team Leadership</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3>Cloud &amp; Platforms</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+          <span class="badge">AWS</span>
+          <span class="badge">Azure</span>
+          <span class="badge">Kubernetes</span>
+          <span class="badge">Microservices</span>
+          <span class="badge">Java / Spring Boot</span>
+          <span class="badge">SQL / NoSQL</span>
+          <span class="badge">GitHub</span>
+          <span class="badge">Jira &middot; Confluence</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div>
+      <p class="footer-name">Utkarsh Kumar</p>
+      <p class="footer-role">Functional Manager &middot; Deloitte Digital &middot; B2B eCommerce &amp; AI</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/utkkumar" target="_blank" rel="noopener" class="footer-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:utkarshsinghinbox@gmail.com" class="footer-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        Email
+      </a>
+      <a href="https://github.com/UtkarshaKumar" target="_blank" rel="noopener" class="footer-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        GitHub
+      </a>
+      <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener" class="footer-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+        Medium
+      </a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Utkarsh Kumar &middot; Built with Notion + GitHub Pages</p>
+  </div>
+</footer>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+  // --- Hamburger nav toggle ---
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  // Close on any menu link click
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // --- Medium RSS via rss2json (CORS-friendly) ---
+  (function() {
+    var MEDIUM_RSS = 'https://api.rss2json.com/v1/api.json?rss_url=' +
+      encodeURIComponent('https://medium.com/feed/@utkarshsingh_96177');
+    var container = document.getElementById('medium-articles');
+    fetch(MEDIUM_RSS)
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (!data.items || data.items.length === 0) return;
+        var html = data.items.slice(0, 3).map(function(a) {
+          var date = a.pubDate ? a.pubDate.slice(0, 10) : '';
+          return '<a href="' + a.link + '" target="_blank" rel="noopener" class="article-card">' +
+            '<h4>' + a.title + '</h4>' +
+            '<p class="article-date">' + date + '</p>' +
+            '<span class="article-cta">Read on Medium &#x2192;</span>' +
+            '</a>';
+        }).join('');
+        container.innerHTML = html;
+      })
+      .catch(function() { /* silent fail — fallback remains */ });
+  })();
+</script>
+
 </body>
 </html>

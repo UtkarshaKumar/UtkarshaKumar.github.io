@@ -171,7 +171,7 @@
       background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37,99,235,0.2) 0%, transparent 70%);
       pointer-events: none;
     }
-    .hero-inner { max-width: 1200px; margin: 0 auto; position: relative; }
+    .hero-content { flex: 1; }
     .hero-eyebrow {
       font-size: 0.75rem;
       font-weight: 500;
@@ -282,6 +282,15 @@
       border-right: 1px solid rgba(255,255,255,0.07);
       border-bottom: 1px solid rgba(255,255,255,0.07);
       transition: background 0.2s;
+      position: relative;
+    }
+    .impact-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 2rem; right: 2rem;
+      height: 2px;
+      background: linear-gradient(90deg, #2563eb, rgba(37,99,235,0));
+      border-radius: 0 0 2px 2px;
     }
     .impact-item:hover { background: #0d1526; }
     /* Remove right border on last of each row */
@@ -291,16 +300,15 @@
     .i-value {
       font-size: 2.5rem;
       font-weight: 800;
-      color: white;
+      color: #ffffff;
       letter-spacing: -1.5px;
       line-height: 1;
       display: block;
       margin-bottom: 0.6rem;
     }
-    .i-accent { color: #60a5fa; }
     .i-label {
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.5);
       line-height: 1.55;
       font-weight: 400;
     }
@@ -577,6 +585,99 @@
       .hero-h1 { font-size: 2.1rem; }
       .i-value { font-size: 2rem; }
     }
+
+    /* ==================== EXP BOX ==================== */
+    .exp-box {
+      background: #f8fafc;
+      padding: 2.5rem;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      margin-top: 0.5rem;
+    }
+
+    /* ==================== PROFILE PHOTO ==================== */
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-photo {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .profile-img {
+      width: 260px;
+      height: 320px;
+      border-radius: 20px;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: block;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+    }
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo { display: none; }
+    }
+
+    /* ==================== DARK MODE ==================== */
+    @media (prefers-color-scheme: dark) {
+      body { background: #0a0f1e; color: rgba(255,255,255,0.87); }
+      section { background: #0a0f1e; }
+      section.alt { background: #0d1526; }
+      .section-title { color: rgba(255,255,255,0.92); }
+      .section-desc { color: rgba(255,255,255,0.45); }
+      .section-label { color: #60a5fa; }
+
+      /* About */
+      .about-body p { color: rgba(255,255,255,0.65); }
+      .about-body p strong { color: rgba(255,255,255,0.92); }
+      #about h3 { color: rgba(255,255,255,0.35) !important; border-bottom-color: rgba(255,255,255,0.08) !important; }
+      .philosophy-box { background: #111827; border-color: rgba(255,255,255,0.08); border-left-color: #3b82f6; }
+      .philosophy-box p { color: rgba(255,255,255,0.65); }
+      .awards { color: rgba(255,255,255,0.45); }
+      #about .awards strong { color: rgba(255,255,255,0.87) !important; }
+
+      /* Cards */
+      .cert-card { background: #111827; border-color: rgba(255,255,255,0.08); border-top-color: #2563eb; }
+      .cert-name { color: rgba(255,255,255,0.87); }
+      .cert-issuer { color: rgba(255,255,255,0.45); }
+
+      /* Badges */
+      .badge { background: rgba(255,255,255,0.1); }
+      .badge-outline { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.1); }
+
+      /* Experience */
+      .exp-box { background: #0d1526 !important; border-color: rgba(255,255,255,0.07) !important; }
+      .timeline-role { color: rgba(255,255,255,0.92); }
+      .timeline-meta { color: rgba(255,255,255,0.45); }
+      .timeline-content ul li { color: rgba(255,255,255,0.65); }
+      .timeline-content ul li strong { color: rgba(255,255,255,0.92); }
+
+      /* Writing */
+      .writing-sub-title { color: rgba(255,255,255,0.35); border-bottom-color: rgba(255,255,255,0.08); }
+      .notion-zone li { background: #111827; border-color: rgba(255,255,255,0.08); }
+      .notion-zone li a { color: rgba(255,255,255,0.87) !important; }
+      .article-card { background: #111827; border-color: rgba(255,255,255,0.08); }
+      .article-card h4 { color: rgba(255,255,255,0.87); }
+      .article-date { color: rgba(255,255,255,0.3); }
+      .medium-fallback { background: #111827; border-color: rgba(255,255,255,0.08); }
+      .medium-fallback a { color: #60a5fa; }
+
+      /* Skills */
+      .skill-category h3 { color: rgba(255,255,255,0.35); border-bottom-color: rgba(255,255,255,0.08); }
+      #skills .cert-card { background: #111827; border-color: rgba(255,255,255,0.08); }
+      #skills h3 { color: rgba(255,255,255,0.35) !important; }
+
+      /* Profile photo dark mode border */
+      .profile-img { border-color: rgba(255,255,255,0.12); }
+    }
   </style>
 </head>
 <body>
@@ -620,6 +721,7 @@
 <!-- ==================== HERO ==================== -->
 <header id="hero">
   <div class="hero-inner">
+    <div class="hero-content">
     <p class="hero-eyebrow">Functional Manager &middot; Deloitte Digital &middot; Bengaluru, India</p>
     <h1 class="hero-h1">Commerce &amp; AI<br><span class="accent">Product Leader</span></h1>
     <p class="hero-sub">12 years building digital platforms that serve 1.5B+ users and drive $100M+ in revenue across 100+ countries.</p>
@@ -653,6 +755,10 @@
       </a>
       <a href="#impact-numbers" class="btn-ghost">See Impact &#8595;</a>
     </div>
+    </div><!-- /.hero-content -->
+    <div class="hero-photo">
+      <img src="profile.jpg" alt="Utkarsh Kumar" class="profile-img">
+    </div>
   </div>
 </header>
 
@@ -663,35 +769,35 @@
     <h2 class="section-title" style="color:white;">Measurable outcomes across<br>12 years of product delivery</h2>
     <div class="impact-grid">
       <div class="impact-item">
-        <span class="i-value">$<span class="i-accent">100</span>M+</span>
+        <span class="i-value">$100M+</span>
         <span class="i-label">Revenue enabled across B2B, B2C &amp; D2C platforms</span>
       </div>
       <div class="impact-item">
-        <span class="i-value"><span class="i-accent">1.5</span>B+</span>
+        <span class="i-value">1.5B+</span>
         <span class="i-label">Users served across global commerce platforms</span>
       </div>
       <div class="impact-item">
-        <span class="i-value"><span class="i-accent">300</span>K+</span>
+        <span class="i-value">300K+</span>
         <span class="i-label">Enterprise B2B customers migrated at 100% success rate</span>
       </div>
       <div class="impact-item">
-        <span class="i-value"><span class="i-accent">100</span>+</span>
+        <span class="i-value">100+</span>
         <span class="i-label">Countries reached through platforms delivered</span>
       </div>
       <div class="impact-item">
-        <span class="i-value"><span class="i-accent">19</span>%</span>
+        <span class="i-value">19%</span>
         <span class="i-label">Validated team efficiency gain via GenAI adoption programme</span>
       </div>
       <div class="impact-item">
-        <span class="i-value">$<span class="i-accent">5.5</span>–8.5M</span>
+        <span class="i-value">$5.5–8.5M</span>
         <span class="i-label">Projected annual savings from GenAI framework — now a Deloitte standard</span>
       </div>
       <div class="impact-item">
-        <span class="i-value"><span class="i-accent">250</span>+</span>
+        <span class="i-value">250+</span>
         <span class="i-label">Team members enabled with 5 custom AI agents</span>
       </div>
       <div class="impact-item">
-        <span class="i-value"><span class="i-accent">140</span>+</span>
+        <span class="i-value">140+</span>
         <span class="i-label">APIs managed across enterprise integration layer</span>
       </div>
     </div>
@@ -760,7 +866,7 @@
   <div class="container">
     <span class="section-label">Experience</span>
     <h2 class="section-title">12 Years Building at Scale</h2>
-    <div style="background:#f8fafc;padding:2.5rem;border-radius:16px;border:1px solid #e2e8f0;margin-top:0.5rem;">
+    <div class="exp-box">
       <div class="timeline">
 
         <!-- DELOITTE -->

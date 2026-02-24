@@ -1,49 +1,115 @@
 name: Notion Portfolio Sync
+
 on:
   workflow_dispatch:
   schedule:
     - cron: '0 * * * *'
 
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: false
 
-      - name: Fetch Notion Data
-        uses: yucchiy/notion-to-markdown@v0.3.2
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          notion_auth_token: ${{ secrets.NOTION_TOKEN }}
-          notion_database_id: ${{ secrets.NOTION_DATABASE_ID }}
-          output_directory_path_template: './projects'
+          python-version: '3.11'
 
-      - name: Inject and Push
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Sync Notion projects into index.html
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: |
-          PROJECTS_HTML="<ul class='space-y-6'>"
-          
-          # Check for the bundle file shown in your screenshot
-          if [ -f "./projects/index.markdown" ]; then
-            # Since the tool bundles everything, we link to the main index
-            # You can manually add titles here or let the script link to the hub
-            PROJECTS_HTML="${PROJECTS_HTML}<li><a href='https://github.com' class='group flex items-center hover:text-gray-600 transition-colors'><span>View All Notion Projects</span><span class='ml-2 opacity-0 group-hover:opacity-100 transition-opacity'>→</span></a></li>"
-          fi
-          
-          PROJECTS_HTML="${PROJECTS_HTML}</ul>"
+          python3 << 'PYEOF'
+          import os, re, requests
 
-          # Rebuild index.html
-          sed -n '1,/<!-- NOTION_PROJECTS_START -->/p' index.html > new_index.html
-          echo "$PROJECTS_HTML" >> new_index.html
-          sed -n '/<!-- NOTION_PROJECTS_END -->/,$p' index.html >> new_index.html
-          mv new_index.html index.html
+          token = os.environ['NOTION_TOKEN']
+          db_id  = os.environ['NOTION_DATABASE_ID']
 
-          git config --global user.name "Utkarsha Kumar"
+          headers = {
+              'Authorization': f'Bearer {token}',
+              'Notion-Version': '2022-06-28',
+              'Content-Type': 'application/json',
+          }
+
+          # Fetch all pages where RequestPublishing is checked
+          payload = {
+              'filter': {
+                  'property': 'RequestPublishing',
+                  'checkbox': {'equals': True},
+              },
+              'sorts': [{'property': 'PublishedAt', 'direction': 'descending'}],
+          }
+
+          resp = requests.post(
+              f'https://api.notion.com/v1/databases/{db_id}/query',
+              headers=headers,
+              json=payload,
+          )
+          data = resp.json()
+
+          if 'results' not in data:
+              print('ERROR: Notion API returned:', data)
+              exit(1)
+
+          items_html = []
+          for page in data['results']:
+              props = page['properties']
+
+              # Title (Notion property may be called "Title" or "Name")
+              title_prop = props.get('Title', props.get('Name', {}))
+              title_arr  = title_prop.get('title', [])
+              title      = title_arr[0]['plain_text'] if title_arr else 'Untitled'
+
+              # Notion page URL — public if the page is shared, otherwise opens in Notion
+              notion_url = page.get('url', '#')
+
+              # PublishedAt date (for display)
+              date_obj  = props.get('PublishedAt', {}).get('date') or {}
+              date_str  = date_obj.get('start', '')
+              date_disp = date_str[:7] if date_str else ''   # "YYYY-MM"
+
+              items_html.append(
+                  f'<li>'
+                  f'<a href="{notion_url}" target="_blank" rel="noopener">'
+                  f'<span>{title}</span>'
+                  f'<span>{date_disp} &#8599;</span>'
+                  f'</a>'
+                  f'</li>'
+              )
+
+          if items_html:
+              block = '<ul>\n' + '\n'.join(items_html) + '\n</ul>'
+          else:
+              block = '<p style="color:#94a3b8;font-size:0.9rem;padding:1rem 0;">No case studies published yet.</p>'
+
+          with open('index.html', 'r') as f:
+              html = f.read()
+
+          new_html = re.sub(
+              r'<!-- NOTION_PROJECTS_START -->.*?<!-- NOTION_PROJECTS_END -->',
+              f'<!-- NOTION_PROJECTS_START -->\n{block}\n<!-- NOTION_PROJECTS_END -->',
+              html,
+              flags=re.DOTALL,
+          )
+
+          with open('index.html', 'w') as f:
+              f.write(new_html)
+
+          print(f'Synced {len(items_html)} project(s): {[p["properties"].get("Title", p["properties"].get("Name", {})).get("title", [{}])[0].get("plain_text", "?") for p in data["results"]]}')
+          PYEOF
+
+      - name: Commit and push
+        run: |
+          git config --global user.name "Utkarsh Kumar"
           git config --global user.email "utkarshsinghinbox@gmail.com"
-          git add .
-          git commit -m "Fix: Link to bundled Notion projects" || exit 0
+          git add index.html
+          git commit -m "Automated Sync: Update projects from Notion" || exit 0
           git push origin main
-
-

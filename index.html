@@ -458,21 +458,48 @@
     .notion-zone li a {
       display: flex !important;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       padding: 1rem 1.2rem;
       text-decoration: none;
       color: #0f172a !important;
       font-weight: 600;
       font-size: 0.9rem;
+      gap: 0.75rem;
     }
     .notion-zone li a:hover { color: #2563eb !important; }
     .notion-zone li a span:last-child {
       color: #94a3b8;
       font-size: 1rem;
       opacity: 1 !important;
+      flex-shrink: 0;
+      padding-top: 0.1rem;
       transition: transform 0.15s, color 0.15s;
     }
     .notion-zone li a:hover span:last-child { transform: translateX(4px); color: #2563eb; }
+    .notion-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      flex: 1;
+      min-width: 0;
+    }
+    .notion-card-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #0f172a;
+      line-height: 1.4;
+    }
+    .notion-card-excerpt {
+      font-size: 0.78rem;
+      color: #64748b;
+      font-weight: 400;
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .notion-zone li a:hover .notion-card-title { color: #2563eb; }
 
     /* Medium article cards */
     .article-card {
@@ -664,6 +691,9 @@
       .writing-sub-title { color: rgba(255,255,255,0.35); border-bottom-color: rgba(255,255,255,0.08); }
       .notion-zone li { background: #111827; border-color: rgba(255,255,255,0.08); }
       .notion-zone li a { color: rgba(255,255,255,0.87) !important; }
+      .notion-card-title { color: rgba(255,255,255,0.87); }
+      .notion-card-excerpt { color: rgba(255,255,255,0.38); }
+      .notion-zone li a:hover .notion-card-title { color: #60a5fa; }
       .article-card { background: #111827; border-color: rgba(255,255,255,0.08); }
       .article-card h4 { color: rgba(255,255,255,0.87); }
       .article-date { color: rgba(255,255,255,0.3); }

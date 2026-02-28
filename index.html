@@ -22,11 +22,12 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     /* ==================== LAYOUT ==================== */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-    section { padding: 6rem 2rem; }
+    section { padding: 6rem 2rem; transition: background-color 0.3s ease; }
     section.alt { background: #f8fafc; }
 
     /* ==================== TYPOGRAPHY ==================== */
@@ -590,27 +591,50 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      section { padding: 4rem 1.25rem; }
-      #hero { padding: 5rem 1.25rem 4rem; }
-      #impact-numbers { padding: 3.5rem 1.25rem; }
+      section { padding: 3.5rem 1.25rem; }
+      #hero { padding: 3rem 1.25rem 3rem; }
+      #impact-numbers { padding: 3rem 1.25rem; }
       .hero-h1 { font-size: 2.6rem; letter-spacing: -1.5px; }
+      .hero-sub { font-size: 1rem; line-height: 1.7; }
       .hero-stats { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
-      .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.09); }
+      .hero-stat { padding: 1.1rem 1rem; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.09); }
       .hero-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.09); }
       .hero-stat:nth-last-child(-n+2) { border-bottom: none; }
+      .h-value { font-size: 1.6rem; }
+      .h-label { font-size: 0.65rem; }
       .hero-cta { flex-direction: column; }
       .hero-cta a { text-align: center; justify-content: center; }
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .writing-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .writing-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .section-title { font-size: 1.65rem; }
+      .section-desc { margin-bottom: 2rem; }
+      /* Impact grid — tighter items on mobile */
       .impact-grid { grid-template-columns: repeat(2, 1fr); }
+      .impact-item { padding: 1.5rem 1rem; }
       .impact-item:nth-child(4n) { border-right: 1px solid rgba(255,255,255,0.07); }
       .impact-item:nth-child(2n) { border-right: none; }
+      /* Experience — tighter timeline */
+      .exp-box { padding: 1.25rem 1rem; }
+      .timeline-item { gap: 0.875rem; }
+      .timeline-marker { min-width: 40px; height: 40px; font-size: 0.58rem; }
+      .timeline-content ul { margin-left: 0.9rem; }
       .nav-inner { padding: 0 1.25rem; }
       .container { padding: 0 1.25rem; }
     }
     @media (max-width: 480px) {
       .hero-h1 { font-size: 2.1rem; }
+      /* Switch impact to single column so values don't clip */
+      .impact-grid { grid-template-columns: 1fr; }
+      .impact-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.07) !important; }
+      .impact-item:last-child { border-bottom: none !important; }
       .i-value { font-size: 2rem; }
+      .section-title { font-size: 1.45rem; }
+      /* Timeline: hide side marker on very small screens (date already in meta text) */
+      .timeline-marker { display: none; }
+      .timeline-item:not(:last-child)::before { display: none; }
+      .timeline-item { gap: 0; padding-left: 0; }
+      .exp-box { padding: 1.25rem 0.875rem; }
+      .timeline-content ul li { font-size: 0.875rem; line-height: 1.6; }
     }
 
     /* ==================== EXP BOX ==================== */
@@ -654,60 +678,142 @@
     }
 
     /* ==================== DARK MODE ==================== */
-    @media (prefers-color-scheme: dark) {
-      body { background: #0a0f1e; color: rgba(255,255,255,0.87); }
-      section { background: #0a0f1e; }
-      section.alt { background: #0d1526; }
-      .section-title { color: rgba(255,255,255,0.92); }
-      .section-desc { color: rgba(255,255,255,0.45); }
-      .section-label { color: #60a5fa; }
+    /* Applied via html.dark class (JS-driven) — also respects prefers-color-scheme as fallback */
+    html.dark body { background: #0a0f1e; color: rgba(255,255,255,0.87); }
+    html.dark section { background: #0a0f1e; }
+    html.dark section.alt { background: #0d1526; }
+    html.dark .section-title { color: rgba(255,255,255,0.92); }
+    html.dark .section-desc { color: rgba(255,255,255,0.45); }
+    html.dark .section-label { color: #60a5fa; }
+    /* About */
+    html.dark .about-body p { color: rgba(255,255,255,0.65); }
+    html.dark .about-body p strong { color: rgba(255,255,255,0.92); }
+    html.dark #about h3 { color: rgba(255,255,255,0.35) !important; border-bottom-color: rgba(255,255,255,0.08) !important; }
+    html.dark .philosophy-box { background: #111827; border-color: rgba(255,255,255,0.08); border-left-color: #3b82f6; }
+    html.dark .philosophy-box p { color: rgba(255,255,255,0.65); }
+    html.dark .awards { color: rgba(255,255,255,0.45); }
+    html.dark #about .awards strong { color: rgba(255,255,255,0.87) !important; }
+    /* Cards */
+    html.dark .cert-card { background: #111827; border-color: rgba(255,255,255,0.08); border-top-color: #2563eb; }
+    html.dark .cert-name { color: rgba(255,255,255,0.87); }
+    html.dark .cert-issuer { color: rgba(255,255,255,0.45); }
+    /* Badges */
+    html.dark .badge { background: rgba(255,255,255,0.1); }
+    html.dark .badge-outline { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.1); }
+    /* Experience */
+    html.dark .exp-box { background: #0d1526 !important; border-color: rgba(255,255,255,0.07) !important; }
+    html.dark .timeline-role { color: rgba(255,255,255,0.92); }
+    html.dark .timeline-meta { color: rgba(255,255,255,0.45); }
+    html.dark .timeline-content ul li { color: rgba(255,255,255,0.65); }
+    html.dark .timeline-content ul li strong { color: rgba(255,255,255,0.92); }
+    /* Writing */
+    html.dark .writing-sub-title { color: rgba(255,255,255,0.35); border-bottom-color: rgba(255,255,255,0.08); }
+    html.dark .notion-zone li { background: #111827; border-color: rgba(255,255,255,0.08); }
+    html.dark .notion-zone li a { color: rgba(255,255,255,0.87) !important; }
+    html.dark .notion-card-title { color: rgba(255,255,255,0.87); }
+    html.dark .notion-card-excerpt { color: rgba(255,255,255,0.38); }
+    html.dark .notion-zone li a:hover .notion-card-title { color: #60a5fa; }
+    html.dark .article-card { background: #111827; border-color: rgba(255,255,255,0.08); }
+    html.dark .article-card h4 { color: rgba(255,255,255,0.87); }
+    html.dark .article-date { color: rgba(255,255,255,0.3); }
+    html.dark .medium-fallback { background: #111827; border-color: rgba(255,255,255,0.08); }
+    html.dark .medium-fallback a { color: #60a5fa; }
+    /* Skills */
+    html.dark .skill-category h3 { color: rgba(255,255,255,0.35); border-bottom-color: rgba(255,255,255,0.08); }
+    html.dark #skills .cert-card { background: #111827; border-color: rgba(255,255,255,0.08); }
+    html.dark #skills h3 { color: rgba(255,255,255,0.35) !important; }
+    /* Profile photo */
+    html.dark .profile-img { border-color: rgba(255,255,255,0.12); }
 
-      /* About */
-      .about-body p { color: rgba(255,255,255,0.65); }
-      .about-body p strong { color: rgba(255,255,255,0.92); }
-      #about h3 { color: rgba(255,255,255,0.35) !important; border-bottom-color: rgba(255,255,255,0.08) !important; }
-      .philosophy-box { background: #111827; border-color: rgba(255,255,255,0.08); border-left-color: #3b82f6; }
-      .philosophy-box p { color: rgba(255,255,255,0.65); }
-      .awards { color: rgba(255,255,255,0.45); }
-      #about .awards strong { color: rgba(255,255,255,0.87) !important; }
-
-      /* Cards */
-      .cert-card { background: #111827; border-color: rgba(255,255,255,0.08); border-top-color: #2563eb; }
-      .cert-name { color: rgba(255,255,255,0.87); }
-      .cert-issuer { color: rgba(255,255,255,0.45); }
-
-      /* Badges */
-      .badge { background: rgba(255,255,255,0.1); }
-      .badge-outline { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.1); }
-
-      /* Experience */
-      .exp-box { background: #0d1526 !important; border-color: rgba(255,255,255,0.07) !important; }
-      .timeline-role { color: rgba(255,255,255,0.92); }
-      .timeline-meta { color: rgba(255,255,255,0.45); }
-      .timeline-content ul li { color: rgba(255,255,255,0.65); }
-      .timeline-content ul li strong { color: rgba(255,255,255,0.92); }
-
-      /* Writing */
-      .writing-sub-title { color: rgba(255,255,255,0.35); border-bottom-color: rgba(255,255,255,0.08); }
-      .notion-zone li { background: #111827; border-color: rgba(255,255,255,0.08); }
-      .notion-zone li a { color: rgba(255,255,255,0.87) !important; }
-      .notion-card-title { color: rgba(255,255,255,0.87); }
-      .notion-card-excerpt { color: rgba(255,255,255,0.38); }
-      .notion-zone li a:hover .notion-card-title { color: #60a5fa; }
-      .article-card { background: #111827; border-color: rgba(255,255,255,0.08); }
-      .article-card h4 { color: rgba(255,255,255,0.87); }
-      .article-date { color: rgba(255,255,255,0.3); }
-      .medium-fallback { background: #111827; border-color: rgba(255,255,255,0.08); }
-      .medium-fallback a { color: #60a5fa; }
-
-      /* Skills */
-      .skill-category h3 { color: rgba(255,255,255,0.35); border-bottom-color: rgba(255,255,255,0.08); }
-      #skills .cert-card { background: #111827; border-color: rgba(255,255,255,0.08); }
-      #skills h3 { color: rgba(255,255,255,0.35) !important; }
-
-      /* Profile photo dark mode border */
-      .profile-img { border-color: rgba(255,255,255,0.12); }
+    /* ==================== THEME TOGGLE ==================== */
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      align-items: center;
+      padding: 0.4rem 0.45rem;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
     }
+    .theme-toggle:hover { color: white; background: rgba(255,255,255,0.07); }
+    /* In light mode: show moon (switch to dark). In dark mode: show sun (switch to light). */
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    html.dark .theme-toggle .icon-sun { display: block; }
+    html.dark .theme-toggle .icon-moon { display: none; }
+    /* Mobile toggle row */
+    .mobile-theme-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .mobile-theme-row span {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .mobile-theme-toggle {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.7);
+      border-radius: 6px;
+      padding: 0.3rem 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+    .mobile-theme-toggle .icon-sun { display: none; }
+    .mobile-theme-toggle .icon-moon { display: block; }
+    html.dark .mobile-theme-toggle .icon-sun { display: block; }
+    html.dark .mobile-theme-toggle .icon-moon { display: none; }
+    .mobile-theme-label { color: rgba(255,255,255,0.7); }
+
+    /* ==================== CUSTOM CURSOR ==================== */
+    /* Only on pointer-fine devices (mouse/trackpad) */
+    @media (pointer: fine) {
+      *, *:hover { cursor: none !important; }
+    }
+    .cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 8px; height: 8px;
+      background: #2563eb;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: width 0.18s ease, height 0.18s ease, background 0.18s ease, opacity 0.2s ease;
+      will-change: left, top;
+      opacity: 0;
+    }
+    .cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 38px; height: 38px;
+      border: 1.5px solid rgba(37,99,235,0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.2s ease;
+      will-change: left, top;
+      opacity: 0;
+    }
+    .cursor-dot.active { opacity: 1; }
+    .cursor-ring.active { opacity: 1; }
+    .cursor-dot.hover { width: 12px; height: 12px; background: #3b82f6; }
+    .cursor-ring.hover { width: 58px; height: 58px; border-color: rgba(37,99,235,0.25); }
+    .cursor-dot.click { transform: translate(-50%, -50%) scale(0.65); }
+    /* Dark mode cursor tint */
+    html.dark .cursor-dot { background: #60a5fa; }
+    html.dark .cursor-ring { border-color: rgba(96,165,250,0.45); }
+    html.dark .cursor-dot.hover { background: #93c5fd; }
+    html.dark .cursor-ring.hover { border-color: rgba(96,165,250,0.2); }
   </style>
 </head>
 <body>
@@ -729,6 +835,10 @@
       <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener" class="nav-icon" title="Medium">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
       </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
       <a href="https://linkedin.com/in/utkkumar" target="_blank" rel="noopener" class="nav-cta">Connect</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -736,6 +846,14 @@
     </button>
   </div>
   <div id="mobile-menu">
+    <div class="mobile-theme-row">
+      <span>Theme</span>
+      <button class="mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark/light mode">
+        <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <span class="mobile-theme-label">Dark</span>
+      </button>
+    </div>
     <a href="#impact-numbers">Impact</a>
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
@@ -1140,24 +1258,135 @@
   </div>
 </footer>
 
+<!-- ==================== CURSOR ELEMENTS ==================== -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
 <!-- ==================== SCRIPTS ==================== -->
 <script>
-  // --- Hamburger nav toggle ---
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', () => {
+  // ==================== THEME TOGGLE ====================
+  (function() {
+    var html = document.documentElement;
+    var btn = document.getElementById('themeToggle');
+    var mobileBtn = document.getElementById('mobileThemeToggle');
+    var mobileLabel = mobileBtn ? mobileBtn.querySelector('.mobile-theme-label') : null;
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        html.classList.add('dark');
+        if (mobileLabel) mobileLabel.textContent = 'Light';
+      } else {
+        html.classList.remove('dark');
+        if (mobileLabel) mobileLabel.textContent = 'Dark';
+      }
+    }
+
+    function toggleTheme() {
+      var isDark = html.classList.contains('dark');
+      var next = isDark ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('theme', next); } catch(e) {}
+    }
+
+    // Initialise: saved preference → system preference
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch(e) {}
+    var sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(saved || (sysDark ? 'dark' : 'light'));
+
+    if (btn) btn.addEventListener('click', toggleTheme);
+    if (mobileBtn) mobileBtn.addEventListener('click', toggleTheme);
+
+    // Follow system preference if user has not manually chosen
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+      var hasSaved = false;
+      try { hasSaved = !!localStorage.getItem('theme'); } catch(ex) {}
+      if (!hasSaved) applyTheme(e.matches ? 'dark' : 'light');
+    });
+  })();
+
+  // ==================== HAMBURGER NAV ====================
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', function() {
     hamburger.classList.toggle('open');
     mobileMenu.classList.toggle('open');
   });
-  // Close on any menu link click
-  mobileMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
+  mobileMenu.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
       hamburger.classList.remove('open');
       mobileMenu.classList.remove('open');
     });
   });
 
-  // --- Medium RSS via rss2json (CORS-friendly) ---
+  // ==================== CUSTOM CURSOR ====================
+  (function() {
+    // Only run on pointer-fine devices (mouse/trackpad)
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+
+    var dot = document.getElementById('cursorDot');
+    var ring = document.getElementById('cursorRing');
+    if (!dot || !ring) return;
+
+    var mouseX = -200, mouseY = -200;
+    var ringX = -200, ringY = -200;
+    var isHovering = false;
+    var entered = false;
+
+    // Move dot instantly with mouse
+    document.addEventListener('mousemove', function(e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+      if (!entered) {
+        entered = true;
+        dot.classList.add('active');
+        ring.classList.add('active');
+        ringX = mouseX;
+        ringY = mouseY;
+      }
+    });
+
+    // Fade out when leaving window
+    document.addEventListener('mouseleave', function() {
+      dot.classList.remove('active');
+      ring.classList.remove('active');
+      entered = false;
+    });
+
+    // Detect hover over interactive elements (use event delegation for dynamic content)
+    document.addEventListener('mouseover', function(e) {
+      var target = e.target;
+      var interactive = target.closest('a, button, [role="button"], input, textarea, select, .cert-card, .impact-item, .notion-zone li, .article-card');
+      if (interactive) {
+        dot.classList.add('hover');
+        ring.classList.add('hover');
+        isHovering = true;
+      } else {
+        dot.classList.remove('hover');
+        ring.classList.remove('hover');
+        isHovering = false;
+      }
+    });
+
+    // Click pulse
+    document.addEventListener('mousedown', function() { dot.classList.add('click'); });
+    document.addEventListener('mouseup', function() { dot.classList.remove('click'); });
+
+    // Smooth lagging ring via requestAnimationFrame
+    function animateRing() {
+      // Ease factor: 0.10 = slow/heavy lag, 0.18 = light/snappy
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = Math.round(ringX * 10) / 10 + 'px';
+      ring.style.top = Math.round(ringY * 10) / 10 + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+  })();
+
+  // ==================== MEDIUM RSS ====================
   (function() {
     var MEDIUM_RSS = 'https://api.rss2json.com/v1/api.json?rss_url=' +
       encodeURIComponent('https://medium.com/feed/@utkarshsingh_96177');

@@ -953,11 +953,6 @@
       <div class="about-body">
         <p>I'm a <strong>Commerce &amp; AI Product Leader</strong> with 12+ years architecting and delivering enterprise-scale B2B and B2C digital platforms for Fortune 500 clients across healthcare, life sciences, financial services, retail, energy, and technology sectors globally.</p>
         <p>At Deloitte Digital, I've led end-to-end delivery of multi-hundred-million-dollar commerce transformations — from product discovery and user story authoring through production releases, large-scale customer migrations, and hypercare governance. Platforms I've built serve customers across 100+ countries and have processed $100M+ in revenue.</p>
-        <p>Beyond delivery, I've pioneered GenAI adoption frameworks now used as Deloitte standards, secured $30M+ in multi-year engagements, and presented agentic commerce strategies at Deloitte's Global Commerce Summit. My current focus is the intersection of AI, ML personalisation, and B2B self-service commerce.</p>
-        <div class="philosophy-box">
-          <div class="ph-label">Working Philosophy</div>
-          <p>I treat product delivery as a system — requirements quality, delivery velocity, team capability, and AI adoption are levers I tune simultaneously. When all four are optimised, outcomes compound: defect counts drop 90%, efficiency gains reach 19%, and teams outperform benchmarks without adding headcount.</p>
-        </div>
         <p class="awards"><strong style="color:#0f172a;">Recognition:</strong> Consistent top performer at Deloitte (95th percentile since 2018). Business Maven Award. 10+ Applause Awards for quarterly excellence across consulting portfolio.</p>
       </div>
       <div>
@@ -1385,18 +1380,29 @@
   })();
 
   // ==================== MEDIUM RSS ====================
+  // Fetches directly via allorigins proxy to avoid rss2json caching delays
   (function() {
-    var MEDIUM_RSS = 'https://api.rss2json.com/v1/api.json?rss_url=' +
+    var MEDIUM_FEED = 'https://api.allorigins.win/get?url=' +
       encodeURIComponent('https://medium.com/feed/@utkarshsingh_96177');
     var container = document.getElementById('medium-articles');
-    fetch(MEDIUM_RSS)
+    fetch(MEDIUM_FEED)
       .then(function(r) { return r.json(); })
       .then(function(data) {
-        if (!data.items || data.items.length === 0) return;
-        var html = data.items.slice(0, 3).map(function(a) {
-          var date = a.pubDate ? a.pubDate.slice(0, 10) : '';
-          return '<a href="' + a.link + '" target="_blank" rel="noopener" class="article-card">' +
-            '<h4>' + a.title + '</h4>' +
+        if (!data.contents) return;
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(data.contents, 'text/xml');
+        var items = Array.from(doc.getElementsByTagName('item')).slice(0, 3);
+        if (!items.length) return;
+        var html = items.map(function(item) {
+          var title = (item.getElementsByTagName('title')[0] || {}).textContent || '';
+          // <link> in RSS sits between title and guid as a text node sibling
+          var linkEl = item.getElementsByTagName('link')[0];
+          var link = linkEl ? (linkEl.textContent || linkEl.getAttribute('href') || '') : '';
+          if (!link) link = (item.getElementsByTagName('guid')[0] || {}).textContent || '';
+          var pubDate = (item.getElementsByTagName('pubDate')[0] || {}).textContent || '';
+          var date = pubDate ? new Date(pubDate).toISOString().slice(0, 10) : '';
+          return '<a href="' + link + '" target="_blank" rel="noopener" class="article-card">' +
+            '<h4>' + title + '</h4>' +
             '<p class="article-date">' + date + '</p>' +
             '<span class="article-cta">Read on Medium &#x2192;</span>' +
             '</a>';

@@ -1399,10 +1399,10 @@
   })();
 
   // ==================== MEDIUM RSS ====================
-  // Fetches via rss2json API (allorigins proxy is dead)
+  // Fetches via rss2json API with cache-busting
   (function() {
-    var MEDIUM_FEED = 'https://api.rss2json.com/v1/api.json?rss_url=' +
-      encodeURIComponent('https://medium.com/feed/@utkarshsingh_96177');
+    var rssUrl = 'https://medium.com/feed/@utkarshsingh_96177?nocache=' + Date.now();
+    var MEDIUM_FEED = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
     var container = document.getElementById('medium-articles');
     fetch(MEDIUM_FEED)
       .then(function(r) { return r.json(); })

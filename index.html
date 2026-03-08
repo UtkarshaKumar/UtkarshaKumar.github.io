@@ -1399,19 +1399,19 @@
   })();
 
   // ==================== MEDIUM RSS ====================
-  // Fetches via rss2json API with cache-busting
+  // Fetches via feed2json.org (JSON Feed format)
   (function() {
-    var rssUrl = 'https://medium.com/feed/@utkarshsingh_96177?nocache=' + Date.now();
-    var MEDIUM_FEED = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
+    var MEDIUM_FEED = 'https://feed2json.org/convert?url=' +
+      encodeURIComponent('https://medium.com/feed/@utkarshsingh_96177');
     var container = document.getElementById('medium-articles');
     fetch(MEDIUM_FEED)
       .then(function(r) { return r.json(); })
       .then(function(data) {
-        if (data.status !== 'ok' || !data.items || !data.items.length) return;
+        if (!data.items || !data.items.length) return;
         var items = data.items.slice(0, 3);
         var html = items.map(function(item) {
-          var date = item.pubDate ? item.pubDate.slice(0, 10) : '';
-          return '<a href="' + item.link + '" target="_blank" rel="noopener" class="article-card">' +
+          var date = item.date_published ? item.date_published.slice(0, 10) : '';
+          return '<a href="' + item.url + '" target="_blank" rel="noopener" class="article-card">' +
             '<h4>' + item.title + '</h4>' +
             '<p class="article-date">' + date + '</p>' +
             '<span class="article-cta">Read on Medium &#x2192;</span>' +

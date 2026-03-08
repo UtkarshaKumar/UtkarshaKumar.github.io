@@ -1399,27 +1399,35 @@
   })();
 
   // ==================== MEDIUM RSS ====================
-  // Fetches via feed2json.org (JSON Feed format)
+  // Fetches via allorigins proxy and parses XML
   (function() {
-    var MEDIUM_FEED = 'https://feed2json.org/convert?url=' +
-      encodeURIComponent('https://medium.com/feed/@utkarshsingh_96177');
+    var MEDIUM_FEED = 'https://api.allorigins.win/raw?url=' +
+      encodeURIComponent('https://medium.com/feed/@utkarshsingh_96177') +
+      '&nocache=' + Date.now();
     var container = document.getElementById('medium-articles');
     fetch(MEDIUM_FEED)
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        if (!data.items || !data.items.length) return;
-        var items = data.items.slice(0, 3);
+      .then(function(r) { return r.text(); })
+      .then(function(xmlText) {
+        var parser = new DOMParser();
+        var xml = parser.parseFromString(xmlText, 'text/xml');
+        var items = Array.from(xml.querySelectorAll('item')).slice(0, 3);
+        if (!items.length) return;
         var html = items.map(function(item) {
-          var date = item.date_published ? item.date_published.slice(0, 10) : '';
-          return '<a href="' + item.url + '" target="_blank" rel="noopener" class="article-card">' +
-            '<h4>' + item.title + '</h4>' +
+          var titleEl = item.querySelector('title');
+          var linkEl = item.querySelector('link');
+          var dateEl = item.querySelector('pubDate');
+          var title = titleEl ? titleEl.textContent : '';
+          var link = linkEl ? linkEl.textContent : '';
+          var date = dateEl ? new Date(dateEl.textContent).toISOString().slice(0, 10) : '';
+          return '<a href="' + link + '" target="_blank" rel="noopener" class="article-card">' +
+            '<h4>' + title + '</h4>' +
             '<p class="article-date">' + date + '</p>' +
             '<span class="article-cta">Read on Medium &#x2192;</span>' +
             '</a>';
         }).join('');
         container.innerHTML = html;
       })
-      .catch(function() { /* silent fail — fallback remains */ });
+      .catch(function(e) { console.error('RSS fetch failed:', e); });
   })();
 </script>
 

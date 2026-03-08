@@ -7,7 +7,34 @@
   <meta property="og:title" content="Utkarsh Kumar — Commerce &amp; AI Product Leader">
   <meta property="og:description" content="12 years building digital platforms that serve 1.5B+ users and drive $100M+ in revenue across 100+ countries.">
   <meta name="google-site-verification" content="cxAlENUh2zWQOcrAkGCdrbFSvZKZdPYXq73EYr12pAo" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://utkarshakumar.github.io/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Utkarsh Kumar — Commerce &amp; AI Product Leader" />
+  <meta name="twitter:description" content="12 years building digital platforms that serve 1.5B+ users and drive $100M+ in revenue across 100+ countries." />
+  <link rel="canonical" href="https://utkarshakumar.github.io/" />
+  <link rel="icon" type="image/jpeg" href="profile.jpg" />
   <title>Utkarsh Kumar — Commerce &amp; AI Product Leader</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Utkarsh Kumar",
+    "jobTitle": "Commerce & AI Product Leader",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Deloitte Digital"
+    },
+    "url": "https://utkarshakumar.github.io/",
+    "sameAs": [
+      "https://linkedin.com/in/utkkumar",
+      "https://github.com/UtkarshaKumar",
+      "https://medium.com/@utkarshsingh_96177"
+    ],
+    "knowsAbout": ["Commerce", "AI/ML", "Product Management", "B2B", "B2C", "Enterprise SaaS"]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -162,7 +189,7 @@
     #hero {
       background: #0a0f1e;
       color: white;
-      padding: 7rem 2rem 6rem;
+      padding: 4rem 2rem 3rem;
       position: relative;
       overflow: hidden;
     }
@@ -174,6 +201,32 @@
       pointer-events: none;
     }
     .hero-content { flex: 1; }
+    .hero-availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #4ade80;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }
+    .hero-availability::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: #4ade80;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 6px rgba(74,222,128,0.5);
+    }
+    .hero-trust {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
     .hero-eyebrow {
       font-size: 0.75rem;
       font-weight: 500;
@@ -201,7 +254,7 @@
     .hero-tagline {
       font-size: 0.825rem;
       color: rgba(255,255,255,0.35);
-      margin-bottom: 3.5rem;
+      margin-bottom: 1.5rem;
       font-weight: 500;
       letter-spacing: 0.02em;
     }
@@ -211,11 +264,11 @@
       border: 1px solid rgba(255,255,255,0.09);
       border-radius: 12px;
       overflow: hidden;
-      margin-bottom: 3rem;
+      margin-bottom: 1.5rem;
       max-width: 720px;
     }
     .hero-stat {
-      padding: 1.5rem 1.75rem;
+      padding: 1.1rem 1.25rem;
       border-right: 1px solid rgba(255,255,255,0.09);
     }
     .hero-stat:last-child { border-right: none; }
@@ -593,7 +646,7 @@
       .nav-links { display: none; }
       .hamburger { display: flex; }
       section { padding: 3.5rem 1.25rem; }
-      #hero { padding: 3rem 1.25rem 3rem; }
+      #hero { padding: 2rem 1.25rem 2rem; }
       #impact-numbers { padding: 3rem 1.25rem; }
       .hero-h1 { font-size: 2.6rem; letter-spacing: -1.5px; }
       .hero-sub { font-size: 1rem; line-height: 1.7; }
@@ -824,7 +877,6 @@
   <div class="nav-inner">
     <a href="#top" class="nav-brand">Utkarsh Kumar</a>
     <div class="nav-links">
-      <a href="#impact-numbers">Impact</a>
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#writing">Writing</a>
@@ -855,7 +907,6 @@
         <span class="mobile-theme-label">Dark</span>
       </button>
     </div>
-    <a href="#impact-numbers">Impact</a>
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
     <a href="#writing">Writing</a>
@@ -871,6 +922,7 @@
 <header id="hero">
   <div class="hero-inner">
     <div class="hero-content">
+    <span class="hero-availability">Open for opportunities</span>
     <p class="hero-eyebrow">Functional Manager &middot; Deloitte Digital &middot; Bengaluru, India</p>
     <h1 class="hero-h1">Commerce &amp; AI<br><span class="accent">Product Leader</span></h1>
     <p class="hero-sub">12 years building digital platforms that serve 1.5B+ users and drive $100M+ in revenue across 100+ countries.</p>
@@ -902,48 +954,15 @@
         Get in Touch
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
       </a>
-      <a href="#impact-numbers" class="btn-ghost">See Impact &#8595;</a>
+      <a href="#experience" class="btn-ghost">See Experience &#8595;</a>
     </div>
+    <p class="hero-trust">Deloitte Digital &middot; Tata Consultancy Services &middot; Capgemini</p>
     </div><!-- /.hero-content -->
     <div class="hero-photo">
-      <img src="profile.jpg" alt="Utkarsh Kumar" class="profile-img">
+      <img src="profile.jpg" alt="Utkarsh Kumar" class="profile-img" width="260" height="320" loading="eager">
     </div>
   </div>
 </header>
-
-<!-- ==================== IMPACT ==================== -->
-<section id="impact-numbers">
-  <div class="container">
-    <span class="section-label" style="color:#60a5fa;">Impact at Scale</span>
-    <h2 class="section-title" style="color:white;">Measurable outcomes across<br>12 years of product delivery</h2>
-    <div class="impact-grid">
-      <div class="impact-item">
-        <span class="i-value">$100M+</span>
-        <span class="i-label">Revenue enabled across B2B, B2C &amp; D2C platforms</span>
-      </div>
-      <div class="impact-item">
-        <span class="i-value">1.5B+</span>
-        <span class="i-label">Users served across global commerce platforms</span>
-      </div>
-      <div class="impact-item">
-        <span class="i-value">100+</span>
-        <span class="i-label">Countries reached through platforms delivered</span>
-      </div>
-      <div class="impact-item">
-        <span class="i-value">19%</span>
-        <span class="i-label">Validated team efficiency gain via GenAI adoption programme</span>
-      </div>
-      <div class="impact-item">
-        <span class="i-value">250+</span>
-        <span class="i-label">Team members enabled with 5 custom AI agents</span>
-      </div>
-      <div class="impact-item">
-        <span class="i-value">1000+</span>
-        <span class="i-label">APIs managed across enterprise engagements</span>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ==================== ABOUT ==================== -->
 <section id="about" class="alt">
@@ -1380,29 +1399,20 @@
   })();
 
   // ==================== MEDIUM RSS ====================
-  // Fetches directly via allorigins proxy to avoid rss2json caching delays
+  // Fetches via rss2json API (allorigins proxy is dead)
   (function() {
-    var MEDIUM_FEED = 'https://api.allorigins.win/get?url=' +
+    var MEDIUM_FEED = 'https://api.rss2json.com/v1/api.json?rss_url=' +
       encodeURIComponent('https://medium.com/feed/@utkarshsingh_96177');
     var container = document.getElementById('medium-articles');
     fetch(MEDIUM_FEED)
       .then(function(r) { return r.json(); })
       .then(function(data) {
-        if (!data.contents) return;
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(data.contents, 'text/xml');
-        var items = Array.from(doc.getElementsByTagName('item')).slice(0, 3);
-        if (!items.length) return;
+        if (data.status !== 'ok' || !data.items || !data.items.length) return;
+        var items = data.items.slice(0, 3);
         var html = items.map(function(item) {
-          var title = (item.getElementsByTagName('title')[0] || {}).textContent || '';
-          // <link> in RSS sits between title and guid as a text node sibling
-          var linkEl = item.getElementsByTagName('link')[0];
-          var link = linkEl ? (linkEl.textContent || linkEl.getAttribute('href') || '') : '';
-          if (!link) link = (item.getElementsByTagName('guid')[0] || {}).textContent || '';
-          var pubDate = (item.getElementsByTagName('pubDate')[0] || {}).textContent || '';
-          var date = pubDate ? new Date(pubDate).toISOString().slice(0, 10) : '';
-          return '<a href="' + link + '" target="_blank" rel="noopener" class="article-card">' +
-            '<h4>' + title + '</h4>' +
+          var date = item.pubDate ? item.pubDate.slice(0, 10) : '';
+          return '<a href="' + item.link + '" target="_blank" rel="noopener" class="article-card">' +
+            '<h4>' + item.title + '</h4>' +
             '<p class="article-date">' + date + '</p>' +
             '<span class="article-cta">Read on Medium &#x2192;</span>' +
             '</a>';

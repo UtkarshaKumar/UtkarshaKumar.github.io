@@ -661,12 +661,27 @@
     }
     @keyframes spin { 100% { transform: rotate(360deg); } }
 
-    /* ===== MESH BLOBS ===== */
-    .blob { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; will-change: transform; }
-    .blob-1 { width: 550px; height: 450px; background: radial-gradient(circle, rgba(224,120,64,0.13),transparent 70%); top:-15%; right:5%; animation: blob1 9s ease-in-out infinite; }
-    .blob-2 { width: 380px; height: 380px; background: radial-gradient(circle, rgba(108,191,163,0.10),transparent 70%); bottom:5%; left:0%; animation: blob2 11s ease-in-out infinite; }
-    .blob-3 { width: 320px; height: 280px; background: radial-gradient(circle, rgba(224,120,64,0.07),transparent 70%); top:40%; right:35%; animation: blob3 7s ease-in-out infinite; }
-    .blob-4 { width: 420px; height: 380px; background: radial-gradient(circle, rgba(99,91,255,0.11),transparent 70%); top:10%; left:20%; animation: blob4 13s ease-in-out infinite; }
+    /* ===== SVG BLOBS (replaces CSS blob divs) ===== */
+    .hero-blobs-svg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; z-index: 0;
+    }
+    /* ===== NETWORK ILLUSTRATION ===== */
+    .hero-network-svg {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 420px; height: 420px;
+      opacity: 0.52; pointer-events: none; z-index: 0;
+    }
+    .hero-photo { position: relative !important; }
+    .profile-wrap { position: relative; z-index: 1; }
+    /* ===== WAVE DIVIDER ===== */
+    .hero-wave {
+      position: absolute; bottom: -1px; left: 0;
+      width: 100%; pointer-events: none; z-index: 3;
+    }
     @keyframes blob1 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(40px,-25px) scale(1.08)} 66%{transform:translate(-15px,20px) scale(0.94)} }
     @keyframes blob2 { 0%,100%{transform:translate(0,0) scale(1)} 40%{transform:translate(-30px,30px) scale(1.06)} 70%{transform:translate(20px,-10px) scale(0.96)} }
     @keyframes blob3 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(25px,-35px) scale(1.1)} }
@@ -744,10 +759,49 @@
 
   <!-- ===== HERO ===== -->
   <header id="hero">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-    <div class="blob blob-4"></div>
+    <!-- SVG blob background: feGaussianBlur gives richer orbs than CSS blur -->
+    <svg class="hero-blobs-svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <filter id="svgB1" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur in="SourceGraphic" stdDeviation="80"/></filter>
+        <filter id="svgB2" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur in="SourceGraphic" stdDeviation="55"/></filter>
+        <pattern id="heroDots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+          <circle cx="1.5" cy="1.5" r="1" fill="rgba(237,232,222,0.055)"/>
+        </pattern>
+        <filter id="heroGrain" color-interpolation-filters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="n"/>
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0" in="n" result="a"/>
+          <feBlend in="SourceGraphic" in2="a" mode="overlay"/>
+        </filter>
+      </defs>
+      <!-- Blob 1: amber top-right -->
+      <g filter="url(#svgB1)">
+        <ellipse cx="1120" cy="90" rx="340" ry="270" fill="rgba(224,120,64,0.28)">
+          <animateTransform attributeName="transform" type="translate" values="0,0;40,-25;-15,20;0,0" keyTimes="0;0.33;0.66;1" dur="9s" repeatCount="indefinite"/>
+        </ellipse>
+      </g>
+      <!-- Blob 2: teal bottom-left -->
+      <g filter="url(#svgB1)">
+        <ellipse cx="140" cy="600" rx="250" ry="240" fill="rgba(108,191,163,0.2)">
+          <animateTransform attributeName="transform" type="translate" values="0,0;-30,30;20,-10;0,0" keyTimes="0;0.4;0.7;1" dur="11s" repeatCount="indefinite"/>
+        </ellipse>
+      </g>
+      <!-- Blob 3: amber mid-right -->
+      <g filter="url(#svgB2)">
+        <ellipse cx="900" cy="420" rx="200" ry="175" fill="rgba(224,120,64,0.12)">
+          <animateTransform attributeName="transform" type="translate" values="0,0;25,-35;0,0" keyTimes="0;0.5;1" dur="7s" repeatCount="indefinite"/>
+        </ellipse>
+      </g>
+      <!-- Blob 4: purple mid-left -->
+      <g filter="url(#svgB1)">
+        <ellipse cx="310" cy="220" rx="270" ry="245" fill="rgba(99,91,255,0.17)">
+          <animateTransform attributeName="transform" type="translate" values="0,0;-35,20;30,-20;0,0" keyTimes="0;0.3;0.65;1" dur="13s" repeatCount="indefinite"/>
+        </ellipse>
+      </g>
+      <!-- Dot grid texture -->
+      <rect width="1440" height="700" fill="url(#heroDots)"/>
+      <!-- Grain noise -->
+      <rect width="1440" height="700" fill="rgba(12,11,9,0)" filter="url(#heroGrain)"/>
+    </svg>
     <div class="hero-inner">
       <div class="hero-content">
         <span class="hero-open">Platform thinker · Commerce × AI</span>
@@ -772,11 +826,90 @@
         </div>
       </div>
       <div class="hero-photo">
+        <!-- Platform network illustration (behind photo) -->
+        <svg class="hero-network-svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 420">
+          <defs>
+            <filter id="nh" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="12"/></filter>
+            <filter id="nn" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6"/></filter>
+            <pattern id="ng" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+              <path d="M30 0H0V30" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+            </pattern>
+            <radialGradient id="hubRg" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#635BFF" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="420" fill="rgba(10,9,8,0.5)" rx="4"/>
+          <rect width="400" height="420" fill="url(#ng)"/>
+          <!-- Corner accents -->
+          <path d="M380,8 L394,8 L394,22" fill="none" stroke="rgba(99,91,255,0.55)" stroke-width="1.5"/>
+          <path d="M6,398 L6,414 L22,414" fill="none" stroke="rgba(224,120,64,0.55)" stroke-width="1.5"/>
+          <!-- Outer hexagon ring -->
+          <polygon points="200,68 323,138 323,278 200,348 77,278 77,138" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+          <!-- Edges from hub (200,210) -->
+          <line x1="200" y1="210" x2="200" y2="68"  stroke="rgba(99,91,255,0.28)"  stroke-width="1.2"/>
+          <line x1="200" y1="210" x2="323" y2="138" stroke="rgba(224,120,64,0.28)" stroke-width="1.2"/>
+          <line x1="200" y1="210" x2="323" y2="278" stroke="rgba(108,191,163,0.28)" stroke-width="1.2"/>
+          <line x1="200" y1="210" x2="200" y2="348" stroke="rgba(99,91,255,0.28)"  stroke-width="1.2"/>
+          <line x1="200" y1="210" x2="77"  y2="278" stroke="rgba(224,120,64,0.28)" stroke-width="1.2"/>
+          <line x1="200" y1="210" x2="77"  y2="138" stroke="rgba(108,191,163,0.28)" stroke-width="1.2"/>
+          <!-- Hub glow + ring -->
+          <circle cx="200" cy="210" r="52" fill="url(#hubRg)"/>
+          <circle cx="200" cy="210" r="30" fill="#635BFF" filter="url(#nh)" opacity="0.4"/>
+          <circle cx="200" cy="210" r="24" fill="none" stroke="rgba(99,91,255,0.5)" stroke-width="1" stroke-dasharray="4,4">
+            <animateTransform attributeName="transform" type="rotate" from="0 200 210" to="360 200 210" dur="22s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="200" cy="210" r="17" fill="#0E0C1A" stroke="#635BFF" stroke-width="1.5"/>
+          <circle cx="200" cy="210" r="5.5" fill="#635BFF"/>
+          <text x="200" y="248" text-anchor="middle" fill="rgba(237,232,222,0.38)" font-size="7.5" font-family="'JetBrains Mono','Courier New',monospace" letter-spacing="2">PLATFORM</text>
+          <!-- Spoke nodes -->
+          <circle cx="200" cy="68"  r="12" fill="#635BFF" filter="url(#nn)" opacity="0.35"/>
+          <circle cx="200" cy="68"  r="9"  fill="#0E0C1A" stroke="#635BFF" stroke-width="1.5"/><circle cx="200" cy="68"  r="3.5" fill="#635BFF"/>
+          <text x="200" y="48" text-anchor="middle" fill="rgba(237,232,222,0.45)" font-size="7" font-family="'Courier New',monospace" letter-spacing="1.5">ANALYTICS</text>
+          <circle cx="323" cy="138" r="12" fill="#E07840" filter="url(#nn)" opacity="0.35"/>
+          <circle cx="323" cy="138" r="9"  fill="#0E0C1A" stroke="#E07840" stroke-width="1.5"/><circle cx="323" cy="138" r="3.5" fill="#E07840"/>
+          <text x="348" y="134" fill="rgba(237,232,222,0.45)" font-size="7" font-family="'Courier New',monospace" letter-spacing="1.5">B2B</text>
+          <text x="348" y="146" fill="rgba(237,232,222,0.45)" font-size="7" font-family="'Courier New',monospace" letter-spacing="1.5">COMMERCE</text>
+          <circle cx="323" cy="278" r="12" fill="#6CBFA3" filter="url(#nn)" opacity="0.35"/>
+          <circle cx="323" cy="278" r="9"  fill="#0E0C1A" stroke="#6CBFA3" stroke-width="1.5"/><circle cx="323" cy="278" r="3.5" fill="#6CBFA3"/>
+          <text x="348" y="282" fill="rgba(237,232,222,0.45)" font-size="7" font-family="'Courier New',monospace" letter-spacing="1.5">ORDERS</text>
+          <circle cx="200" cy="348" r="12" fill="#E07840" filter="url(#nn)" opacity="0.35"/>
+          <circle cx="200" cy="348" r="9"  fill="#0E0C1A" stroke="#E07840" stroke-width="1.5"/><circle cx="200" cy="348" r="3.5" fill="#E07840"/>
+          <text x="200" y="372" text-anchor="middle" fill="rgba(237,232,222,0.45)" font-size="7" font-family="'Courier New',monospace" letter-spacing="1.5">AI / ML</text>
+          <circle cx="77" cy="278"  r="12" fill="#6CBFA3" filter="url(#nn)" opacity="0.35"/>
+          <circle cx="77" cy="278"  r="9"  fill="#0E0C1A" stroke="#6CBFA3" stroke-width="1.5"/><circle cx="77" cy="278"  r="3.5" fill="#6CBFA3"/>
+          <text x="52" y="282" text-anchor="end" fill="rgba(237,232,222,0.45)" font-size="7" font-family="'Courier New',monospace" letter-spacing="1.5">CATALOG</text>
+          <circle cx="77" cy="138"  r="12" fill="#635BFF" filter="url(#nn)" opacity="0.35"/>
+          <circle cx="77" cy="138"  r="9"  fill="#0E0C1A" stroke="#635BFF" stroke-width="1.5"/><circle cx="77" cy="138"  r="3.5" fill="#635BFF"/>
+          <text x="52" y="134" text-anchor="end" fill="rgba(237,232,222,0.45)" font-size="7" font-family="'Courier New',monospace" letter-spacing="1.5">USERS</text>
+          <!-- Flow particles -->
+          <path id="fp1" d="M200,210 L200,68"  fill="none"/>
+          <path id="fp2" d="M200,210 L323,138" fill="none"/>
+          <path id="fp3" d="M200,210 L323,278" fill="none"/>
+          <path id="fp4" d="M200,210 L200,348" fill="none"/>
+          <path id="fp5" d="M200,210 L77,278"  fill="none"/>
+          <path id="fp6" d="M200,210 L77,138"  fill="none"/>
+          <circle r="2.8" fill="#635BFF"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#fp1"/></animateMotion><animate attributeName="opacity" values="0;1;0" keyTimes="0;0.5;1" dur="2.2s" repeatCount="indefinite"/></circle>
+          <circle r="2.8" fill="#E07840"><animateMotion dur="1.9s" repeatCount="indefinite" begin="0.4s"><mpath href="#fp2"/></animateMotion><animate attributeName="opacity" values="0;1;0" keyTimes="0;0.5;1" dur="1.9s" repeatCount="indefinite" begin="0.4s"/></circle>
+          <circle r="2.8" fill="#6CBFA3"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0.85s"><mpath href="#fp3"/></animateMotion><animate attributeName="opacity" values="0;1;0" keyTimes="0;0.5;1" dur="2.4s" repeatCount="indefinite" begin="0.85s"/></circle>
+          <circle r="2.8" fill="#E07840"><animateMotion dur="2.0s" repeatCount="indefinite" begin="1.25s"><mpath href="#fp4"/></animateMotion><animate attributeName="opacity" values="0;1;0" keyTimes="0;0.5;1" dur="2.0s" repeatCount="indefinite" begin="1.25s"/></circle>
+          <circle r="2.8" fill="#6CBFA3"><animateMotion dur="1.95s" repeatCount="indefinite" begin="0.6s"><mpath href="#fp5"/></animateMotion><animate attributeName="opacity" values="0;1;0" keyTimes="0;0.5;1" dur="1.95s" repeatCount="indefinite" begin="0.6s"/></circle>
+          <circle r="2.8" fill="#635BFF"><animateMotion dur="2.3s" repeatCount="indefinite" begin="0.2s"><mpath href="#fp6"/></animateMotion><animate attributeName="opacity" values="0;1;0" keyTimes="0;0.5;1" dur="2.3s" repeatCount="indefinite" begin="0.2s"/></circle>
+          <text x="16" y="20" fill="rgba(237,232,222,0.15)" font-size="7" font-family="'Courier New',monospace" letter-spacing="2">PLATFORM ARCHITECTURE</text>
+        </svg>
         <div class="profile-wrap">
           <img src="profile.jpg" alt="Utkarsha Kumar" class="profile-img" width="300" height="375" loading="eager">
         </div>
       </div>
     </div>
+    <!-- Wave divider: hero → content -->
+    <svg class="hero-wave" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 64" preserveAspectRatio="none" height="64">
+      <path d="M0,24 C180,58 360,4 540,32 C720,60 900,8 1080,36 C1260,60 1380,28 1440,30 L1440,64 L0,64 Z" fill="#131210"/>
+      <path d="M0,24 C180,58 360,4 540,32 C720,60 900,8 1080,36 C1260,60 1380,28 1440,30" fill="none" stroke="rgba(99,91,255,0.2)" stroke-width="1.5"/>
+      <circle cx="540" cy="32" r="2.5" fill="#E07840" opacity="0.7"/>
+      <circle cx="540" cy="32" r="6" fill="none" stroke="#E07840" stroke-width="0.8" opacity="0.35"/>
+      <circle cx="1080" cy="36" r="2.5" fill="#6CBFA3" opacity="0.7"/>
+    </svg>
   </header>
 
   <!-- ===== IMPACT BENTO ===== -->

@@ -130,6 +130,17 @@
       transition: color 0.2s;
     }
     .nav-brand:hover { color: var(--accent); }
+    .nav-brand-group { display: flex; align-items: baseline; gap: 0.65rem; }
+    .nav-role {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.01em;
+      color: var(--text-2); white-space: nowrap;
+    }
+    .mobile-role {
+      display: none;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.78rem; font-weight: 500;
+      padding: 0.75rem 1.5rem 0;
+    }
     .nav-links { display: flex; align-items: center; gap: 0.1rem; }
     .nav-links a, .nav-btn {
       color: var(--text-2); text-decoration: none;
@@ -664,6 +675,8 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
+      .nav-role { display: none; }
+      .mobile-role { display: block; }
       #hero { padding: 7.5rem 1.25rem 3.5rem; }
       .hero-h1 { font-size: 3rem; }
       section { padding: 4rem 1.25rem; }
@@ -737,7 +750,10 @@
   <!-- ===== NAV ===== -->
   <nav id="top">
     <div class="nav-inner">
-      <a href="#top" class="nav-brand">Utkarsha Kumar</a>
+      <div class="nav-brand-group">
+        <a href="#top" class="nav-brand">Utkarsha Kumar</a>
+        <span class="nav-role">Product Leader &middot; Bengaluru, India</span>
+      </div>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
@@ -764,6 +780,7 @@
       </button>
     </div>
     <div id="mobile-menu">
+      <div class="mobile-role">Product Leader &middot; Bengaluru, India</div>
       <div class="mobile-theme-row">
         <span>Theme</span>
         <button class="mobile-theme-btn" id="mobileThemeToggle" aria-label="Toggle theme">
@@ -830,8 +847,6 @@
     </svg>
     <div class="hero-inner">
       <div class="hero-content">
-        <span class="hero-open">Build &middot; Measure &middot; Fix</span>
-        <p class="hero-eyebrow">Platform Architect &middot; AI Product Leader &middot; Bengaluru, India</p>
         <h1 class="hero-h1">
           I build, measure,<br>
           and fix enterprise<br>

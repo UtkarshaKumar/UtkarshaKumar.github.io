@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
-"""Sync Notion + Medium posts into local article pages and the writing list.
+"""Sync Notion + Medium + local posts into article pages and the writing list.
 
-Fetches published Notion pages and the public Medium RSS feed, renders each
-into a standalone static article page under writing/<slug>.html (so readers
-never have to leave the site), and injects a merged, reverse-chronological
-list into writing.html and a single "latest" row into index.html.
+Fetches published Notion pages, the public Medium RSS feed, and any markdown
+files committed directly to posts/, renders each into a standalone static
+article page under writing/<slug>.html (so readers never have to leave the
+site), and injects a merged, reverse-chronological list into writing.html
+and a single "latest" row into index.html.
+
+posts/*.md is the no-Notion-needed publish path: drop a markdown file with a
+title/date frontmatter header in posts/, push, and the next sync picks it up
+same as a Notion or Medium post.
 
 Every per-item step degrades gracefully: if full-content rendering fails for
 a given post (unexpected block type, network hiccup, etc.), that post falls
@@ -21,11 +26,13 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 from string import Template
 
+import markdown as md_lib
 import requests
 
 ROOT = Path(__file__).resolve().parent.parent
 WRITING_DIR = ROOT / "writing"
 IMG_DIR = WRITING_DIR / "img"
+POSTS_DIR = ROOT / "posts"
 
 NOTION_TOKEN = os.environ.get("NOTION_TOKEN", "")
 NOTION_DATABASE_ID = os.environ.get("NOTION_DATABASE_ID", "")
@@ -464,7 +471,7 @@ ARTICLE_TEMPLATE = Template("""<!--
     <div class="container">
       <span class="section-label" style="color:#E07840;">$source</span>
       <h2 class="impact-title">$title</h2>
-      <p class="article-meta">$date_disp &middot; Originally published on <a href="$original_url" target="_blank" rel="noopener">$source &#8599;</a></p>
+      <p class="article-meta">$meta_line</p>
     </div>
   </header>
 
@@ -578,15 +585,68 @@ $body_html
 def write_article_page(slug, title, date_disp, source, original_url, body_html):
     WRITING_DIR.mkdir(parents=True, exist_ok=True)
     desc = re.sub(r"<[^>]+>", "", body_html)[:160].strip()
+    safe_date = html_lib.escape(date_disp or "")
+    if original_url:
+        meta_line = (
+            f'{safe_date} &middot; Originally published on '
+            f'<a href="{html_lib.escape(original_url)}" target="_blank" rel="noopener">{html_lib.escape(source)} &#8599;</a>'
+        ) if safe_date else (
+            f'Originally published on <a href="{html_lib.escape(original_url)}" target="_blank" rel="noopener">{html_lib.escape(source)} &#8599;</a>'
+        )
+    else:
+        meta_line = safe_date
     html_out = ARTICLE_TEMPLATE.substitute(
         title=html_lib.escape(title),
         desc=html_lib.escape(desc),
         source=html_lib.escape(source),
-        date_disp=html_lib.escape(date_disp or ""),
-        original_url=html_lib.escape(original_url),
+        meta_line=meta_line,
         body_html=body_html,
     )
     (WRITING_DIR / f"{slug}.html").write_text(html_out, encoding="utf-8")
+
+
+# ── local posts (no Notion/Medium needed) ───────────────────────────────
+
+FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n?(.*)$", re.DOTALL)
+
+
+def parse_frontmatter(text):
+    m = FRONTMATTER_RE.match(text)
+    if not m:
+        return {}, text
+    meta = {}
+    for line in m.group(1).splitlines():
+        if ":" in line:
+            k, v = line.split(":", 1)
+            meta[k.strip().lower()] = v.strip()
+    return meta, m.group(2)
+
+
+def fetch_local_items(taken_slugs):
+    if not POSTS_DIR.exists():
+        return []
+    items = []
+    for md_file in sorted(POSTS_DIR.glob("*.md")):
+        try:
+            meta, body_md = parse_frontmatter(md_file.read_text(encoding="utf-8"))
+            title = meta.get("title") or md_file.stem.replace("-", " ").title()
+            date_str = meta.get("date", "")
+            body_html = md_lib.markdown(body_md, extensions=["fenced_code", "tables"])
+            if not body_html.strip():
+                continue
+            slug = unique_slug(slugify(title), taken_slugs)
+            write_article_page(slug, title, date_str[:7] if date_str else "", "Site", None, body_html)
+            items.append({
+                "title": title,
+                "url": f"writing/{slug}.html",
+                "sort_key": date_str[:10] if date_str else "0000-00-00",
+                "date_disp": date_str[:7] if date_str else "",
+                "source": "Site",
+                "local_path": f"writing/{slug}.html",
+            })
+        except Exception as e:
+            print(f"WARNING: local post render failed for {md_file.name}: {e}")
+    return items
 
 
 # ── list rendering + injection ──────────────────────────────────────────
@@ -622,7 +682,8 @@ def main():
     taken_slugs = set()
     notion_items = fetch_notion_items(taken_slugs)
     medium_items = fetch_medium_items(taken_slugs)
-    merged = sorted(notion_items + medium_items, key=lambda x: x["sort_key"], reverse=True)
+    local_items = fetch_local_items(taken_slugs)
+    merged = sorted(notion_items + medium_items + local_items, key=lambda x: x["sort_key"], reverse=True)
 
     if merged:
         full_block = "\n".join(render_row(it) for it in merged)
@@ -634,7 +695,8 @@ def main():
     inject(ROOT / "index.html", "<!-- LATEST_WRITING_START -->", "<!-- LATEST_WRITING_END -->", latest_block)
 
     rendered = sum(1 for it in merged if it.get("local_path"))
-    print(f"Synced {len(merged)} item(s): {len(notion_items)} Notion, {len(medium_items)} Medium, {rendered} rendered locally")
+    print(f"Synced {len(merged)} item(s): {len(notion_items)} Notion, {len(medium_items)} Medium, "
+          f"{len(local_items)} local, {rendered} rendered locally")
 
 
 if __name__ == "__main__":

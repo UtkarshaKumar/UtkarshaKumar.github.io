@@ -1,0 +1,85 @@
+<svg viewBox="0 0 980 700" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="980" height="700" fill="#FAFAF8"/>
+
+  <!-- Title -->
+  <text x="490" y="42" text-anchor="middle" font-size="22" font-weight="600" fill="#1A1916">Inner loop, outer loop</text>
+  <text x="490" y="65" text-anchor="middle" font-size="13" fill="#6B6460" font-family="Arial, sans-serif">applied to commerce discovery</text>
+
+  <!-- OUTER LOOP RING -->
+  <circle cx="530" cy="400" r="225" fill="none" stroke="#E07840" stroke-width="1.5" stroke-dasharray="2,6" opacity="0.5"/>
+  <text x="530" y="120" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c45f28" font-family="Arial, sans-serif" letter-spacing="0.4">OUTER LOOP — across every session</text>
+
+  <!-- Outer loop nodes -->
+  <g font-family="Arial, sans-serif">
+    <!-- Aggregate Signal (top) -->
+    <circle cx="530" cy="180" r="42" fill="#FFF" stroke="#E07840" stroke-width="2"/>
+    <text x="530" y="176" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1A1916">Aggregate</text>
+    <text x="530" y="191" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1A1916">signal</text>
+
+    <!-- Evaluate + Optimize (right) -->
+    <circle cx="725" cy="400" r="48" fill="#FFF" stroke="#E07840" stroke-width="2"/>
+    <text x="725" y="392" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1A1916">Evaluate &amp;</text>
+    <text x="725" y="407" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1A1916">optimize</text>
+    <text x="725" y="422" text-anchor="middle" font-size="10.5" fill="#6B6460">catalog / ranking</text>
+
+    <!-- Publish Update (bottom) -->
+    <circle cx="530" cy="620" r="42" fill="#FFF" stroke="#E07840" stroke-width="2"/>
+    <text x="530" y="616" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1A1916">Publish</text>
+    <text x="530" y="631" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1A1916">update</text>
+  </g>
+
+  <defs>
+    <marker id="arrowOuter" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#E07840"/>
+    </marker>
+    <marker id="arrowInner" markerWidth="8" markerHeight="8" refX="5" refY="2.5" orient="auto">
+      <path d="M0,0 L5,2.5 L0,5 Z" fill="#6CBFA3"/>
+    </marker>
+    <marker id="arrowFlow" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#635BFF"/>
+    </marker>
+  </defs>
+
+  <!-- Outer loop connecting arrows -->
+  <path d="M 566,196 A 225,225 0 0 1 706,358" fill="none" stroke="#E07840" stroke-width="2" marker-end="url(#arrowOuter)"/>
+  <path d="M 708,444 A 225,225 0 0 1 566,604" fill="none" stroke="#E07840" stroke-width="2" marker-end="url(#arrowOuter)"/>
+  <path d="M 494,618 A 225,225 0 0 1 494,198" fill="none" stroke="#E07840" stroke-width="2" marker-end="url(#arrowOuter)"/>
+
+  <!-- INNER LOOP cluster (faint background circles = many parallel sessions) -->
+  <g opacity="0.3">
+    <circle cx="150" cy="330" r="55" fill="none" stroke="#6CBFA3" stroke-width="1.5"/>
+    <circle cx="120" cy="470" r="55" fill="none" stroke="#6CBFA3" stroke-width="1.5"/>
+  </g>
+
+  <!-- Primary inner loop (foreground, labeled) -->
+  <text x="190" y="272" text-anchor="middle" font-size="12.5" font-weight="700" fill="#3f8f76" font-family="Arial, sans-serif" letter-spacing="0.4">INNER LOOP — one session</text>
+  <text x="190" y="290" text-anchor="middle" font-size="10.5" fill="#6B6460" font-family="Arial, sans-serif">(Anthropic's agent loop)</text>
+
+  <g font-family="Arial, sans-serif" font-size="10.5">
+    <circle cx="190" cy="330" r="30" fill="#FFF" stroke="#6CBFA3" stroke-width="2"/>
+    <text x="190" y="327" text-anchor="middle" font-weight="600" fill="#1A1916">Gather</text>
+    <text x="190" y="339" text-anchor="middle" font-weight="600" fill="#1A1916">context</text>
+
+    <circle cx="244" cy="420" r="30" fill="#FFF" stroke="#6CBFA3" stroke-width="2"/>
+    <text x="244" y="417" text-anchor="middle" font-weight="600" fill="#1A1916">Take</text>
+    <text x="244" y="429" text-anchor="middle" font-weight="600" fill="#1A1916">action</text>
+
+    <circle cx="136" cy="420" r="30" fill="#FFF" stroke="#6CBFA3" stroke-width="2"/>
+    <text x="136" y="417" text-anchor="middle" font-weight="600" fill="#1A1916">Verify</text>
+    <text x="136" y="429" text-anchor="middle" font-weight="600" fill="#1A1916">work</text>
+  </g>
+  <path d="M 214,348 A 40,40 0 0 1 240,392" fill="none" stroke="#6CBFA3" stroke-width="1.8" marker-end="url(#arrowInner)"/>
+  <path d="M 218,432 A 40,40 0 0 1 162,432" fill="none" stroke="#6CBFA3" stroke-width="1.8" marker-end="url(#arrowInner)"/>
+  <path d="M 160,396 A 40,40 0 0 1 168,350" fill="none" stroke="#6CBFA3" stroke-width="1.8" marker-end="url(#arrowInner)"/>
+
+  <!-- Flow: inner loops -> Aggregate signal -->
+  <path d="M 258,315 C 340,240 420,205 486,188" fill="none" stroke="#635BFF" stroke-width="2" marker-end="url(#arrowFlow)"/>
+  <text x="330" y="255" font-size="10.5" fill="#4f46c9" font-family="Arial, sans-serif" transform="rotate(-20 330 255)">every session, every customer</text>
+
+  <!-- Flow: Publish update -> back into all inner loops -->
+  <path d="M 490,628 C 380,635 260,570 210,470" fill="none" stroke="#635BFF" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrowFlow)"/>
+  <text x="270" y="600" font-size="10.5" fill="#4f46c9" font-family="Arial, sans-serif">next session starts smarter</text>
+
+  <!-- Caption -->
+  <text x="490" y="680" text-anchor="middle" font-size="11.5" fill="#6B6460" font-family="Arial, sans-serif">Support and checkout run this same pair — their outer loop only ever improves handling for customers already inside the funnel.</text>
+</svg>

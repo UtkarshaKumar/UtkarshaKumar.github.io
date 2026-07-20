@@ -10,11 +10,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="And it runs entirely on my Mac. No cloud. No subscriptions. No bots.For two years, I lived this scenario every week.A 45-minute call ends. Three clear action it">
-  <meta property="og:title" content="I Built a Tool That Writes Action Items of My Meetings So I Don&#x27;t Have To">
+  <meta name="description" content="Most &quot;AI agent for commerce&quot; builds today are the same shape: an agent handles a support ticket, closing a loop — sense the request, take an action, check the r">
+  <meta property="og:title" content="The Loop Was Never About Checkout">
   <meta property="og:type" content="article">
   <link rel="icon" type="image/jpeg" href="../profile.jpg">
-  <title>I Built a Tool That Writes Action Items of My Meetings So I Don&#x27;t Have To — Utkarsha Kumar</title>
+  <title>The Loop Was Never About Checkout — Utkarsha Kumar</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,46 +101,32 @@
 
   <header class="subpage-hero">
     <div class="container">
-      <span class="section-label" style="color:#E07840;">Notion</span>
-      <h2 class="impact-title">I Built a Tool That Writes Action Items of My Meetings So I Don&#x27;t Have To</h2>
-      <p class="article-meta">Originally published on <a href="https://app.notion.com/p/I-Built-a-Tool-That-Writes-Action-Items-of-My-Meetings-So-I-Don-t-Have-To-31194d07ac8d8004b4a0e5f9317bb9c4" target="_blank" rel="noopener">Notion &#8599;</a></p>
+      <span class="section-label" style="color:#E07840;">Site</span>
+      <h2 class="impact-title">The Loop Was Never About Checkout</h2>
+      <p class="article-meta">2026-07</p>
     </div>
   </header>
 
   <article class="article-body">
-<p><em>And it runs entirely on my Mac. No cloud. No subscriptions. No bots.</em></p><p>For two years, I lived this scenario every week.</p><p>A 45-minute call ends. Three clear action items came up. Someone said &quot;I&#x27;ll follow up by Friday.&quot; Someone else said &quot;let me loop in the team on that.&quot; You said &quot;sure, I&#x27;ll get that doc updated.&quot; By the time you open Notion to write it down, you&#x27;ve already taken another call, answered two Slack messages, and can only remember one action item.</p><p>Friday comes. Nobody followed up. The doc didn&#x27;t get updated. The project slips a week.</p><p>This isn&#x27;t a discipline problem—it&#x27;s a physics problem. You can&#x27;t fully participate in a meeting and take perfect notes at the same time.</p><h4>Every existing tool requires a compromise</h4><p>Otter, Fireflies, Granola, Notion AI meeting recorder—they&#x27;re all useful, but they each require something you might not want to give:</p><ol><li><strong>Your audio leaving your machine.</strong> Every word, client name, and sensitive strategy discussion gets uploaded to someone&#x27;s cloud.</li><li><strong>A bot joining your meeting.</strong> Everyone sees &quot;<a href="http://otter.ai/" target="_blank" rel="noopener">Otter.ai</a> has joined.&quot; Some hosts disable bots. Some clients ask uncomfortable questions.</li><li><strong>A monthly subscription</strong> for a problem that should be solved once.</li></ol><p>I didn&#x27;t want any of that. So I built <strong>nudge</strong>.</p><h4>What nudge does</h4><p>nudge is a free, open-source meeting scribe that runs entirely on your Mac. No cloud APIs. No recording bots. No subscriptions. Your audio never leaves your machine.</p><p>Here&#x27;s how it works for every meeting you join:</p><ol><li><strong>You join a Zoom, Google Meet, or Teams call.</strong> nudge detects it and starts recording—silently, invisibly, without joining the call.</li><li><strong>During the meeting</strong>, nudge transcribes the audio in real time using Whisper running locally on your Mac.</li><li><strong>When the call ends</strong>, nudge extracts every action item using a local LLM (Ollama + Llama 3.2), assigns owners, parses deadlines like &quot;end of week&quot; into actual dates, and scores each item by confidence.</li><li><strong>Action items land in your macOS Reminders</strong> automatically, inside a list called &quot;Meeting Actions.&quot; No review needed. They&#x27;re just there.</li><li><strong>A Word document appears</strong> in <code>~/Documents/Meeting Notes/2026/02 February/</code>—with a summary, key decisions, action items table, and full transcript—before you&#x27;ve closed the meeting window.</li></ol><p>That&#x27;s it. You talk. You listen. nudge handles the rest.</p><h4>What makes it different</h4><blockquote><strong>Everything runs on your Mac. Locally. Offline.</strong></blockquote><ul><li><strong>Transcription:</strong> <a href="https://github.com/openai/whisper" target="_blank" rel="noopener">Whisper</a> by OpenAI runs on your Apple Silicon chip via Metal acceleration.</li><li><strong>Action extraction:</strong> <a href="https://ollama.ai/" target="_blank" rel="noopener">Ollama</a> with Llama 3.2—a 2 GB model that runs entirely in RAM.</li><li><strong>Meeting notes:</strong> <code>python-docx</code> generates the Word file on your machine.</li><li><strong>Reminders:</strong> AppleScript talks directly to your macOS Reminders app.</li></ul><p>No API keys. No internet required during meetings. If you&#x27;re on a flight, it still works.</p><h4>The meeting notes you never wrote</h4><p>One thing I added turned out to be more valuable than expected: <strong>every session generates a dated Word document.</strong></p><pre><code class="lang-plain text">~/Documents/Meeting Notes/
-└── 2026/
-    └── 02 February/
-        ├── 2026-02-24 Daily Standup.docx
-        └── 2026-02-25 Q1 Planning.docx</code></pre><p>Three months later, someone asks &quot;wait, who agreed to own that?&quot; and nobody remembers. Now you open Finder, search for the date, and it&#x27;s there—summary, decisions, full transcript, action items. Every meeting, automatically, forever.</p><h4>Nudge in one screenshot</h4><pre><code class="lang-plain text">● Recording · Q1 Planning
-  Device: BlackHole 2ch  ·  Ctrl+C to stop
-
-[00:18] Let&#x27;s review the roadmap before we get into the weeds
-[01:42] Sarah, can you get the client deck ready for the Thursday call?
-[01:45] Yeah, I can do that by Wednesday evening
-[04:12] We need someone to loop in procurement this week
-[07:33] John, are you okay to own the budget sign-off?
-[07:35] Sure, I&#x27;ll get it done by Friday
-
-────────────────────────────────────────────────
-Processing: Q1 Planning  ·  00:45:12
-
-  Transcribing...          ████████████ 100%
-  Extracting action items  ████████████ 100%
-  Analyzing meeting...     ████████████ 100%
-  Adding to Reminders...   ████████████ 100%
-  Writing meeting notes... ████████████ 100%
-
-  Conf   Task                              Owner    Due
-  ──────────────────────────────────────────────────────
-  98%    Prepare client deck for Thursday  Sarah    Wed
-  92%    Get budget sign-off               John     Fri
-  74%    Loop in procurement               —        This wk
-
-✓ 3 items added to Reminders → &quot;Meeting Actions&quot;
-✓ Notes saved → Meeting Notes/2026/02 February/2026-02-24 Q1 Planning.docx</code></pre><h4>How the audio routing works (the clever part)</h4><p>You might be wondering: <em>how does it capture meeting audio without joining the call?</em></p><p>It uses <strong>BlackHole</strong>—a free virtual audio driver for macOS. During installation, you create a &quot;Multi-Output Device&quot; that routes your system audio to two places simultaneously:</p><ul><li>Your speakers or headphones (so you hear everything normally)</li><li>BlackHole (so nudge can read the digital audio stream)</li></ul><p>From your meeting participants&#x27; perspective, nothing changes. No bot. No recording notification. Just you, listening.</p><hr><h4>It&#x27;s free. It&#x27;s open source. One command to install.</h4><pre><code class="lang-bash">git clone &lt;https://github.com/UtkarshaKumar/nudge&gt;
-cd nudge
-bash install.sh</code></pre><p>The installer walks you through everything in about 5 minutes — BlackHole setup, model downloads, audio routing — and asks 5 questions. After that, <code>nudge watch install</code> makes it start automatically every time you log in.</p><p><strong>GitHub:</strong> <a href="https://github.com/UtkarshaKumar/nudge" target="_blank" rel="noopener">github.com/UtkarshaKumar/nudge</a></p><h4>What&#x27;s next</h4><p>nudge is a v1. It works, and I use it daily. Here&#x27;s what I want to add:</p><ul><li><strong>Speaker diarization</strong> — identify who said what (currently transcribes without speaker labels)</li><li><strong>Jira integration</strong> — create tickets from action items with one click (the hook is already in the code)</li><li><strong>Slack summaries</strong> — post meeting recaps to a channel when the call ends</li><li><strong>Windows support</strong> — the architecture supports it; it just needs testing</li></ul><p>If something breaks, open an issue. If you want to contribute, PRs are welcome.</p>
+<p>Most "AI agent for commerce" builds today are the same shape: an agent handles a support ticket, closing a loop — sense the request, take an action, check the result, repeat until resolved. It's a sound pattern. The question worth asking is where else that loop belongs, and 2026 has given a fairly precise answer already.</p>
+<h2>Two loops, not one</h2>
+<p>Anthropic's own description of how their agents work is a useful starting point: an agent runs a loop of <strong>gather context, take action, verify work, repeat</strong> — a tight cycle scoped to a single task. Call this the inner loop. It's what happens inside one customer's session: understand what they're asking for, propose something, see how they respond, adjust.</p>
+<p>But an inner loop on its own doesn't get better over time — it resolves the task in front of it and starts over from zero with the next one. What makes a system improve is a second loop wrapped around many inner loops: aggregate what happened across sessions, evaluate it against a goal, optimize whatever the inner loop draws on, publish the update. This is close to Anthropic's evaluator-optimizer pattern, just applied at the system level instead of within a single generation — a generator (the inner loop) produces outcomes, an evaluator scores them in aggregate, and the correction feeds back in. Call this the outer loop.</p>
+<p>The diagram below is the argument in one picture:</p>
+<p><img alt="Inner loop, outer loop — applied to commerce discovery" src="img/inner-outer-loop-diagram.svg" /></p>
+<p>Every commerce surface that uses agents — support, checkout, discovery — runs both loops. The difference between them isn't whether they compound. It's where the outer loop's improvements land, and how much of the customer base they touch.</p>
+<h2>Where each outer loop lands</h2>
+<p>A support loop's outer cycle improves how the next ticket gets handled — better macros, better routing, a model that's seen more edge cases. Real value, but it only ever touches customers who already converted and already ran into a problem. That's a narrow, late slice of the funnel.</p>
+<p>A checkout loop's outer cycle improves conversion at the transaction — less friction, better-timed prompts, smarter fallback when a card fails. It only touches customers who have already decided to buy and reached the last step. Narrower still.</p>
+<p>OpenAI's Instant Checkout is a live example of what happens when the loop is built at that layer. Launched in February on the Agentic Commerce Protocol it built with Stripe, it let ChatGPT users buy directly inside the chat. By <a href="https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html">its own account six months later</a>, roughly 30 merchants were actually live on it, well short of what was originally described. Walmart measured checkout inside ChatGPT converting about three times worse than a click-through to walmart.com, even as ChatGPT sent them roughly twice the new-customer rate of search. OpenAI's stated response was to let merchants keep their own checkout experiences and shift its effort to product discovery instead.</p>
+<p>A discovery loop's outer cycle improves ranking, matching, and merchandising — what gets surfaced at all. It runs for every visitor, before purchase intent has hardened into a decision, which means its outer loop has the widest population to learn from and the earliest point in the funnel to act on. Google's Universal Commerce Protocol, which Gap adopted in March for <a href="https://www.cnbc.com/2026/03/24/gap-google-gemini-checkout-ai-platform.html">agentic checkout inside Gemini</a>, makes the ordering explicit: product data is a feed the retailer submits in advance, and a product that isn't surfaced in the AI conversation can't be purchased through it at all. The protocol enables the transaction; it doesn't guarantee the recommendation. Discovery decides what checkout ever gets a chance to close.</p>
+<h2>What the outer loop actually runs on</h2>
+<p>The outer loop's optimize step is only as good as what it's optimizing over — structured, machine-readable product data: attributes, use-case descriptions, real-time price and inventory. That's the layer I've spent twelve years in: B2B catalogs, complex contract pricing, account hierarchies — the plumbing that determines whether an agent can reason about a catalog or is guessing from a stale title.</p>
+<p>This is the part most loop pitches skip. An inner loop acting on bad catalog data doesn't improve with repetition — it gets confidently wrong, faster. The outer loop compounds on data quality before it compounds on anything else. Get the feed wrong and the result isn't a discovery loop; it's a fast way to recommend the wrong thing to more people.</p>
+<h2>Where this points</h2>
+<p>Support and checkout loops are worth having — they're just narrow, late, and downstream. The discovery loop is the one with the earliest, widest outer cycle: it touches every customer, not the unhappy or the already-decided ones, and its output changes what the next customer even sees. If I were prioritizing a year of agent-loop investment in commerce, it's there — and in the catalog and pricing infrastructure the outer loop depends on to be right in the first place.</p>
+<hr />
+<p><em>Sources: <a href="https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html">OpenAI's Instant Checkout pivot, CNBC</a> · <a href="https://www.cnbc.com/2026/03/24/gap-google-gemini-checkout-ai-platform.html">Gap's Google Gemini checkout launch, CNBC</a> · <a href="https://openai.com/index/buy-it-in-chatgpt/">Buy It in ChatGPT, OpenAI</a> · <a href="https://www.anthropic.com/research/building-effective-agents">Building Effective Agents, Anthropic</a> · <a href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents">Effective Harnesses for Long-Running Agents, Anthropic</a></em></p>
   </article>
   <div class="article-back"><a href="../writing.html">&#8592; Back to Writing</a></div>
 

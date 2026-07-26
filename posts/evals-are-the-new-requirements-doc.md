@@ -7,13 +7,15 @@ Take an example: a B2B company migrating product search from Solr to a newer, ML
 
 A PRD says what the system should do. It rarely says how you'd know, precisely, whether it actually does — that part gets left to a demo, a gut check, and whoever signs off on UAT. Here's the process that writes that missing part down, end to end, plus one place it would catch something a demo never could.
 
+This isn't abstract advice — it's close to how Anthropic's own product org already operates. [Dianne Penn, who leads product for their research team, has talked through what it looks like to build against a model before it's ready](https://www.youtube.com/watch?v=tivaWTTVRhY&t=375s), and the same discipline holds even when nothing you're touching is a language model at all.
+
 ## Step 1: Capture failures before you write a single eval
 
 Don't start by writing evals. Start by capturing what's actually going wrong, in plain language, from real system output. Example: the system says an item is in stock but doesn't say how long it will take to ship — technically correct, practically useless to the person asking.
 
 ## Step 2: Cluster the failures into categories
 
-Group your raw notes into recurring patterns — five or six, not fifty. For a shopping assistant, that might look like: incomplete-but-technically-correct answers (stock without a restock date), stale or wrong data (cached inventory), preference mismatch (wrong size, gender, or style), unsafe tool sequencing (refund issued before identity is verified), hallucinated policy (inventing a return window that doesn't exist), and scope creep (the agent tries to place an order when it should only be informing).
+Group your raw notes into recurring patterns — five or six, not fifty. For a shopping assistant, that might look like: incomplete-but-technically-correct answers (stock without a restock date), stale or wrong data (cached inventory), preference mismatch (wrong size, gender, or style), unsafe tool sequencing (refund issued before identity is verified), hallucinated policy (inventing a return window that doesn't exist), and scope creep (the agent tries to place an order when it should only be informing). The last two are exactly what a single-response eval misses entirely — [Anthropic's Applied AI team makes this point about agents specifically](https://www.anthropic.com/webinars/evals-for-ai-agents-how-product-builders-get-the-most-out-of-every-new-model): most of what actually breaks happens across multiple tool calls, not inside any one prompt-response pair.
 
 ## Step 3: Turn each category into a graded task
 

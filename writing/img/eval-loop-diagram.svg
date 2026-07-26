@@ -1,0 +1,68 @@
+<svg viewBox="0 0 900 960" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="900" height="960" fill="#FAFAF8"/>
+
+  <!-- Title -->
+  <text x="450" y="42" text-anchor="middle" font-size="22" font-weight="600" fill="#1A1916">Six steps to a working eval</text>
+  <text x="450" y="65" text-anchor="middle" font-size="13" fill="#6B6460" font-family="Arial, sans-serif">and back to step one</text>
+
+  <!-- Faint background ring -->
+  <circle cx="450" cy="480" r="300" fill="none" stroke="#E07840" stroke-width="1.5" stroke-dasharray="2,6" opacity="0.4"/>
+
+  <defs>
+    <marker id="arrowStep" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#E07840"/>
+    </marker>
+  </defs>
+
+  <!-- Connecting arcs, clockwise 1→2→3→4→5→6→1 -->
+  <path d="M 543,195 A 300,300 0 0 1 651,257" fill="none" stroke="#E07840" stroke-width="2" marker-end="url(#arrowStep)"/>
+  <path d="M 743,418 A 300,300 0 0 1 743,542" fill="none" stroke="#E07840" stroke-width="2" marker-end="url(#arrowStep)"/>
+  <path d="M 651,703 A 300,300 0 0 1 543,765" fill="none" stroke="#E07840" stroke-width="2" marker-end="url(#arrowStep)"/>
+  <path d="M 357,765 A 300,300 0 0 1 249,703" fill="none" stroke="#E07840" stroke-width="2" marker-end="url(#arrowStep)"/>
+  <path d="M 157,542 A 300,300 0 0 1 157,418" fill="none" stroke="#E07840" stroke-width="2" marker-end="url(#arrowStep)"/>
+  <path d="M 249,257 A 300,300 0 0 1 357,195" fill="none" stroke="#635BFF" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrowStep)"/>
+
+  <!-- Label on the closing loop arc -->
+  <text x="255" y="175" text-anchor="middle" font-size="10.5" fill="#4f46c9" font-family="Arial, sans-serif">production failures re-enter here</text>
+
+  <!-- Node 1: Capture failures (top) -->
+  <g font-family="Arial, sans-serif">
+    <circle cx="450" cy="180" r="46" fill="#FFF" stroke="#E07840" stroke-width="2.5"/>
+    <text x="450" y="192" text-anchor="middle" font-size="30" font-weight="700" fill="#E07840">1</text>
+    <text x="450" y="250" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">Capture</text>
+    <text x="450" y="266" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">failures</text>
+
+    <!-- Node 2: Cluster into categories (upper right) -->
+    <circle cx="710" cy="330" r="46" fill="#FFF" stroke="#E07840" stroke-width="2.5"/>
+    <text x="710" y="342" text-anchor="middle" font-size="30" font-weight="700" fill="#E07840">2</text>
+    <text x="710" y="400" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">Cluster into</text>
+    <text x="710" y="416" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">categories</text>
+
+    <!-- Node 3: Graded task (lower right) -->
+    <circle cx="710" cy="630" r="46" fill="#FFF" stroke="#E07840" stroke-width="2.5"/>
+    <text x="710" y="642" text-anchor="middle" font-size="30" font-weight="700" fill="#E07840">3</text>
+    <text x="710" y="700" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">Graded</text>
+    <text x="710" y="716" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">task</text>
+
+    <!-- Node 4: Grader type (bottom) -->
+    <circle cx="450" cy="780" r="46" fill="#FFF" stroke="#E07840" stroke-width="2.5"/>
+    <text x="450" y="792" text-anchor="middle" font-size="30" font-weight="700" fill="#E07840">4</text>
+    <text x="450" y="850" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">Grader</text>
+    <text x="450" y="866" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">type</text>
+
+    <!-- Node 5: Regression / capability split (lower left) -->
+    <circle cx="190" cy="630" r="46" fill="#FFF" stroke="#6CBFA3" stroke-width="2.5"/>
+    <text x="190" y="642" text-anchor="middle" font-size="30" font-weight="700" fill="#3f8f76">5</text>
+    <text x="190" y="700" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">Regression /</text>
+    <text x="190" y="716" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">capability</text>
+
+    <!-- Node 6: Maintain as loop (upper left) -->
+    <circle cx="190" cy="330" r="46" fill="#FFF" stroke="#6CBFA3" stroke-width="2.5"/>
+    <text x="190" y="342" text-anchor="middle" font-size="30" font-weight="700" fill="#3f8f76">6</text>
+    <text x="190" y="400" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">Maintain</text>
+    <text x="190" y="416" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">as a loop</text>
+  </g>
+
+  <!-- Caption -->
+  <text x="450" y="925" text-anchor="middle" font-size="11.5" fill="#6B6460" font-family="Arial, sans-serif">Every production failure that reaches a user re-enters at step 1 — the set never stops growing.</text>
+</svg>

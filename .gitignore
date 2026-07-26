@@ -4,3 +4,6 @@
 *.DS_Store
 __pycache__/
 *.pyc
+
+# Workspace-internal state — not site content
+handoff.md

@@ -1,0 +1,74 @@
+<svg viewBox="0 0 980 470" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="980" height="470" fill="#FAFAF8"/>
+
+  <text x="490" y="42" text-anchor="middle" font-size="22" font-weight="600" fill="#1A1916">The rule is the timing, not the stars</text>
+  <text x="490" y="65" text-anchor="middle" font-size="13" fill="#6B6460" font-family="Arial, sans-serif">same review form, two publishing rules, completely different results</text>
+
+  <!-- LEFT PANEL: sequential -->
+  <rect x="35" y="92" width="430" height="330" rx="10" fill="#FFFFFF" stroke="#E2DED7" stroke-width="1"/>
+  <text x="250" y="123" text-anchor="middle" font-size="12.5" font-weight="700" fill="#8A837B" font-family="Arial, sans-serif" letter-spacing="0.6">PUBLISH EACH REVIEW AS IT ARRIVES</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="70" y="150" width="160" height="50" rx="6" fill="#F4F2EE" stroke="#B8B1A8" stroke-width="1.5"/>
+    <text x="150" y="181" text-anchor="middle" font-size="13" fill="#1A1916">Guest writes</text>
+
+    <path d="M235 175 L 262 175" stroke="#B8B1A8" stroke-width="1.5" marker-end="url(#grayArrow)"/>
+
+    <rect x="270" y="150" width="160" height="50" rx="6" fill="#F4F2EE" stroke="#B8B1A8" stroke-width="1.5"/>
+    <text x="350" y="181" text-anchor="middle" font-size="13" fill="#1A1916">Goes live</text>
+
+    <path d="M350 205 L 350 246" stroke="#B8B1A8" stroke-width="1.5" marker-end="url(#grayArrow)"/>
+
+    <rect x="270" y="255" width="160" height="50" rx="6" fill="#F4F2EE" stroke="#B8B1A8" stroke-width="1.5"/>
+    <text x="350" y="286" text-anchor="middle" font-size="13" fill="#1A1916">Host reads it</text>
+
+    <path d="M265 280 L 238 280" stroke="#B8B1A8" stroke-width="1.5" marker-end="url(#grayArrow)"/>
+
+    <rect x="70" y="255" width="160" height="50" rx="6" fill="#F4F2EE" stroke="#B8B1A8" stroke-width="1.5"/>
+    <text x="150" y="279" text-anchor="middle" font-size="13" fill="#1A1916">Host answers</text>
+    <text x="150" y="295" text-anchor="middle" font-size="13" fill="#1A1916">in kind</text>
+
+    <text x="250" y="352" text-anchor="middle" font-size="12.5" fill="#6B6460">Each side can see what it is being judged on</text>
+    <text x="250" y="371" text-anchor="middle" font-size="12.5" fill="#6B6460">before it judges back.</text>
+    <text x="250" y="399" text-anchor="middle" font-size="13" font-weight="600" fill="#8A837B">Everything drifts to five stars.</text>
+  </g>
+
+  <!-- RIGHT PANEL: simultaneous -->
+  <rect x="515" y="92" width="430" height="330" rx="10" fill="#FFFFFF" stroke="#E07840" stroke-width="1.5"/>
+  <text x="730" y="123" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c45f28" font-family="Arial, sans-serif" letter-spacing="0.6">HOLD BOTH UNTIL BOTH ARE IN</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="545" y="150" width="150" height="50" rx="6" fill="#FFF" stroke="#E07840" stroke-width="1.8"/>
+    <text x="620" y="181" text-anchor="middle" font-size="13" fill="#1A1916">Guest writes</text>
+
+    <rect x="545" y="255" width="150" height="50" rx="6" fill="#FFF" stroke="#E07840" stroke-width="1.8"/>
+    <text x="620" y="286" text-anchor="middle" font-size="13" fill="#1A1916">Host writes</text>
+
+    <!-- blocked sightline between the two -->
+    <path d="M620 205 L 620 250" stroke="#C9C2B9" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <circle cx="620" cy="227" r="11" fill="#FAFAF8" stroke="#C9C2B9" stroke-width="1.5"/>
+    <path d="M615 222 L 625 232 M625 222 L 615 232" stroke="#8A837B" stroke-width="1.6"/>
+
+    <path d="M700 175 C 745 175, 745 205, 775 210" fill="none" stroke="#E07840" stroke-width="1.8" marker-end="url(#orangeArrow)"/>
+    <path d="M700 280 C 745 280, 745 250, 775 245" fill="none" stroke="#E07840" stroke-width="1.8" marker-end="url(#orangeArrow)"/>
+
+    <rect x="790" y="196" width="130" height="64" rx="6" fill="#FDF1E8" stroke="#E07840" stroke-width="2"/>
+    <text x="855" y="222" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">Both publish</text>
+    <text x="855" y="240" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1916">together</text>
+
+    <text x="730" y="352" text-anchor="middle" font-size="12.5" fill="#6B6460">Neither side can react to the other,</text>
+    <text x="730" y="371" text-anchor="middle" font-size="12.5" fill="#6B6460">so neither has a reason to soften.</text>
+    <text x="730" y="399" text-anchor="middle" font-size="13" font-weight="600" fill="#c45f28">The rating carries information.</text>
+  </g>
+
+  <text x="490" y="450" text-anchor="middle" font-size="12.5" fill="#8A837B" font-family="Arial, sans-serif">The visible feature is identical on both sides. Only the publishing rule changed.</text>
+
+  <defs>
+    <marker id="grayArrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#B8B1A8"/>
+    </marker>
+    <marker id="orangeArrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#E07840"/>
+    </marker>
+  </defs>
+</svg>

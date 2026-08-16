@@ -1,0 +1,58 @@
+<svg viewBox="0 0 980 330" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="980" height="330" fill="#FAFAF8"/>
+
+  <text x="490" y="40" text-anchor="middle" font-size="22" font-weight="600" fill="#1A1916">Two checks, both before anyone writes code</text>
+
+  <g font-family="Arial, sans-serif">
+    <!-- start -->
+    <rect x="25" y="88" width="165" height="72" rx="6" fill="#F4F2EE" stroke="#B8B1A8" stroke-width="1.5"/>
+    <text x="107" y="118" text-anchor="middle" font-size="12.5" fill="#1A1916">A mechanism you</text>
+    <text x="107" y="136" text-anchor="middle" font-size="12.5" fill="#1A1916">saw working</text>
+    <text x="107" y="154" text-anchor="middle" font-size="12.5" fill="#1A1916">somewhere else</text>
+
+    <path d="M195 124 L 232 124" stroke="#E07840" stroke-width="1.8" marker-end="url(#arrow2)"/>
+
+    <!-- gate 1 -->
+    <rect x="240" y="84" width="205" height="80" rx="6" fill="#FFF" stroke="#E07840" stroke-width="1.8"/>
+    <text x="342" y="106" text-anchor="middle" font-size="11.5" font-weight="700" fill="#c45f28" letter-spacing="0.5">CHECK ONE</text>
+    <text x="342" y="129" text-anchor="middle" font-size="13" fill="#1A1916">Does it cause the</text>
+    <text x="342" y="148" text-anchor="middle" font-size="13" fill="#1A1916">behaviour you want?</text>
+
+    <path d="M450 124 L 487 124" stroke="#E07840" stroke-width="1.8" marker-end="url(#arrow2)"/>
+
+    <!-- gate 2 -->
+    <rect x="495" y="84" width="205" height="80" rx="6" fill="#FFF" stroke="#E07840" stroke-width="1.8"/>
+    <text x="597" y="106" text-anchor="middle" font-size="11.5" font-weight="700" fill="#c45f28" letter-spacing="0.5">CHECK TWO</text>
+    <text x="597" y="129" text-anchor="middle" font-size="13" fill="#1A1916">Are the conditions it</text>
+    <text x="597" y="148" text-anchor="middle" font-size="13" fill="#1A1916">needs true for you?</text>
+
+    <path d="M705 124 L 742 124" stroke="#E07840" stroke-width="1.8" marker-end="url(#arrow2)"/>
+
+    <!-- result -->
+    <rect x="750" y="88" width="205" height="72" rx="6" fill="#FDF1E8" stroke="#E07840" stroke-width="2"/>
+    <text x="852" y="119" text-anchor="middle" font-size="14" font-weight="600" fill="#1A1916">Take the rule,</text>
+    <text x="852" y="140" text-anchor="middle" font-size="14" font-weight="600" fill="#1A1916">not the screen</text>
+
+    <!-- failure paths -->
+    <path d="M342 169 L 342 212" stroke="#B8B1A8" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#grayArrow2)"/>
+    <text x="342" y="238" text-anchor="middle" font-size="12" font-weight="600" fill="#8A837B">Skipped it</text>
+    <text x="342" y="258" text-anchor="middle" font-size="12" fill="#6B6460">Everything looks worth having.</text>
+    <text x="342" y="276" text-anchor="middle" font-size="12" fill="#6B6460">You collect features instead.</text>
+
+    <path d="M597 169 L 597 212" stroke="#B8B1A8" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#grayArrow2)"/>
+    <text x="597" y="238" text-anchor="middle" font-size="12" font-weight="600" fill="#8A837B">Skipped it</text>
+    <text x="597" y="258" text-anchor="middle" font-size="12" fill="#6B6460">It does nothing in your product,</text>
+    <text x="597" y="276" text-anchor="middle" font-size="12" fill="#6B6460">and the rule looks overrated.</text>
+  </g>
+
+  <text x="490" y="313" text-anchor="middle" font-size="12.5" fill="#8A837B" font-family="Arial, sans-serif">Neither check is about whether you can build it. That question is no longer the hard one.</text>
+
+  <defs>
+    <marker id="arrow2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#E07840"/>
+    </marker>
+    <marker id="grayArrow2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#B8B1A8"/>
+    </marker>
+  </defs>
+</svg>

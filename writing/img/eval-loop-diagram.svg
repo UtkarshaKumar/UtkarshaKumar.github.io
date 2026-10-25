@@ -64,5 +64,5 @@
   </g>
 
   <!-- Caption -->
-  <text x="450" y="925" text-anchor="middle" font-size="11.5" fill="#6B6460" font-family="Arial, sans-serif">Every production failure that reaches a user re-enters at step 1 — the set never stops growing.</text>
+  <text x="450" y="925" text-anchor="middle" font-size="11.5" fill="#6B6460" font-family="Arial, sans-serif">Every production failure that reaches a user re-enters at step 1, so the set never stops growing.</text>
 </svg>

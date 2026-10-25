@@ -24,7 +24,7 @@ For each failure pattern, write a task: a specific input plus explicit pass/fail
 ## Step 4: Pick the grader type per task
 
 - **Code-based** (cheap, deterministic): does the response contain the SKU-matched stock number? Did the tool call sequence include an identity-verification step before the refund? Most of what you can automate in ecommerce falls here, because a lot of the ground truth (inventory, price, order status) is structured data you can check exactly.
-- **LLM-as-judge** (subjective quality): does the recommendation match the stated style or size preference? Is the tone appropriately apologetic in a complaint-handling flow? Use a short rubric prompt here, not a vague "rate 1–5 for quality."
+- **LLM-as-judge** (subjective quality): does the recommendation match the stated style or size preference? Is the tone appropriately apologetic in a complaint-handling flow? Use a short rubric prompt here, not a vague "rate 1 to 5 for quality."
 - **Human** (spot-check only): brand voice, edge-case judgment calls, anything with legal or compliance weight, like promising a refund policy that doesn't actually exist.
 
 ## Step 5: Split into regression and capability evals

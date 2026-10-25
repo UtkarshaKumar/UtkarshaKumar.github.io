@@ -6,8 +6,9 @@ Writes and speaks about agentic commerce, B2B buying, marketplaces, and evals fo
 
 ## Summary
 
-- Product definition on large B2B and B2C commerce programmes at Deloitte Digital, including direct selling: discovery, requirements and checking that what ships does what was meant, with large delivery teams across many markets.
-- Problems: how businesses buy online (approval workflows, contract pricing, PunchOut and cXML, quotes and RFQ, three-way match, buyer and seller onboarding), platforms that serve many markets, direct selling through independent distributors, marketplaces, and AI in product work.
+- Product definition on large B2B and B2C commerce programmes at Deloitte Digital, including direct selling, across healthcare, energy, retail, insurance and consumer brands: discovery, requirements, and keeping the platform stable once it is live, with large delivery teams across many markets.
+- Problems: how businesses buy online (approval workflows, contract pricing, PunchOut and cXML, quotes and RFQ, three-way match, opening and verifying business accounts), selling to consumers and through distributors with payments and tax handled in each country, platforms that serve many markets and moving businesses off old platforms, marketplaces, customer accounts and identity, choosing the platform on bids, and AI in product work.
+- Started as a software engineer on insurance and banking systems before moving to requirements and product work.
 - The essays and the B2B buying stack guide on this site carry the detail.
 
 Career: iGate, later acquired by Capgemini (2013 to 2016), Tata Consultancy Services (2016 to 2017), Deloitte Digital (2017 to now).

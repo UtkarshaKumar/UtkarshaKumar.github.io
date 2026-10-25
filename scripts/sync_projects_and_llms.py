@@ -26,10 +26,11 @@ GITHUB_REPOS_API = "https://api.github.com/users/UtkarshaKumar/repos?type=owner&
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 HOMEPAGE_PROJECT_COUNT = 3
 # The only repos shown, in this order. Add a repo name here to feature it.
-FEATURED = ["shopsense-ai", "cloudnest", "pagesmith", "nudge-pro"]
+FEATURED = ["shopsense-ai", "b2b-commerce-seo-best-practices", "cloudnest", "pagesmith", "nudge-pro"]
 # One plain line per project. Repos without one fall back to the GitHub description.
 DESCRIPTIONS = {
     "shopsense-ai": "A shopping assistant demo. An agent searches an electronics catalog and answers with products, comparisons, or bundles.",
+    "b2b-commerce-seo-best-practices": "A working B2B store with 360 products in English and French that shows SEO for category and product pages.",
     "cloudnest": "A Mac app that restores deleted iCloud Drive files in bulk, back into their original folders.",
     "pagesmith": "A Mac app that opens any HTML file, lets you edit it like a document, and saves it back cleanly.",
     "nudge-pro": "A Mac app that records meetings, transcribes them, and writes the notes.",
@@ -37,6 +38,7 @@ DESCRIPTIONS = {
 
 # Product names as the GitHub profile README writes them. Other repos fall back to title case.
 DISPLAY_NAMES = {
+    "b2b-commerce-seo-best-practices": "B2B Commerce SEO Lab",
     "cloudnest": "CloudNest",
     "nudge-pro": "Nudge Pro",
     "pagesmith": "PageSmith",

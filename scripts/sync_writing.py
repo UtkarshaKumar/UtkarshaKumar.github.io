@@ -56,6 +56,10 @@ DATE_FALLBACKS = {
 
 # Small copy fixes applied to synced bodies, by title: (old, new) pairs.
 BODY_FIXES = {
+    "The Invisible Hand: From Active Transactions to Outcome-Based Agentic Commerce": [
+        ('<p>Utkarsh works at the intersection of enterprise commerce and AI infrastructure.</p>', '<p>Utkarsha Kumar works at the intersection of enterprise commerce and AI infrastructure.</p>'),
+        ('<h4><em>In the next 24-36 months, commerce will cease to be a destination. It will become a background process.</em></h4>', '<p class="callout"><em>Note, October 2026: written in March 2026, before agent checkout launched in ChatGPT and other assistants. Some predictions here have since been tested; see <a href="the-loop-was-never-about-checkout.html">The Loop Was Never About Checkout</a>.</em></p><h4><em>In the next 24-36 months, commerce will cease to be a destination. It will become a background process.</em></h4>'),
+    ],
     "Why Understanding How Agents Think Makes You a Better Product Manager": [
         ('Github: <a href="https://github.com/UtkarshaKumar/shopsense-ai" target="_blank" rel="noopener">link</a>',
          'Code: <a href="https://github.com/UtkarshaKumar/shopsense-ai" target="_blank" rel="noopener">github.com/UtkarshaKumar/shopsense-ai</a>'),
@@ -552,7 +556,7 @@ $body_html
     <div class="footer-inner">
       <div>
         <p class="footer-name">Utkarsha Kumar</p>
-        <p class="footer-role">Manager, Functional Transformation &middot; Deloitte Digital &middot; B2B Commerce &amp; AI</p>
+        <p class="footer-role">Senior Product Manager, B2B Commerce &middot; Official title: Manager, Functional Transformation, Deloitte Digital</p>
       </div>
       <div class="footer-links">
         <a href="https://linkedin.com/in/utkkumar" target="_blank" rel="noopener" class="footer-link">

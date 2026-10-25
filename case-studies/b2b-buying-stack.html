@@ -15,7 +15,7 @@
   <meta property="og:title" content="Guide: Building a B2B buying stack">
   <meta property="og:description" content="How to build business accounts, multi-tier approval workflows, contract pricing, cXML PunchOut L1/L2, RFQ/quote and three-way match on composable or SAP Commerce.">
   <meta name="robots" content="index, follow" />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
   <meta property="og:url" content="https://utkarshakumar.github.io/case-studies/b2b-buying-stack.html">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Guide: Building a B2B buying stack">
@@ -44,12 +44,26 @@
   "headline": "Guide: Building a B2B buying stack",
   "description": "How to build business accounts, multi-tier approval workflows, contract pricing, cXML PunchOut L1/L2, RFQ/quote and three-way match on composable or SAP Commerce.",
   "url": "https://utkarshakumar.github.io/case-studies/b2b-buying-stack.html",
+  "mainEntityOfPage": "https://utkarshakumar.github.io/case-studies/b2b-buying-stack.html",
+  "inLanguage": "en",
   "author": {
     "@type": "Person",
+    "@id": "https://utkarshakumar.github.io/#person",
     "name": "Utkarsha Kumar",
     "url": "https://utkarshakumar.github.io/"
   },
   "datePublished": "2026-10-25"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://utkarshakumar.github.io/"},
+    {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://utkarshakumar.github.io/writing.html"},
+    {"@type": "ListItem", "position": 3, "name": "Guide: Building a B2B buying stack", "item": "https://utkarshakumar.github.io/case-studies/b2b-buying-stack.html"}
+  ]
 }
 </script>
 </head>
@@ -110,7 +124,7 @@
   <main class="subpage-hero"><div class="container"><article class="case-study" style="max-width:720px;line-height:1.7;">
 <span class="section-label" style="color:#E07840;">Guide</span>
 <h1 class="impact-title">How to build a B2B buying stack on composable or SAP Commerce</h1>
-<p><em>Practitioner's guide · B2B commerce · about 5 minutes</em></p>
+<p><em>Practitioner's guide · October 2026 · about 5 minutes</em></p>
 <p>Most B2B commerce programmes start by copying a consumer storefront and then bolting on "B2B features". That order is backwards. A business buyer doesn't shop like a consumer. Someone requests, someone approves, a negotiated price applies, a procurement system wants control, and finance reconciles every invoice. If the platform can't model that, buyers go back to email and phone. This guide is how I think about building that buying stack on SAP Commerce Cloud or a composable platform such as Commercetools.</p>
 <h2>Start with business accounts and buyer roles</h2>
 <p><strong>Why it matters.</strong> Every feature below depends on knowing who the buyer is and what they're allowed to do. Approval, pricing and PunchOut all read from the account model.</p>

@@ -11,9 +11,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Utkarsha Kumar. What changed on each platform: defects, order value, retention, onboarding time, and member satisfaction.">
+  <meta name="description" content="Utkarsha Kumar, Senior Product Manager at Deloitte Digital. B2B and composable commerce roles, outcomes, skills, and certifications since 2013.">
   <meta property="og:title" content="Utkarsha Kumar, Experience">
-  <meta property="og:description" content="What changed on each platform, and the decision behind the change." />
+  <meta property="og:description" content="Senior Product Manager, B2B and composable commerce: roles, outcomes, and credentials." />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://utkarshakumar.github.io/experience.html" />
@@ -34,10 +34,54 @@
       padding: 9rem 2rem 3.5rem;
       border-bottom: 1px solid rgba(255,255,255,0.04);
     }
-    .subpage-hero .section-title, .subpage-hero .section-desc { color: inherit; }
-    .subpage-hero .section-desc a { color: var(--accent); text-decoration: none; font-weight: 600; }
-    .subpage-hero .section-desc a:hover { text-decoration: underline; }
+    .subpage-hero .impact-title { max-width: 820px; }
+    .subpage-hero .section-desc { color: rgba(237,232,222,0.62); max-width: 680px; margin-bottom: 0; }
     .nav-current { color: var(--text) !important; }
+
+    #impact { padding-top: 3rem; }
+    #impact .impact-head, #impact .bento { max-width: 1096px; }
+    #impact .bento-lbl { color: rgba(237,232,222,0.62); font-size: 0.82rem; }
+
+    .cv > * { max-width: 920px; }
+    .cv-firm {
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; gap: 0.4rem 1.5rem;
+      padding-bottom: 0.9rem; border-bottom: 1px solid var(--border-hi);
+    }
+    .cv-firm.next { margin-top: 4rem; }
+    .cv-firm + .cv-role { padding-top: 1.5rem; }
+    .cv-firm h3 {
+      font-family: 'et-book', Palatino, 'Palatino Linotype', Georgia, serif;
+      font-size: 1.7rem; font-weight: 600; color: var(--text); line-height: 1.2;
+    }
+    .cv-firm span { font-size: 0.8rem; color: var(--text-3); }
+    .cv-role {
+      display: grid; grid-template-columns: 150px 1fr; gap: 0 2.25rem;
+      padding: 2rem 0; border-bottom: 1px solid var(--border);
+    }
+    .cv-when {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.74rem;
+      color: var(--text-2); line-height: 1.6; padding-top: 0.25rem;
+    }
+    .cv-title { font-size: 1.1rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+    .cv-scope { font-size: 0.86rem; color: var(--text-3); margin-top: 0.25rem; line-height: 1.6; }
+    .cv-eng { margin-top: 1.6rem; }
+    .cv-eng h4 { font-size: 0.95rem; font-weight: 600; color: var(--text); line-height: 1.45; }
+    .cv-meta { font-size: 0.8rem; color: var(--text-2); margin-top: 0.15rem; }
+    .cv ul { margin: 0.75rem 0 0 1.05rem; padding: 0; }
+    .cv li { font-size: 0.94rem; color: var(--text-2); line-height: 1.7; margin-bottom: 0.5rem; }
+    .cv li strong { color: var(--text); font-weight: 600; }
+
+    .skill-row { padding: 0.85rem 0; border-top: 1px solid var(--border); }
+    .sidebar-sub + .skill-row { border-top: 0; padding-top: 0; }
+    .skill-row p { font-size: 0.875rem; color: var(--text-2); line-height: 1.7; }
+    .skill-row p b { color: var(--text); font-weight: 600; }
+
+    @media (max-width: 720px) {
+      #impact .bento { grid-template-columns: 1fr; }
+      .cv-role { grid-template-columns: 1fr; }
+      .cv-when { margin-bottom: 0.5rem; padding-top: 0; }
+    }
   </style>
 </head>
 
@@ -98,314 +142,174 @@
   <header class="subpage-hero">
     <div class="container">
       <span class="section-label" style="color:#E07840;">Experience</span>
-      <h2 class="impact-title">What changed, <em>and where.</em></h2>
-      <p class="section-desc" style="margin-top:0.9rem;">These are the changes. Each role says what I decided.</p>
+      <h1 class="impact-title">Senior Product Manager, B2B and composable commerce</h1>
+      <p class="section-desc" style="margin-top:1rem;">12+ years in enterprise software. From 2022 to 2025 I owned product definition and release scope for two global commerce platforms at Deloitte Digital: a 95-country composable replatform and an 11-market B2B platform for a healthcare distributor. Now I also select platforms for new enterprise pursuits.</p>
     </div>
   </header>
 
   <div id="impact">
     <div class="impact-head reveal">
-      <span class="section-label" style="color:#E07840;">Outcomes</span>
-      <h2 class="impact-title">What <em>moved.</em></h2>
+      <span class="section-label" style="color:#E07840;">Selected outcomes</span>
     </div>
-    <div class="bento" style="max-width:1160px;margin:0 auto;">
+    <div class="bento">
       <div class="bento-cell feat span2 reveal">
-        <div class="bento-bar"></div>
-        <span class="bento-num" data-val="90" data-suf="%">90%</span>
-        <div class="bento-lbl">Fewer open defects on the 11-market B2B platform, from 380 to 38, after delivery was rebuilt into small cross-functional teams. Defects were resolved 2 to 3 times faster. The time to build a change went from 15 days to under 12.</div>
+        <span class="bento-num">15%</span>
+        <div class="bento-lbl">Higher average order value on the 95-country composable platform I owned as Senior Product Manager. Distributor retention rose 40%.</div>
       </div>
       <div class="bento-cell feat span2 reveal reveal-d1">
-        <div class="bento-bar"></div>
-        <span class="bento-num" data-val="15" data-suf="%">15%</span>
-        <div class="bento-lbl">Higher average order value on the 95-market composable commerce platform I owned as Senior Product Manager, and distributor retention up 40%.</div>
+        <span class="bento-num">10,000+ hrs</span>
+        <div class="bento-lbl">Of work kept out of the first release of the 11-market B2B platform, by letting in only changes that solved a customer problem.</div>
       </div>
       <div class="bento-cell span2 reveal reveal-d2">
-        <div class="bento-bar"></div>
         <span class="bento-num">Same day</span>
-        <div class="bento-lbl">B2B customer onboarding at a global energy company, down from about 14 days. Customers could not buy until that verification cycle closed.</div>
+        <div class="bento-lbl">B2B customer onboarding at a global energy company, down from about 14 days, 2019 to 2020. Customers could not buy until verification closed.</div>
       </div>
       <div class="bento-cell span2 reveal reveal-d3">
-        <div class="bento-bar"></div>
-        <span class="bento-num" data-val="20" data-pre="+">+20</span>
-        <div class="bento-lbl">NPS points on a member account platform serving 7M+ members. Account-related complaints fell 80%.</div>
+        <span class="bento-num">+20 NPS</span>
+        <div class="bento-lbl">On a member account platform serving 7M+ members, where I owned the roadmap, requirements, and interface design, 2020 to 2022. Account complaints fell 80%.</div>
       </div>
     </div>
   </div>
 
   <section id="experience" class="alt">
-    <div class="container">
-      <span class="section-label">Experience</span>
-      <h2 class="section-title reveal">Selected product work. <em>What changed is the proof.</em></h2>
-      <p class="section-desc reveal reveal-d1">I start with the customer problem, make the platform decision explicit, and stay close enough to production to know whether it worked.</p>
+    <div class="container cv">
 
-      <div class="exp-wrap">
-
-        <details class="tl-item reveal" open>
-          <summary class="tl-summary">
-            <div class="tl-marker">'24<br>NOW</div>
-            <div class="tl-content">
-              <div class="tl-role">Global B2B commerce platform</div>
-              <div class="tl-meta">Healthcare distribution &middot; June 2024 to present &middot; Product strategy, delivery, hypercare, BA and QA leadership</div>
-              <div class="tl-preview">I owned discovery, core product strategy, and delivery for an 11-market platform. Later I led BA and QA through hypercare after the client took over product ownership.</div>
-            </div>
-            <div class="tl-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-          </summary>
-          <div class="tl-body">
-            <ul>
-              <li><strong>Before proposing what to build, I walked the client's leaders through what the live platform actually did.</strong> A wishlist of features became a statement of the problem, and the client funded the full build. SAP Commerce Cloud, 11 markets, now on its fourth release.</li>
-              <li><strong>After the client took over product ownership, I led BA and QA through hypercare.</strong> Two junior BAs refined requirements with product, while QA teams defined the manual and automation strategy.</li>
-              <li><strong>A change entered the first release only if it solved a customer problem.</strong> One review of the later requirements kept <strong>10,000+ hours</strong> out of that release.</li>
-              <li><strong>I rebuilt delivery into small cross-functional teams and stayed until the fix held.</strong> Open defects fell from <strong>380 to 38</strong>. One market-wide outage was found and closed the <strong>same day</strong>.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="tl-item reveal reveal-d1" open>
-          <summary class="tl-summary">
-            <div class="tl-marker">'22<br>'24</div>
-            <div class="tl-content">
-              <div class="tl-role">Composable commerce replatform</div>
-              <div class="tl-meta">Direct-selling and nutrition &middot; July 2022 to 2024 &middot; Commerce platform, search, and integrations</div>
-              <div class="tl-preview">I owned a 95-country commerce replatform as Senior Product Manager. On the platform, average order value rose <strong>15%</strong>; distributor retention rose <strong>40%</strong>.</div>
-            </div>
-            <div class="tl-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-          </summary>
-          <div class="tl-body">
-            <ul>
-              <li><strong>I set the pricing logic and launched the US, Canada, and brand sites in several countries.</strong> Order-level discounts and returns are prorated across line items; product-level discounts stay with the product.</li>
-              <li><strong>I implemented Coveo search and integrated Adobe's recommendation module, A/B testing, and analytics into the platform.</strong> Adobe's module produced the recommendations.</li>
-              <li><strong>I set the requirements for the client to become the legal seller on each sale.</strong> The business then kept the revenue and the tax across Europe, Asia Pacific, and North America.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="tl-item reveal reveal-d2" open>
-          <summary class="tl-summary">
-            <div class="tl-marker">'25<br>NOW</div>
-            <div class="tl-content">
-              <div class="tl-role">Product practice and AI adoption</div>
-              <div class="tl-meta">Cross-engagement work &middot; 2025 to present &middot; Platform decisions and measured adoption</div>
-              <div class="tl-preview">I choose platforms against the problem, then measure AI adoption against work saved, not tool usage.</div>
-            </div>
-            <div class="tl-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-          </summary>
-          <div class="tl-body">
-            <ul>
-              <li><strong>When a client names a goal but no system, I choose the platform from the problem, the constraints, and the evidence.</strong> I make the tradeoffs visible instead of presenting only the option someone already prefers.</li>
-              <li><strong>I built and measured a GenAI programme for a 250-person delivery organisation.</strong> Each of five custom agents was measured against how the work was done before. A role and task savings framework built on those measurements put aggregate efficiency across the organisation at <strong>19%</strong>.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="tl-item reveal reveal-d1">
-          <summary class="tl-summary">
-            <div class="tl-marker">'20<br>'22</div>
-            <div class="tl-content">
-              <div class="tl-role">Deloitte Digital, Business Experience Designer</div>
-              <div class="tl-meta">December 2020 to June 2022 &middot; Bengaluru &middot; Product and interface design in one role</div>
-              <div class="tl-preview">Member account platform for <strong>7M+ members</strong>: NPS up <strong>20 points</strong>, account-related complaints down <strong>80%</strong>.</div>
-              <div class="tl-hint">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                1 more
-              </div>
-            </div>
-            <div class="tl-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-          </summary>
-          <div class="tl-body">
-            <ul>
-              <li><strong>I owned the roadmap, the requirements, the research, and the screens,</strong> and I took all four to the insurer's decision-makers. The work was registration, login, and one profile for a member whose records had lived in separate systems. Those requirements came from the people who ran the old systems, because they were not written down.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="tl-item reveal reveal-d2">
-          <summary class="tl-summary">
-            <div class="tl-marker">'19<br>'20</div>
-            <div class="tl-content">
-              <div class="tl-role">Deloitte Digital, Senior Consultant</div>
-              <div class="tl-meta">June 2019 to December 2020 &middot; Bengaluru</div>
-              <div class="tl-preview">B2B onboarding at a global energy company, from about <strong>14 days to the same day</strong>.</div>
-              <div class="tl-hint">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                4 more
-              </div>
-            </div>
-            <div class="tl-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-          </summary>
-          <div class="tl-body">
-            <ul>
-              <li><strong>Customers could not buy until a check of about 14 days finished.</strong> I first worked out how the old onboarding actually behaved, wrote the requirements, and took the proofs of concept through to build: sign-in, the links between systems, and a check that the business was real. Onboarding then finished the <strong>same day</strong>.</li>
-              <li><strong>I owned the pharmacy business</strong> inside a retailer's project to pull 1,000+ systems into one set of books. After that business's pharmacy finances moved into SAP S/4HANA, reporting accuracy rose <strong>30%</strong>.</li>
-              <li><strong>Every content test on an appliance maker's commerce sites required someone to reload the test data by hand.</strong> I replaced that with an automated reload.</li>
-              <li><strong>I wrote the requirements and the proposal responses</strong> on commerce proposals the firm won, including the proposal that became the 95-market replatform.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="tl-item reveal">
-          <summary class="tl-summary">
-            <div class="tl-marker">'17<br>'19</div>
-            <div class="tl-content">
-              <div class="tl-role">Deloitte Digital, Consultant</div>
-              <div class="tl-meta">October 2017 to June 2019 &middot; Bengaluru</div>
-              <div class="tl-preview">Order placement <strong>50% faster</strong> on a dental supply commerce site, after order numbers collided under load.</div>
-              <div class="tl-hint">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                3 more
-              </div>
-            </div>
-            <div class="tl-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-          </summary>
-          <div class="tl-body">
-            <ul>
-              <li><strong>Under load, the site gave out order numbers that were not unique, so two orders could collide.</strong> I set the load test, took it to the client's leaders, read the logs, and closed the collisions. Order placement got <strong>50% faster</strong>.</li>
-              <li><strong>I built the backend of Deloitte's internal quality and risk platform alone, over one weekend.</strong> Nobody had asked for it. A team could submit the fields it needed, and ship its own screens, without waiting on a new backend. It now carries the risk profile for <strong>3,500+ engagements</strong> into partner review.</li>
-              <li><strong>For the US national passenger railroad, I moved booking work off the step the customer waits on,</strong> and built the APIs behind that.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="tl-item reveal reveal-d1">
-          <summary class="tl-summary">
-            <div class="tl-marker">'16<br>'17</div>
-            <div class="tl-content">
-              <div class="tl-role">Tata Consultancy Services, Business Analyst (Team Lead)</div>
-              <div class="tl-meta">August 2016 to September 2017 &middot; Mumbai &middot; India's largest bank</div>
-              <div class="tl-preview">Small-business loan checks, from about <strong>2 weeks to 2 days</strong>, across <strong>22,000+ branches</strong>.</div>
-              <div class="tl-hint">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                3 more
-              </div>
-            </div>
-            <div class="tl-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-          </summary>
-          <div class="tl-body">
-            <ul>
-              <li><strong>Small-business loans were judged on the balance sheet.</strong> I rebuilt the check around cash flow, and wrote the future requirements with a McKinsey analyst: a rating from estimated cash flow, credit-bureau data, and the borrower's history with the bank. The check went from about <strong>2 weeks to 2 days</strong>.</li>
-              <li><strong>That rating ran on an engine I built.</strong> It read statements from <strong>60 banks</strong>, and checked borrowers against credit-bureau reports and the bank's list of defaulters.</li>
-              <li><strong>I led 15+ engineers and set the plan for the core banking application they built.</strong> I also delivered the bank's asset system, with a second person required to approve every transaction, and two national pension schemes.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="tl-item reveal reveal-d2">
-          <summary class="tl-summary">
-            <div class="tl-marker">'13<br>'16</div>
-            <div class="tl-content">
-              <div class="tl-role">Capgemini, Senior Software Engineer</div>
-              <div class="tl-meta">December 2013 to August 2016 &middot; Mumbai &middot; Software Engineer, then Senior Software Engineer from May 2015</div>
-              <div class="tl-preview">I taught myself a business-rule engine, then led the design of a system that ran <strong>50,000+ rules</strong> for a UK group insurer.</div>
-              <div class="tl-hint">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                2 more
-              </div>
-            </div>
-            <div class="tl-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-          </summary>
-          <div class="tl-body">
-            <ul>
-              <li><strong>Straight out of training, on a team of about 20, I built case handling, one-off transactions, and the dental claims path</strong> for a US insurer's employee-benefits portal. It replaced their desktop product.</li>
-              <li><strong>My work reached testing with no defects found.</strong> I was the only developer on that team who did that, and I became one of a few people in the practice known for the case-management platform.</li>
-            </ul>
-          </div>
-        </details>
-
+      <div class="cv-firm reveal">
+        <h3>Deloitte Digital</h3>
+        <span>Bengaluru &middot; Oct 2017 to present</span>
       </div>
+
+      <div class="cv-role reveal">
+        <div class="cv-when">2022 to present</div>
+        <div>
+          <div class="cv-title">Senior Product Manager, B2B and Composable Commerce</div>
+          <div class="cv-scope">Product definition and release scope for two enterprise commerce platforms.</div>
+
+          <div class="cv-eng">
+            <h4>B2B commerce platform, global healthcare distributor</h4>
+            <div class="cv-meta">SAP Commerce Cloud &middot; 11 markets &middot; Jun 2024 to present &middot; product lead to Jul 2025, then BA and QA lead with 30+ direct reports</div>
+            <ul>
+              <li>Audited the client's live platform with its leaders before proposing anything, and wrote the requirements from the problems that audit found. The client extended the work from discovery into the full build, now in its fourth release.</li>
+              <li>Defined the B2B buying model for the US and Canada launches and the European rollouts that followed: multi-tier order approval with order-value thresholds, tiered and contract pricing, PunchOut, quotes, and three-way match. The client made the approval workflow a go-live blocker, and nearly all accounts now use it.</li>
+              <li>Let a change into the first release only if it solved a customer problem. One review of later-phase requirements kept <strong>10,000+ hours</strong> of work out of it.</li>
+              <li>Restructured delivery into cross-functional teams when open defects reached 380, and stayed until the fix held. Open defects fell from <strong>380 to 38</strong>, and build cycles from 15 days to under 12. Traced and closed a market-wide outage the same day.</li>
+            </ul>
+          </div>
+
+          <div class="cv-eng">
+            <h4>Composable commerce replatform, global direct-selling brand</h4>
+            <div class="cv-meta">Commercetools &middot; 95 countries &middot; Jul 2022 to 2024</div>
+            <ul>
+              <li>Defined one commerce core behind the global brand site and <strong>95+ distributor sites</strong>, launched the US, Canada, and brand sites, and managed the offshore BA team that refined the requirements. On the platform, average order value rose <strong>15%</strong> and distributor retention <strong>40%</strong>.</li>
+              <li>Set the requirements that made the client the merchant of record on each sale, giving the business ownership of the transaction and its tax obligations across Europe, Asia Pacific, and North America.</li>
+            </ul>
+          </div>
+
+          <div class="cv-eng">
+            <h4>Platform selection and AI adoption</h4>
+            <div class="cv-meta">Across engagements &middot; 2025 to present</div>
+            <ul>
+              <li>Selected the platform on five enterprise pursuits where the client named an objective and no technology, each against documented criteria. On one, I re-checked a costing model no one had flagged and found <strong>912 hours</strong> of backend and integration work left out of one option. With the hours restored, the cost difference between the two options fell from an apparent 28% to 3.6% before the comparison reached the client.</li>
+              <li>Built a GenAI programme for a 250-person delivery organisation: five custom agents, each compared with how the work was done before, and a role and task savings framework that put aggregate efficiency at <strong>19%</strong>.</li>
+              <li>Changed the practice's AI Product Owner Programme from teaching tool adoption to teaching how to decide what to build. Built its worked example, a 168-capability product prioritised into an MVP, and taught it as a live three-hour session.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-role reveal">
+        <div class="cv-when">Dec 2020 to Jun 2022</div>
+        <div>
+          <div class="cv-title">Business Experience Designer</div>
+          <ul>
+            <li>Owned the roadmap, requirements, research, and interface design for a US health insurer's member account platform serving 7M+ members, and presented them directly to the insurer's decision-makers. NPS rose <strong>20 points</strong> and account complaints fell <strong>80%</strong>.</li>
+            <li>Defined one member profile across systems that had each held member identity separately, taking requirements from the people who ran those systems because none were written down.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-role reveal">
+        <div class="cv-when">Jun 2019 to Dec 2020</div>
+        <div>
+          <div class="cv-title">Senior Consultant</div>
+          <ul>
+            <li>Cut B2B onboarding at a global energy company from about <strong>14 days to the same day</strong>. Reconstructed how the undocumented legacy flow behaved, wrote the requirements, and carried the proofs of concept through to build: Azure AD sign-in, MuleSoft integration, and Dun &amp; Bradstreet business verification.</li>
+            <li>Owned the pharmacy line of business in a global retailer's consolidation of 1,000+ systems into one ledger. After its finances moved to SAP S/4HANA, reporting accuracy rose <strong>30%</strong>.</li>
+            <li>Wrote the functional and proposal responses on commerce pursuits the firm won, including the one that became the 95-country replatform.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-role reveal">
+        <div class="cv-when">Oct 2017 to Jun 2019</div>
+        <div>
+          <div class="cv-title">Consultant</div>
+          <ul>
+            <li>Made order placement <strong>50%</strong> faster on a dental supply company's commerce site, where under load the platform issued duplicate order numbers. Set the load plan, read the logs, and closed the collisions.</li>
+            <li>Built, on my own initiative, the backend of Deloitte's internal quality and risk platform, with a flexible schema that let each team ship its own screens without backend changes. It now carries the risk profile for <strong>3,500+ engagements</strong> into partner review.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-firm next reveal">
+        <h3>Earlier</h3>
+        <span>Mumbai &middot; Dec 2013 to Sep 2017</span>
+      </div>
+
+      <div class="cv-role reveal">
+        <div class="cv-when">Aug 2016 to Sep 2017</div>
+        <div>
+          <div class="cv-title">Business Analyst (Team Lead), Tata Consultancy Services</div>
+          <ul>
+            <li>Rebuilt small-business credit underwriting at India's largest bank around cash flow instead of the balance sheet. Due diligence fell from about <strong>2 weeks to 2 days</strong> across 22,000+ branches. Led 15+ engineers on the core banking application.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-role reveal">
+        <div class="cv-when">Dec 2013 to Aug 2016</div>
+        <div>
+          <div class="cv-title">Senior Software Engineer, Capgemini</div>
+          <ul>
+            <li>Led the design of a rule management system running <strong>50,000+ business rules</strong> for a UK group insurer.</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <section id="skills">
+  <section id="credentials">
     <div class="container">
-      <span class="section-label" style="color:#E07840;">What the work uses</span>
-      <h2 class="section-title reveal" style="color:#EDE8DE;">Platforms and <em style="color:rgba(237,232,222,0.4);">product judgment</em></h2>
-      <div class="skills-grid">
+      <span class="section-label">Skills and credentials</span>
+      <div class="about-grid" style="margin-top:1.5rem;">
         <div class="reveal">
-          <span class="skill-cat-label">Product</span>
-          <div>
-            <span class="skill-badge">Discovery from undocumented systems</span>
-            <span class="skill-badge">Requirements and roadmap</span>
-            <span class="skill-badge">Release scope</span>
-            <span class="skill-badge">Platform and vendor selection</span>
-            <span class="skill-badge">Prioritisation (RICE, MoSCoW)</span>
-          </div>
+          <span class="sidebar-sub">Skills</span>
+          <div class="skill-row"><p><b>Product.</b> Discovery, requirements, roadmap and release scope, platform and vendor selection, A/B testing.</p></div>
+          <div class="skill-row"><p><b>B2B commerce.</b> Approval workflows, tiered and contract pricing, PunchOut, quotes, merchant of record.</p></div>
+          <div class="skill-row"><p><b>Platforms.</b> SAP Commerce Cloud, Commercetools, MACH, Mirakl, Coveo, Algolia, Adobe Experience Manager, SAP S/4HANA, MuleSoft.</p></div>
+          <div class="skill-row"><p><b>AI.</b> Agent design, tool calling and Model Context Protocol, adoption measurement.</p></div>
         </div>
         <div class="reveal reveal-d1">
-          <span class="skill-cat-label">Commerce platforms</span>
-          <div>
-            <span class="skill-badge">SAP Commerce Cloud</span>
-            <span class="skill-badge">Commercetools</span>
-            <span class="skill-badge">MACH / headless</span>
-            <span class="skill-badge">Mirakl</span>
-            <span class="skill-badge">Coveo and Algolia</span>
-            <span class="skill-badge">Adobe Experience Manager</span>
-          </div>
-        </div>
-        <div class="reveal reveal-d2">
-          <span class="skill-cat-label">AI</span>
-          <div>
-            <span class="skill-badge">Agent design</span>
-            <span class="skill-badge">Tool calling and MCP</span>
-            <span class="skill-badge">Adoption measurement</span>
-          </div>
-        </div>
-        <div class="reveal reveal-d3">
-          <span class="skill-cat-label">Integration and data</span>
-          <div>
-            <span class="skill-badge">Recommendation engine integration</span>
-            <span class="skill-badge">MuleSoft</span>
-            <span class="skill-badge">Azure AD</span>
-            <span class="skill-badge">SAP S/4HANA</span>
-            <span class="skill-badge">SQL</span>
-            <span class="skill-badge">Adobe Analytics</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="credentials" class="alt">
-    <div class="container">
-      <span class="section-label">Credentials</span>
-      <h2 class="section-title reveal">Certifications and <em>what was said in public.</em></h2>
-      <div class="about-grid">
-        <div class="reveal">
           <span class="sidebar-sub">Certifications</span>
-          <div class="cert-card"><div class="cert-name">Certified Scrum Product Owner (CSPO)</div><div class="cert-issuer">Scrum Alliance</div></div>
-          <div class="cert-card"><div class="cert-name">Certified ScrumMaster (CSM)</div><div class="cert-issuer">Scrum Alliance</div></div>
-          <div class="cert-card"><div class="cert-name">Commercetools Functional Architect</div><div class="cert-issuer">Commercetools</div></div>
-          <div class="cert-card"><div class="cert-name">Claude Certified Architect, Foundations</div><div class="cert-issuer">Anthropic</div></div>
-        </div>
-        <div class="reveal reveal-d1">
+          <div class="skill-row"><p><b>Certified Scrum Product Owner (CSPO)</b>, Scrum Alliance</p></div>
+          <div class="skill-row"><p><b>Commercetools Functional Architect</b>, Commercetools</p></div>
+          <div class="skill-row"><p><b>Claude Certified Architect, Foundations</b>, Anthropic</p></div>
+          <div class="skill-row"><p><b>Certified ScrumMaster (CSM)</b>, Scrum Alliance</p></div>
+          <span class="sidebar-sub">Education</span>
+          <div class="skill-row"><p><b>Bachelor of Engineering, Information Technology</b>, Chhattisgarh Swami Vivekanand Technical University, 2009 to 2013</p></div>
           <span class="sidebar-sub">Speaking and recognition</span>
-          <div class="recognition">
-            <strong>AI Agents in Commerce,</strong> Deloitte Global Commerce Summit 2025, published as a firm point of view on how a seller's agent and a customer's agent would actually place an order.
+          <div class="recognition" style="margin-top:0;padding-top:0;border-top:0;">
+            <strong>AI Agents in Commerce.</strong> Presented at the Deloitte Global Commerce Summit 2025, then published as a firm point of view.
           </div>
           <div class="recognition">
-            <strong>AI Product Owner Programme, 2026.</strong> The programme was teaching people to adopt tools. I wrote the critique that changed it to teaching them how to decide what to build, built the 168-capability example the class uses, and teach it as a live three-hour session.
-          </div>
-          <div class="recognition">
-            <strong>Business Maven Award</strong> for client work that won an additional work order. Sustained top-performer rating since 2018.
+            <strong>Business Maven Award,</strong> Deloitte, for client work that led the client to expand the engagement. Sustained top-performer rating since 2018.
           </div>
         </div>
       </div>
     </div>
   </section>
+
 
   <!-- ===== FOOTER ===== -->
   <footer id="contact">
@@ -520,12 +424,8 @@
       })();
     })();
 
-    // ===== SCROLL REVEAL + COUNTER =====
+    // ===== SCROLL REVEAL =====
     (function () {
-      var revealEls = document.querySelectorAll('.reveal');
-      var counters = document.querySelectorAll('.bento-num[data-val]');
-      var counted = new Set();
-
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
@@ -533,56 +433,9 @@
           io.unobserve(entry.target);
         });
       }, { threshold: 0.12 });
-
-      revealEls.forEach(function (el) { io.observe(el); });
-
-      var cio = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting || counted.has(entry.target)) return;
-          counted.add(entry.target);
-          animCount(entry.target);
-        });
-      }, { threshold: 0.5 });
-
-      counters.forEach(function (el) { cio.observe(el); });
-
-      function animCount(el) {
-        var target = parseFloat(el.dataset.val);
-        var pre = el.dataset.pre || '';
-        var suf = el.dataset.suf || '';
-        var dec = parseInt(el.dataset.dec || '0');
-        var dur = 1400;
-        var start = Date.now();
-        (function tick() {
-          var p = Math.min((Date.now() - start) / dur, 1);
-          var eased = 1 - Math.pow(1 - p, 3);
-          var val = eased * target;
-          el.textContent = pre + (dec > 0 ? val.toFixed(dec) : Math.round(val)) + suf;
-          if (p < 1) requestAnimationFrame(tick);
-        })();
-      }
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
     })();
 
-    // ===== 3D CARD TILT =====
-    (function () {
-      if (!window.matchMedia('(pointer: fine)').matches) return;
-      function initTilt(sel, max) {
-        document.querySelectorAll(sel).forEach(function (card) {
-          card.addEventListener('mousemove', function (e) {
-            var r = card.getBoundingClientRect();
-            var rx = -((e.clientY - r.top - r.height / 2) / (r.height / 2)) * max;
-            var ry = ((e.clientX - r.left - r.width / 2) / (r.width / 2)) * max;
-            card.style.transition = 'transform 0.08s ease';
-            card.style.transform = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateZ(6px)';
-          });
-          card.addEventListener('mouseleave', function () {
-            card.style.transition = 'transform 0.5s ease';
-            card.style.transform = '';
-          });
-        });
-      }
-      initTilt('.cert-card', 5);
-    })();
 
     // ===== SPOTLIGHT =====
     (function () {
@@ -601,7 +454,6 @@
         });
       }
       initSpotlight('.bento-cell');
-      initSpotlight('.tl-item');
     })();
   </script>
 

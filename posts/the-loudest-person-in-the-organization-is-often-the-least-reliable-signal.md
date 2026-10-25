@@ -1,6 +1,7 @@
 ---
 title: The Loudest Person in the Organization Is Often the Least Reliable Signal
 date: 2026-10-03
+homepage: no
 ---
 
 A recent [post by Nikita Bier](https://x.com/nikitabier/status/2063726514118811788) shared a clip built around a line attributed to Elon Musk: "The loudest people are the frauds."

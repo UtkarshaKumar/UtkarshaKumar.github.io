@@ -8,3 +8,7 @@ __pycache__/
 # Workspace-internal state: not site content
 handoff.md
 implementation-notes.md
+
+# The resume is served only from Google Drive behind the sign-in form
+*[Rr]esume*.pdf
+*CV*.pdf

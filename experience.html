@@ -49,7 +49,8 @@
       padding-bottom: 0.9rem; border-bottom: 1px solid var(--border-hi);
     }
     .cv-firm.next { margin-top: 4rem; }
-    .cv-firm + .cv-role { padding-top: 1.5rem; }
+    .cv-firm + .cv-role, .cv-note + .cv-role { padding-top: 1.5rem; }
+    .cv-note { font-size: 0.8rem; color: var(--text-3); margin-top: 0.75rem; }
     .cv-firm h3 {
       font-family: 'et-book', Palatino, 'Palatino Linotype', Georgia, serif;
       font-size: 1.7rem; font-weight: 600; color: var(--text); line-height: 1.2;
@@ -148,23 +149,23 @@
   </header>
 
   <div id="impact">
-    <div class="impact-head reveal">
+    <div class="impact-head">
       <span class="section-label" style="color:#E07840;">Selected outcomes</span>
     </div>
     <div class="bento">
-      <div class="bento-cell feat span2 reveal">
+      <div class="bento-cell feat span2">
         <span class="bento-num">15%</span>
         <div class="bento-lbl">Higher average order value on the 95-country composable platform I owned as Senior Product Manager. Distributor retention rose 40%.</div>
       </div>
-      <div class="bento-cell feat span2 reveal reveal-d1">
+      <div class="bento-cell feat span2">
         <span class="bento-num">10,000+ hrs</span>
         <div class="bento-lbl">Of work kept out of the first release of the 11-market B2B platform, by letting in only changes that solved a customer problem.</div>
       </div>
-      <div class="bento-cell span2 reveal reveal-d2">
+      <div class="bento-cell span2">
         <span class="bento-num">Same day</span>
         <div class="bento-lbl">B2B customer onboarding at a global energy company, down from about 14 days, 2019 to 2020. Customers could not buy until verification closed.</div>
       </div>
-      <div class="bento-cell span2 reveal reveal-d3">
+      <div class="bento-cell span2">
         <span class="bento-num">+20 NPS</span>
         <div class="bento-lbl">On a member account platform serving 7M+ members, where I owned the roadmap, requirements, and interface design, 2020 to 2022. Account complaints fell 80%.</div>
       </div>
@@ -174,12 +175,13 @@
   <section id="experience" class="alt">
     <div class="container cv">
 
-      <div class="cv-firm reveal">
+      <div class="cv-firm">
         <h3>Deloitte Digital</h3>
         <span>Bengaluru &middot; Oct 2017 to present</span>
       </div>
+      <p class="cv-note">Client names are withheld. Each client is described by sector and scale.</p>
 
-      <div class="cv-role reveal">
+      <div class="cv-role">
         <div class="cv-when">2022 to present</div>
         <div>
           <div class="cv-title">Senior Product Manager, B2B and Composable Commerce</div>
@@ -189,8 +191,8 @@
             <h4>B2B commerce platform, global healthcare distributor</h4>
             <div class="cv-meta">SAP Commerce Cloud &middot; 11 markets &middot; Jun 2024 to present &middot; product lead to Jul 2025, then BA and QA lead with 30+ direct reports</div>
             <ul>
-              <li>Audited the client's live platform with its leaders before proposing anything, and wrote the requirements from the problems that audit found. The client extended the work from discovery into the full build, now in its fourth release.</li>
-              <li>Defined the B2B buying model for the US and Canada launches and the European rollouts that followed: multi-tier order approval with order-value thresholds, tiered and contract pricing, PunchOut, quotes, and three-way match. The client made the approval workflow a go-live blocker, and nearly all accounts now use it.</li>
+              <li>Audited the distributor's live platform with its leaders before proposing anything, and wrote the requirements from the problems that audit found. The distributor extended the work from discovery into the full build, now in its fourth release.</li>
+              <li>Defined the B2B buying model for the US and Canada launches and the European rollouts that followed: multi-tier order approval with order-value thresholds, tiered and contract pricing, PunchOut, quotes, and three-way match. The distributor made the approval workflow a go-live blocker, and nearly all accounts now use it.</li>
               <li>Let a change into the first release only if it solved a customer problem. One review of later-phase requirements kept <strong>10,000+ hours</strong> of work out of it.</li>
               <li>Restructured delivery into cross-functional teams when open defects reached 380, and stayed until the fix held. Open defects fell from <strong>380 to 38</strong>, and build cycles from 15 days to under 12. Traced and closed a market-wide outage the same day.</li>
             </ul>
@@ -201,7 +203,7 @@
             <div class="cv-meta">Commercetools &middot; 95 countries &middot; Jul 2022 to 2024</div>
             <ul>
               <li>Defined one commerce core behind the global brand site and <strong>95+ distributor sites</strong>, launched the US, Canada, and brand sites, and managed the offshore BA team that refined the requirements. On the platform, average order value rose <strong>15%</strong> and distributor retention <strong>40%</strong>.</li>
-              <li>Set the requirements that made the client the merchant of record on each sale, giving the business ownership of the transaction and its tax obligations across Europe, Asia Pacific, and North America.</li>
+              <li>Set the requirements that made the brand the merchant of record on each sale, giving the business ownership of the transaction and its tax obligations across Europe, Asia Pacific, and North America.</li>
             </ul>
           </div>
 
@@ -209,7 +211,7 @@
             <h4>Platform selection and AI adoption</h4>
             <div class="cv-meta">Across engagements &middot; 2025 to present</div>
             <ul>
-              <li>Selected the platform on five enterprise pursuits where the client named an objective and no technology, each against documented criteria. On one, I re-checked a costing model no one had flagged and found <strong>912 hours</strong> of backend and integration work left out of one option. With the hours restored, the cost difference between the two options fell from an apparent 28% to 3.6% before the comparison reached the client.</li>
+              <li>Selected the platform on five enterprise pursuits where the brief named an objective and no technology, each against documented criteria. On one, I re-checked a costing model no one had flagged and found <strong>912 hours</strong> of backend and integration work left out of one option. With the hours restored, the cost difference between the two options fell from an apparent 28% to 3.6% before the comparison reached the client.</li>
               <li>Built a GenAI programme for a 250-person delivery organisation: five custom agents, each compared with how the work was done before, and a role and task savings framework that put aggregate efficiency at <strong>19%</strong>.</li>
               <li>Changed the practice's AI Product Owner Programme from teaching tool adoption to teaching how to decide what to build. Built its worked example, a 168-capability product prioritised into an MVP, and taught it as a live three-hour session.</li>
             </ul>
@@ -217,7 +219,7 @@
         </div>
       </div>
 
-      <div class="cv-role reveal">
+      <div class="cv-role">
         <div class="cv-when">Dec 2020 to Jun 2022</div>
         <div>
           <div class="cv-title">Business Experience Designer</div>
@@ -228,7 +230,7 @@
         </div>
       </div>
 
-      <div class="cv-role reveal">
+      <div class="cv-role">
         <div class="cv-when">Jun 2019 to Dec 2020</div>
         <div>
           <div class="cv-title">Senior Consultant</div>
@@ -240,7 +242,7 @@
         </div>
       </div>
 
-      <div class="cv-role reveal">
+      <div class="cv-role">
         <div class="cv-when">Oct 2017 to Jun 2019</div>
         <div>
           <div class="cv-title">Consultant</div>
@@ -251,12 +253,12 @@
         </div>
       </div>
 
-      <div class="cv-firm next reveal">
+      <div class="cv-firm next">
         <h3>Earlier</h3>
         <span>Mumbai &middot; Dec 2013 to Sep 2017</span>
       </div>
 
-      <div class="cv-role reveal">
+      <div class="cv-role">
         <div class="cv-when">Aug 2016 to Sep 2017</div>
         <div>
           <div class="cv-title">Business Analyst (Team Lead), Tata Consultancy Services</div>
@@ -266,7 +268,7 @@
         </div>
       </div>
 
-      <div class="cv-role reveal">
+      <div class="cv-role">
         <div class="cv-when">Dec 2013 to Aug 2016</div>
         <div>
           <div class="cv-title">Senior Software Engineer, Capgemini</div>
@@ -283,14 +285,14 @@
     <div class="container">
       <span class="section-label">Skills and credentials</span>
       <div class="about-grid" style="margin-top:1.5rem;">
-        <div class="reveal">
+        <div>
           <span class="sidebar-sub">Skills</span>
           <div class="skill-row"><p><b>Product.</b> Discovery, requirements, roadmap and release scope, platform and vendor selection, A/B testing.</p></div>
           <div class="skill-row"><p><b>B2B commerce.</b> Approval workflows, tiered and contract pricing, PunchOut, quotes, merchant of record.</p></div>
           <div class="skill-row"><p><b>Platforms.</b> SAP Commerce Cloud, Commercetools, MACH, Mirakl, Coveo, Algolia, Adobe Experience Manager, SAP S/4HANA, MuleSoft.</p></div>
           <div class="skill-row"><p><b>AI.</b> Agent design, tool calling and Model Context Protocol, adoption measurement.</p></div>
         </div>
-        <div class="reveal reveal-d1">
+        <div>
           <span class="sidebar-sub">Certifications</span>
           <div class="skill-row"><p><b>Certified Scrum Product Owner (CSPO)</b>, Scrum Alliance</p></div>
           <div class="skill-row"><p><b>Commercetools Functional Architect</b>, Commercetools</p></div>
@@ -303,7 +305,7 @@
             <strong>AI Agents in Commerce.</strong> Presented at the Deloitte Global Commerce Summit 2025, then published as a firm point of view.
           </div>
           <div class="recognition">
-            <strong>Business Maven Award,</strong> Deloitte, for client work that led the client to expand the engagement. Sustained top-performer rating since 2018.
+            <strong>Business Maven Award,</strong> Deloitte, for work that led a client to expand the engagement. Sustained top-performer rating since 2018.
           </div>
         </div>
       </div>
@@ -424,17 +426,6 @@
       })();
     })();
 
-    // ===== SCROLL REVEAL =====
-    (function () {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('visible');
-          io.unobserve(entry.target);
-        });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-    })();
 
 
     // ===== SPOTLIGHT =====

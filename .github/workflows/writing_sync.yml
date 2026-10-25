@@ -28,10 +28,15 @@ jobs:
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: python3 scripts/sync_writing.py
 
+      - name: Write featured projects into projects.html, index.html, and llms.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/sync_projects_and_llms.py
+
       - name: Commit and push
         run: |
-          git config --global user.name "Utkarsh Kumar"
+          git config --global user.name "Utkarsha Kumar"
           git config --global user.email "utkarshsinghinbox@gmail.com"
-          git add index.html writing.html writing/
+          git add index.html writing.html writing/ projects.html llms.txt
           git commit -m "Automated Sync: Update writing from Notion and Medium" || exit 0
           git push origin main

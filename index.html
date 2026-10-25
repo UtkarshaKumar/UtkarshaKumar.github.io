@@ -28,17 +28,48 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Utkarsha Kumar",
-    "jobTitle": "Senior Product Manager",
-    "worksFor": { "@type": "Organization", "name": "Deloitte Digital" },
+    "@type": "ProfilePage",
     "url": "https://utkarshakumar.github.io/",
-    "sameAs": [
-      "https://linkedin.com/in/utkkumar",
-      "https://github.com/UtkarshaKumar",
-      "https://medium.com/@utkarshsingh_96177"
-    ],
-    "knowsAbout": ["Commerce", "AI/ML", "Product Management", "B2B", "B2C", "Enterprise SaaS"]
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://utkarshakumar.github.io/#person",
+      "name": "Utkarsha Kumar",
+      "alternateName": "Utkarsh Kumar",
+      "jobTitle": "Senior Product Manager",
+      "description": "Senior product manager for enterprise commerce. Product definition and release scope on an 11-market B2B platform in healthcare distribution and a 95-market composable commerce replatform.",
+      "worksFor": { "@type": "Organization", "name": "Deloitte Digital" },
+      "homeLocation": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN" } },
+      "url": "https://utkarshakumar.github.io/",
+      "image": "https://utkarshakumar.github.io/profile.jpg",
+      "sameAs": [
+        "https://linkedin.com/in/utkkumar",
+        "https://github.com/UtkarshaKumar",
+        "https://medium.com/@utkarshsingh_96177"
+      ],
+      "knowsAbout": [
+        "B2B commerce",
+        "Composable commerce",
+        "Healthcare distribution commerce",
+        "SAP Commerce Cloud",
+        "Commercetools",
+        "MACH and headless commerce",
+        "Mirakl marketplace",
+        "Coveo and Algolia search",
+        "Product discovery",
+        "Requirements and roadmap",
+        "Release scope",
+        "Platform and vendor selection",
+        "AI agent design",
+        "Model Context Protocol",
+        "AI adoption measurement"
+      ],
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Certified Scrum Product Owner (CSPO)", "recognizedBy": { "@type": "Organization", "name": "Scrum Alliance" } },
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Certified ScrumMaster (CSM)", "recognizedBy": { "@type": "Organization", "name": "Scrum Alliance" } },
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Commercetools Functional Architect", "recognizedBy": { "@type": "Organization", "name": "Commercetools" } },
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Claude Certified Architect, Foundations", "recognizedBy": { "@type": "Organization", "name": "Anthropic" } }
+      ]
+    }
   }
   </script>
 
@@ -312,15 +343,13 @@
     <div class="container">
       <span class="section-label">Personal Work</span>
       <h2 class="section-title reveal">Projects &amp; <em>Prototypes</em></h2>
-      <p class="section-desc reveal reveal-d1">Exploratory and open-source work, fetched live from GitHub.</p>
+      <p class="section-desc reveal reveal-d1">Exploratory and open-source work on GitHub.</p>
       <div id="latest-projects-container" class="plist reveal reveal-d2" style="max-width:640px;">
-        <div class="wlist-empty">
-          <svg style="animation:spin 1s linear infinite;vertical-align:-3px;margin-right:0.5rem;color:var(--accent);" width="14" height="14" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" style="opacity:.2;"/>
-            <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" style="opacity:.75;"/>
-          </svg>
-          Fetching projects&hellip;
-        </div>
+        <!-- LATEST_PROJECTS_START -->
+<a href="https://github.com/UtkarshaKumar/shopsense-ai" target="_blank" rel="noopener" class="prow"><span class="pname">ShopSense AI</span><span class="pdesc">Shopping advisor demo for consumer electronics: a ReAct agent searches a catalog based on the SAP Spartacus sample data and answers as a product grid, comparison, or bundle.</span><span class="plang"><span class="lang-dot" style="background:#3572A5"></span>Python</span></a>
+<a href="https://github.com/UtkarshaKumar/cloudnest" target="_blank" rel="noopener" class="prow"><span class="pname">CloudNest</span><span class="pdesc">macOS app for recovering accidentally deleted iCloud Drive files and folders in bulk, something Apple&#x27;s own recovery tool fails at nearly every time. Restores items back to their original folder structure. Built with Tauri 2, Rust, and Vite.</span><span class="plang"><span class="lang-dot" style="background:#dea584"></span>Rust</span></a>
+<a href="https://github.com/UtkarshaKumar/pagesmith" target="_blank" rel="noopener" class="prow"><span class="pname">PageSmith</span><span class="pdesc">Microsoft Word for HTML files. Mac app (Tauri 2 + Rust) that opens any .html, edits visually, and saves back cleanly.</span><span class="plang"><span class="lang-dot" style="background:#dea584"></span>Rust</span></a>
+<!-- LATEST_PROJECTS_END -->
       </div>
       <a href="projects.html" class="see-all-link reveal reveal-d3" style="margin-top:1.5rem;">See all projects &#8594;</a>
     </div>
@@ -480,32 +509,6 @@
           if (p < 1) requestAnimationFrame(tick);
         })();
       }
-    })();
-
-    // ===== GITHUB PROJECTS (homepage teaser: top 3) =====
-    (function () {
-      var API = 'https://api.github.com/users/UtkarshaKumar/repos?type=owner&sort=updated&per_page=100';
-      var c = document.getElementById('latest-projects-container');
-      var COLORS = { Swift: '#f05138', Python: '#3572A5', JavaScript: '#f1e05a', TypeScript: '#3178c6', HTML: '#e34c26', CSS: '#563d7c', 'Jupyter Notebook': '#DA5B0B' };
-
-      fetch(API).then(function (r) {
-        if (!r.ok) throw new Error('rate limit');
-        return r.json();
-      }).then(function (repos) {
-        var featured = repos.filter(function (r) { return r.homepage && r.homepage.includes('utkarshakumar.github.io'); }).slice(0, 3);
-        if (!featured.length) { c.innerHTML = '<div class="wlist-empty">No featured projects at this time.</div>'; return; }
-        c.innerHTML = featured.map(function (repo) {
-          var name = repo.name.replace(/-/g, ' ').replace(/\b\w/g, function (l) { return l.toUpperCase(); });
-          var lang = repo.language ? '<span class="plang"><span class="lang-dot" style="background:' + (COLORS[repo.language] || '#888') + '"></span>' + repo.language + '</span>' : '<span></span>';
-          return '<a href="' + repo.html_url + '" target="_blank" rel="noopener" class="prow">' +
-            '<span class="pname">' + name + '</span>' +
-            '<span class="pdesc">' + (repo.description || 'No description provided.') + '</span>' +
-            lang +
-            '</a>';
-        }).join('');
-      }).catch(function () {
-        c.innerHTML = '<div class="wlist-empty">Unable to load projects from GitHub. Please check back later.</div>';
-      });
     })();
   </script>
 

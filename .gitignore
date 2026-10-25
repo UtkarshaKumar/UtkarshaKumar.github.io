@@ -1,9 +1,10 @@
-# Dev tooling — never pushed to public repo
+# Dev tooling: never pushed to public repo
 .claude/
 .DS_Store
 *.DS_Store
 __pycache__/
 *.pyc
 
-# Workspace-internal state — not site content
+# Workspace-internal state: not site content
 handoff.md
+implementation-notes.md

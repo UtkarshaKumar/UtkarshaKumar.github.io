@@ -11,17 +11,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Utkarsha Kumar — Projects & Prototypes. Exploratory and open-source work, fetched live from GitHub.">
-  <meta property="og:title" content="Projects — Utkarsha Kumar">
-  <meta property="og:description" content="Exploratory and open-source work, fetched live from GitHub." />
+  <meta name="description" content="Utkarsha Kumar. Projects and prototypes: exploratory and open-source work on GitHub.">
+  <meta property="og:title" content="Projects, Utkarsha Kumar">
+  <meta property="og:description" content="Exploratory and open-source work on GitHub." />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://utkarshakumar.github.io/projects.html" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Projects — Utkarsha Kumar" />
+  <meta name="twitter:title" content="Projects, Utkarsha Kumar" />
   <link rel="canonical" href="https://utkarshakumar.github.io/projects.html" />
   <link rel="icon" type="image/jpeg" href="profile.jpg" />
-  <title>Projects — Utkarsha Kumar</title>
+  <title>Projects, Utkarsha Kumar</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,7 +97,7 @@
     <div class="container">
       <span class="section-label" style="color:#E07840;">Personal Work</span>
       <h2 class="impact-title">Projects &amp; <em>prototypes.</em></h2>
-      <p class="section-desc" style="margin-top:0.9rem;">Exploratory and open-source work, fetched live from GitHub.</p>
+      <p class="section-desc" style="margin-top:0.9rem;">Exploratory and open-source work on GitHub.</p>
     </div>
   </header>
 
@@ -105,13 +105,13 @@
   <section id="projects-list">
     <div class="container">
       <div id="github-projects-container" class="plist">
-        <div class="wlist-empty">
-          <svg style="animation:spin 1s linear infinite;vertical-align:-3px;margin-right:0.5rem;color:var(--accent);" width="14" height="14" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" style="opacity:.2;"/>
-            <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" style="opacity:.75;"/>
-          </svg>
-          Fetching projects&hellip;
-        </div>
+        <!-- PROJECT_LIST_START -->
+<a href="https://github.com/UtkarshaKumar/shopsense-ai" target="_blank" rel="noopener" class="prow"><span class="pname">ShopSense AI</span><span class="pdesc">Shopping advisor demo for consumer electronics: a ReAct agent searches a catalog based on the SAP Spartacus sample data and answers as a product grid, comparison, or bundle.</span><span class="plang"><span class="lang-dot" style="background:#3572A5"></span>Python</span></a>
+<a href="https://github.com/UtkarshaKumar/cloudnest" target="_blank" rel="noopener" class="prow"><span class="pname">CloudNest</span><span class="pdesc">macOS app for recovering accidentally deleted iCloud Drive files and folders in bulk, something Apple&#x27;s own recovery tool fails at nearly every time. Restores items back to their original folder structure. Built with Tauri 2, Rust, and Vite.</span><span class="plang"><span class="lang-dot" style="background:#dea584"></span>Rust</span></a>
+<a href="https://github.com/UtkarshaKumar/pagesmith" target="_blank" rel="noopener" class="prow"><span class="pname">PageSmith</span><span class="pdesc">Microsoft Word for HTML files. Mac app (Tauri 2 + Rust) that opens any .html, edits visually, and saves back cleanly.</span><span class="plang"><span class="lang-dot" style="background:#dea584"></span>Rust</span></a>
+<a href="https://github.com/UtkarshaKumar/swift-computer-use" target="_blank" rel="noopener" class="prow"><span class="pname">Swift Computer Use</span><span class="pdesc">macOS OS extension for real-time semantic computer use by AI agents</span><span class="plang"><span class="lang-dot" style="background:#f05138"></span>Swift</span></a>
+<a href="https://github.com/UtkarshaKumar/nudge-pro" target="_blank" rel="noopener" class="prow"><span class="pname">Nudge Pro</span><span class="pdesc">A macOS meeting recording app that records, transcribes, and generates AI-powered meeting notes.</span><span class="plang"><span class="lang-dot" style="background:#f05138"></span>Swift</span></a>
+<!-- PROJECT_LIST_END -->
       </div>
     </div>
   </section>
@@ -227,32 +227,6 @@
         ring.style.top = Math.round(ry * 10) / 10 + 'px';
         requestAnimationFrame(animRing);
       })();
-    })();
-
-    // ===== GITHUB PROJECTS =====
-    (function () {
-      var API = 'https://api.github.com/users/UtkarshaKumar/repos?type=owner&sort=updated&per_page=100';
-      var c = document.getElementById('github-projects-container');
-      var COLORS = { Swift: '#f05138', Python: '#3572A5', JavaScript: '#f1e05a', TypeScript: '#3178c6', HTML: '#e34c26', CSS: '#563d7c', 'Jupyter Notebook': '#DA5B0B' };
-
-      fetch(API).then(function (r) {
-        if (!r.ok) throw new Error('rate limit');
-        return r.json();
-      }).then(function (repos) {
-        var featured = repos.filter(function (r) { return r.homepage && r.homepage.includes('utkarshakumar.github.io'); });
-        if (!featured.length) { c.innerHTML = '<div class="wlist-empty">No featured projects at this time.</div>'; return; }
-        c.innerHTML = featured.map(function (repo) {
-          var name = repo.name.replace(/-/g, ' ').replace(/\b\w/g, function (l) { return l.toUpperCase(); });
-          var lang = repo.language ? '<span class="plang"><span class="lang-dot" style="background:' + (COLORS[repo.language] || '#888') + '"></span>' + repo.language + '</span>' : '<span></span>';
-          return '<a href="' + repo.html_url + '" target="_blank" rel="noopener" class="prow">' +
-            '<span class="pname">' + name + '</span>' +
-            '<span class="pdesc">' + (repo.description || 'No description provided.') + '</span>' +
-            lang +
-            '</a>';
-        }).join('');
-      }).catch(function () {
-        c.innerHTML = '<div class="wlist-empty">Unable to load projects from GitHub. Please check back later.</div>';
-      });
     })();
   </script>
 

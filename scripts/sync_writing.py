@@ -829,7 +829,8 @@ def writing_jsonld(items):
             {"@type": "ListItem", "position": i, "name": n, "url": u} for i, (n, u) in enumerate(entries, 1)
         ],
     }
-    return json.dumps(data, ensure_ascii=False, indent=2)
+    return ('<script type="application/ld+json">\n' + json.dumps(data, ensure_ascii=False, indent=2)
+            + "\n</script>")
 
 
 # How many recent posts to teaser on the homepage (full list stays on writing.html).

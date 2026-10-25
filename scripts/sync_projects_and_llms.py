@@ -142,7 +142,8 @@ def projects_jsonld(projects):
             for i, r in enumerate(projects, 1)
         ],
     }
-    return json.dumps(data, ensure_ascii=False, indent=2)
+    return ('<script type="application/ld+json">\n' + json.dumps(data, ensure_ascii=False, indent=2)
+            + "\n</script>")
 
 
 def main():

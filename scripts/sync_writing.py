@@ -90,10 +90,30 @@ def de_dash(html):
     return html
 
 
+def img_attrs(body_html):
+    """Lazy load article images and give them intrinsic size so the page does not jump."""
+    def fix(m):
+        tag = m.group(0)
+        if "loading=" not in tag:
+            tag = tag.replace("<img", '<img loading="lazy"', 1)
+        if "decoding=" not in tag:
+            tag = tag.replace("<img", '<img decoding="async"', 1)
+        src = re.search(r'src="img/([^"]+\.svg)"', tag)
+        if src and "width=" not in tag:
+            f = IMG_DIR / src.group(1)
+            if f.exists():
+                vb = re.search(r'viewBox="[\d.\-]+ [\d.\-]+ ([\d.]+) ([\d.]+)"', f.read_text(errors="ignore"))
+                if vb:
+                    tag = tag.replace("<img", f'<img width="{round(float(vb.group(1)))}" height="{round(float(vb.group(2)))}"', 1)
+        return tag
+    return re.sub(r"<img\b[^>]*>", fix, body_html)
+
+
 def apply_body_fixes(title, body_html):
     for old, new in BODY_FIXES.get(title, []):
         body_html = body_html.replace(old, new)
-    return de_dash(body_html)
+    body_html = re.sub(r"<pre(?![^>]*tabindex)", '<pre tabindex="0"', body_html)
+    return img_attrs(de_dash(body_html))
 
 NOTION_HEADERS = {
     "Authorization": f"Bearer {NOTION_TOKEN}",
@@ -457,14 +477,14 @@ $jsonld
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <title>$title, Utkarsha Kumar</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/styles.css">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('theme')}catch(e){}if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';if(t==='light')d.classList.add('light');d.classList.add('js')})();</script>
+  <link rel="preload" href="../fonts/outfit/outfit-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/styles.css?v=20261025d">
   <style>
     .subpage-hero { background:#0C0B09; color:#EDE8DE; padding:9rem 2rem 2.5rem; border-bottom:1px solid rgba(255,255,255,0.04); }
     .subpage-hero .impact-title { max-width: 780px; }
-    .article-meta { font-size:0.8rem; color:rgba(237,232,222,0.4); margin-top:0.9rem; }
+    .article-meta { font-size:0.8rem; color:rgba(237,232,222,0.66); margin-top:0.9rem; }
     .article-meta a { color:var(--accent); text-decoration:none; font-weight:600; }
     .article-meta a:hover { text-decoration:underline; }
     .article-body { max-width:680px; margin:0 auto; padding:3.5rem 2rem; font-size:1.02rem; line-height:1.85; color:var(--text-2); }
@@ -477,7 +497,7 @@ $jsonld
     .article-body figure { margin:1.5rem 0; }
     .article-body figcaption { font-size:0.8rem; color:var(--text-3); text-align:center; margin-top:0.5rem; }
     .article-body pre { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:1rem; overflow-x:auto; margin:1.5rem 0; }
-    .article-body code { font-family:'JetBrains Mono',monospace; font-size:0.85em; }
+    .article-body code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:0.85em; }
     .article-body hr { border:none; border-top:1px solid var(--border); margin:2.5rem 0; }
     .article-body a { color:var(--accent); }
     .article-body .callout { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin:1.5rem 0; }
@@ -488,6 +508,7 @@ $jsonld
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ===== NAV ===== -->
   <nav id="top">
@@ -501,10 +522,10 @@ $jsonld
         <a href="../writing.html" class="nav-current">Writing</a>
         <a href="../projects.html">Projects</a>
         <a href="https://github.com/UtkarshaKumar" target="_blank" rel="noopener" class="nav-btn" title="GitHub">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
         </a>
         <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener" class="nav-btn" title="Medium">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
         </a>
         <button class="nav-btn" id="themeToggle" aria-label="Toggle theme">
           <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -539,10 +560,11 @@ $jsonld
       <a href="mailto:utkarshsinghinbox@gmail.com" class="m-accent">Email</a>
     </div>
   </nav>
+  <main id="main">
 
   <header class="subpage-hero">
     <div class="container">
-      <span class="section-label" style="color:#E07840;">$source</span>
+      <span class="section-label">$source</span>
       <h1 class="impact-title">$title</h1>
       <p class="article-meta">$meta_line</p>
     </div>
@@ -554,6 +576,8 @@ $body_html
   <div class="article-back"><a href="../writing.html">&#8592; Back to Writing</a></div>
 
   <!-- ===== FOOTER ===== -->
+  </main>
+
   <footer id="contact">
     <div class="footer-inner">
       <div>
@@ -562,19 +586,19 @@ $body_html
       </div>
       <div class="footer-links">
         <a href="https://linkedin.com/in/utkkumar" target="_blank" rel="noopener" class="footer-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
         </a>
         <a href="mailto:utkarshsinghinbox@gmail.com" class="footer-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
           Email
         </a>
         <a href="https://github.com/UtkarshaKumar" target="_blank" rel="noopener" class="footer-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
           GitHub
         </a>
         <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener" class="footer-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
           Medium
         </a>
       </div>

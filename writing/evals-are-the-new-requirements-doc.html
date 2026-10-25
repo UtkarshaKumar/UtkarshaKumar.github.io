@@ -76,14 +76,14 @@
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <title>Evals Are the New Requirements Doc, Utkarsha Kumar</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/styles.css">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('theme')}catch(e){}if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';if(t==='light')d.classList.add('light');d.classList.add('js')})();</script>
+  <link rel="preload" href="../fonts/outfit/outfit-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/styles.css?v=20261025d">
   <style>
     .subpage-hero { background:#0C0B09; color:#EDE8DE; padding:9rem 2rem 2.5rem; border-bottom:1px solid rgba(255,255,255,0.04); }
     .subpage-hero .impact-title { max-width: 780px; }
-    .article-meta { font-size:0.8rem; color:rgba(237,232,222,0.4); margin-top:0.9rem; }
+    .article-meta { font-size:0.8rem; color:rgba(237,232,222,0.66); margin-top:0.9rem; }
     .article-meta a { color:var(--accent); text-decoration:none; font-weight:600; }
     .article-meta a:hover { text-decoration:underline; }
     .article-body { max-width:680px; margin:0 auto; padding:3.5rem 2rem; font-size:1.02rem; line-height:1.85; color:var(--text-2); }
@@ -96,7 +96,7 @@
     .article-body figure { margin:1.5rem 0; }
     .article-body figcaption { font-size:0.8rem; color:var(--text-3); text-align:center; margin-top:0.5rem; }
     .article-body pre { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:1rem; overflow-x:auto; margin:1.5rem 0; }
-    .article-body code { font-family:'JetBrains Mono',monospace; font-size:0.85em; }
+    .article-body code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:0.85em; }
     .article-body hr { border:none; border-top:1px solid var(--border); margin:2.5rem 0; }
     .article-body a { color:var(--accent); }
     .article-body .callout { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin:1.5rem 0; }
@@ -107,6 +107,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ===== NAV ===== -->
   <nav id="top">
@@ -120,10 +121,10 @@
         <a href="../writing.html" class="nav-current">Writing</a>
         <a href="../projects.html">Projects</a>
         <a href="https://github.com/UtkarshaKumar" target="_blank" rel="noopener" class="nav-btn" title="GitHub">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
         </a>
         <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener" class="nav-btn" title="Medium">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
         </a>
         <button class="nav-btn" id="themeToggle" aria-label="Toggle theme">
           <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -158,10 +159,11 @@
       <a href="mailto:utkarshsinghinbox@gmail.com" class="m-accent">Email</a>
     </div>
   </nav>
+  <main id="main">
 
   <header class="subpage-hero">
     <div class="container">
-      <span class="section-label" style="color:#E07840;">Site</span>
+      <span class="section-label">Site</span>
       <h1 class="impact-title">Evals Are the New Requirements Doc</h1>
       <p class="article-meta">2026-07</p>
     </div>
@@ -188,7 +190,7 @@
 <p>Capability evals are the failures you haven't solved yet: ambiguous style or preference matching, long-tail requests the system still gets wrong more often than not. Track these for improvement over time rather than expecting a high pass rate on day one.</p>
 <h2>Step 6: Maintain it as a loop, not a one-time doc</h2>
 <p>Every production failure that reaches a real user becomes a new eval case. This is what "evals are the new PRDs" actually means in practice: instead of a static requirements doc asserting "the assistant should handle stock questions well," the eval set itself becomes the executable, versioned definition of what "well" means, and it keeps being checked, not just signed off once.</p>
-<p><img alt="Six steps to a working eval, looping from production failures back to step one" src="img/eval-loop-diagram.svg" /></p>
+<p><img width="900" height="960" decoding="async" loading="lazy" alt="Six steps to a working eval, looping from production failures back to step one" src="img/eval-loop-diagram.svg" /></p>
 <h2>Where this would hold up somewhere that doesn't look like an AI feature at all</h2>
 <p>The same six steps apply to something further from a chatbot: the search migration from the top. Picture a catalog that's entirely part-number driven. Professional buyers type or paste SKUs like <code>SJSH9-000-3K</code> directly into search. On the old platform, that hyphen is just a tokenizer delimiter. On the new one, a leading <code>-</code> in a search token is a query operator. It means exclude. A part-number search can silently become a filtered-out search, with no error surfaced to anyone.</p>
 <p>Step 1 said don't start with evals, start with real failure capture. This is exactly why that step matters here. A clean, single-word demo query would never hit this bug. It only shows up against real, messy, hyphenated production input, which is the actual argument for testing against pulled logs instead of hypothetical cases written from memory. And it's a clean instance of Step 5: this would become a permanent regression case, not a capability one. There's no acceptable pass rate below 100% for a query that used to work and would now silently fail.</p>
@@ -199,6 +201,8 @@
   <div class="article-back"><a href="../writing.html">&#8592; Back to Writing</a></div>
 
   <!-- ===== FOOTER ===== -->
+  </main>
+
   <footer id="contact">
     <div class="footer-inner">
       <div>
@@ -207,19 +211,19 @@
       </div>
       <div class="footer-links">
         <a href="https://linkedin.com/in/utkkumar" target="_blank" rel="noopener" class="footer-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
         </a>
         <a href="mailto:utkarshsinghinbox@gmail.com" class="footer-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
           Email
         </a>
         <a href="https://github.com/UtkarshaKumar" target="_blank" rel="noopener" class="footer-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
           GitHub
         </a>
         <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener" class="footer-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
           Medium
         </a>
       </div>

@@ -6,7 +6,7 @@
 
   <!-- LEFT PANEL: sequential -->
   <rect x="35" y="92" width="430" height="330" rx="10" fill="#FFFFFF" stroke="#E2DED7" stroke-width="1"/>
-  <text x="250" y="123" text-anchor="middle" font-size="12.5" font-weight="700" fill="#8A837B" font-family="Arial, sans-serif" letter-spacing="0.6">PUBLISH EACH REVIEW AS IT ARRIVES</text>
+  <text x="250" y="123" text-anchor="middle" font-size="12.5" font-weight="700" fill="#6B6460" font-family="Arial, sans-serif" letter-spacing="0.6">PUBLISH EACH REVIEW AS IT ARRIVES</text>
 
   <g font-family="Arial, sans-serif">
     <rect x="70" y="150" width="160" height="50" rx="6" fill="#F4F2EE" stroke="#B8B1A8" stroke-width="1.5"/>
@@ -30,7 +30,7 @@
 
     <text x="250" y="352" text-anchor="middle" font-size="12.5" fill="#6B6460">Each side can see what it is being judged on</text>
     <text x="250" y="371" text-anchor="middle" font-size="12.5" fill="#6B6460">before it judges back.</text>
-    <text x="250" y="399" text-anchor="middle" font-size="13" font-weight="600" fill="#8A837B">Everything drifts to five stars.</text>
+    <text x="250" y="399" text-anchor="middle" font-size="13" font-weight="600" fill="#6B6460">Everything drifts to five stars.</text>
   </g>
 
   <!-- RIGHT PANEL: simultaneous -->
@@ -61,7 +61,7 @@
     <text x="730" y="399" text-anchor="middle" font-size="13" font-weight="600" fill="#c45f28">The rating carries information.</text>
   </g>
 
-  <text x="490" y="450" text-anchor="middle" font-size="12.5" fill="#8A837B" font-family="Arial, sans-serif">The visible feature is identical on both sides. Only the publishing rule changed.</text>
+  <text x="490" y="450" text-anchor="middle" font-size="12.5" fill="#6B6460" font-family="Arial, sans-serif">The visible feature is identical on both sides. Only the publishing rule changed.</text>
 
   <defs>
     <marker id="grayArrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">

@@ -16,6 +16,7 @@
   trigger.type = 'button';
   trigger.className = 'ss-trigger';
   trigger.setAttribute('aria-haspopup', 'dialog');
+  trigger.setAttribute('aria-label', 'Search the site');
   trigger.setAttribute('aria-keyshortcuts', isMac ? 'Meta+K /' : 'Control+K /');
   trigger.innerHTML = ICON + '<span class="ss-trigger-label">Search</span><kbd class="ss-kbd">' + (isMac ? '\u2318K' : 'Ctrl K') + '</kbd>';
   nav.insertBefore(trigger, nav.querySelector('.nav-toggle'));

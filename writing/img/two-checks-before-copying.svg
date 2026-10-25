@@ -35,17 +35,17 @@
 
     <!-- failure paths -->
     <path d="M342 169 L 342 212" stroke="#B8B1A8" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#grayArrow2)"/>
-    <text x="342" y="238" text-anchor="middle" font-size="12" font-weight="600" fill="#8A837B">Skipped it</text>
+    <text x="342" y="238" text-anchor="middle" font-size="12" font-weight="600" fill="#6B6460">Skipped it</text>
     <text x="342" y="258" text-anchor="middle" font-size="12" fill="#6B6460">Everything looks worth having.</text>
     <text x="342" y="276" text-anchor="middle" font-size="12" fill="#6B6460">You collect features instead.</text>
 
     <path d="M597 169 L 597 212" stroke="#B8B1A8" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#grayArrow2)"/>
-    <text x="597" y="238" text-anchor="middle" font-size="12" font-weight="600" fill="#8A837B">Skipped it</text>
+    <text x="597" y="238" text-anchor="middle" font-size="12" font-weight="600" fill="#6B6460">Skipped it</text>
     <text x="597" y="258" text-anchor="middle" font-size="12" fill="#6B6460">It does nothing in your product,</text>
     <text x="597" y="276" text-anchor="middle" font-size="12" fill="#6B6460">and the rule looks overrated.</text>
   </g>
 
-  <text x="490" y="313" text-anchor="middle" font-size="12.5" fill="#8A837B" font-family="Arial, sans-serif">Neither check is about whether you can build it. That question is no longer the hard one.</text>
+  <text x="490" y="313" text-anchor="middle" font-size="12.5" fill="#6B6460" font-family="Arial, sans-serif">Neither check is about whether you can build it. That question is no longer the hard one.</text>
 
   <defs>
     <marker id="arrow2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">

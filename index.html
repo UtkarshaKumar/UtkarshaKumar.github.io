@@ -76,14 +76,14 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="assets/styles.css?v=20261025t">
+  <meta name="color-scheme" content="dark light">
+  <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('theme')}catch(e){}if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';if(t==='light')d.classList.add('light');d.classList.add('js')})();</script>
+  <link rel="preload" href="fonts/outfit/outfit-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/styles.css?v=20261025d">
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ===== NAV ===== -->
   <nav id="top">
@@ -97,10 +97,10 @@
         <a href="writing.html">Writing</a>
         <a href="projects.html">Projects</a>
         <a href="https://github.com/UtkarshaKumar" target="_blank" rel="noopener" class="nav-btn" title="GitHub">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
         </a>
         <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener" class="nav-btn" title="Medium">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
         </a>
         <button class="nav-btn" id="themeToggle" aria-label="Toggle theme">
           <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -135,6 +135,7 @@
       <a href="mailto:utkarshsinghinbox@gmail.com" class="m-accent">Email</a>
     </div>
   </nav>
+  <main id="main">
 
   <!-- ===== HERO ===== -->
   <header id="hero">
@@ -271,7 +272,7 @@
           <text x="16" y="20" fill="rgba(237,232,222,0.15)" font-size="7" font-family="'Courier New',monospace" letter-spacing="2">PRODUCT SCOPE</text>
         </svg>
         <div class="profile-wrap">
-          <img src="profile.jpg" alt="Utkarsha Kumar" class="profile-img" width="300" height="375" loading="eager">
+          <picture><source type="image/webp" srcset="assets/profile-360.webp 360w, assets/profile-720.webp 720w" sizes="300px"><img src="assets/profile-360.jpg" srcset="assets/profile-360.jpg 360w, assets/profile-720.jpg 720w" sizes="300px" alt="Portrait of Utkarsha Kumar" class="profile-img" width="300" height="375" loading="lazy" decoding="async"></picture>
         </div>
       </div>
     </div>
@@ -289,9 +290,9 @@
   <section id="operating-model" class="alt">
     <div class="container">
       <span class="section-label">How I work</span>
-      <h2 class="section-title reveal">Problem first. <em>Platform second.</em></h2>
-      <p class="section-desc reveal reveal-d1">I start with what the customer is trying to do, make the product decision explicit, and stay close enough to production to know whether it worked.</p>
-      <div class="operating-grid reveal reveal-d2">
+      <h2 class="section-title">Problem first. <em>Platform second.</em></h2>
+      <p class="section-desc">I start with what the customer is trying to do, make the product decision explicit, and stay close enough to production to know whether it worked.</p>
+      <div class="operating-grid">
         <article class="operating-card">
           <span class="operating-num">01</span>
           <h3>Frame the problem</h3>
@@ -321,11 +322,11 @@
     <div class="container split">
       <div class="split-head">
       <span class="section-label">Writing</span>
-      <h2 class="section-title reveal">Essays &amp; <em>a guide</em></h2>
-      <p class="section-desc reveal reveal-d1">These pieces exist because I could not find the right frame for a problem I was thinking through. Each starts from the usual claim, then checks it against what production actually did.</p>
+      <h2 class="section-title">Essays &amp; <em>a guide</em></h2>
+      <p class="section-desc">These pieces exist because I could not find the right frame for a problem I was thinking through. Each starts from the usual claim, then checks it against what production actually did.</p>
       </div>
       <div class="split-body">
-      <div class="wlist reveal reveal-d2">
+      <div class="wlist">
         <a class="wrow" href="case-studies/b2b-buying-stack.html"><span class="wdate">2026-10</span><span class="wtitle">Guide: How to build a B2B buying stack on composable or SAP Commerce</span><span class="wsource">Site</span></a>
         <!-- LATEST_WRITING_START -->
 <a class="wrow" href="writing/decide-what-a-good-answer-is-before-you-build-the-agent.html"><span class="wdate">2026-10</span><span class="wtitle">Decide What a Good Answer Is Before You Build the Agent</span><span class="wsource">Site</span></a>
@@ -335,7 +336,7 @@
 <a class="wrow" href="writing/why-understanding-how-agents-think-makes-you-a-better-product-manager.html"><span class="wdate">2026-07</span><span class="wtitle">Why Understanding How Agents Think Makes You a Better Product Manager</span><span class="wsource">Notion</span></a>
 <!-- LATEST_WRITING_END -->
       </div>
-      <a href="writing.html" class="see-all-link reveal reveal-d3" style="margin-top:1.5rem;">See all writing &#8594;</a>
+      <a href="writing.html" class="see-all-link" style="margin-top:1.5rem;">See all writing &#8594;</a>
       </div>
     </div>
   </section>
@@ -345,23 +346,25 @@
     <div class="container split">
       <div class="split-head">
       <span class="section-label">Personal Work</span>
-      <h2 class="section-title reveal">Projects &amp; <em>Prototypes</em></h2>
-      <p class="section-desc reveal reveal-d1">Exploratory and open-source work on GitHub.</p>
+      <h2 class="section-title">Projects &amp; <em>Prototypes</em></h2>
+      <p class="section-desc">Exploratory and open-source work on GitHub.</p>
       </div>
       <div class="split-body">
-      <div id="latest-projects-container" class="plist reveal reveal-d2">
+      <div id="latest-projects-container" class="plist">
         <!-- LATEST_PROJECTS_START -->
 <a href="https://github.com/UtkarshaKumar/shopsense-ai" target="_blank" rel="noopener" class="prow"><span class="pname">ShopSense AI</span><span class="pdesc">A shopping assistant demo. An agent searches an electronics catalog and answers with products, comparisons, or bundles.</span><span class="plang"><span class="lang-dot" style="background:#3572A5"></span>Python</span></a>
 <a href="https://github.com/UtkarshaKumar/b2b-commerce-seo-best-practices" target="_blank" rel="noopener" class="prow"><span class="pname">B2B Commerce SEO Lab</span><span class="pdesc">A working B2B store with 360 products in English and French that shows SEO for category and product pages.</span><span class="plang"><span class="lang-dot" style="background:#f1e05a"></span>JavaScript</span></a>
 <a href="https://github.com/UtkarshaKumar/cloudnest" target="_blank" rel="noopener" class="prow"><span class="pname">CloudNest</span><span class="pdesc">A Mac app that restores deleted iCloud Drive files in bulk, back into their original folders.</span><span class="plang"><span class="lang-dot" style="background:#dea584"></span>Rust</span></a>
 <!-- LATEST_PROJECTS_END -->
       </div>
-      <a href="projects.html" class="see-all-link reveal reveal-d3" style="margin-top:1.5rem;">See all projects &#8594;</a>
+      <a href="projects.html" class="see-all-link" style="margin-top:1.5rem;">See all projects &#8594;</a>
       </div>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
+  </main>
+
   <footer id="contact">
     <div class="footer-inner">
       <div>
@@ -370,19 +373,19 @@
       </div>
       <div class="footer-links">
         <a href="https://linkedin.com/in/utkkumar" target="_blank" rel="noopener" class="footer-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
         </a>
         <a href="mailto:utkarshsinghinbox@gmail.com" class="footer-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
           Email
         </a>
         <a href="https://github.com/UtkarshaKumar" target="_blank" rel="noopener" class="footer-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
           GitHub
         </a>
         <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener" class="footer-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
           Medium
         </a>
       </div>

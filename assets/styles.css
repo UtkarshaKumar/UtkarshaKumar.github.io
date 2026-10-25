@@ -1,4 +1,4 @@
-    /* ===== ET BOOK (Tufte's book serif) — replaces Cormorant for headings/display ===== */
+    /* ===== ET BOOK (Tufte's book serif), replaces Cormorant for headings/display ===== */
     @font-face {
       font-family: 'et-book';
       src: url('../fonts/et-book/et-book-roman-line-figures.woff') format('woff'),
@@ -148,7 +148,7 @@
       background: linear-gradient(135deg, #635BFF 0%, #4f46e5 100%) !important;
     }
 
-    /* Modern menu toggle — SVG path morph */
+    /* Modern menu toggle: SVG path morph */
     .nav-toggle {
       display: none;
       cursor: pointer;
@@ -752,13 +752,13 @@
       background-size:200px 200px; }
     html.light body::after { opacity: 0.008; }
 
-    /* ===== SPOTLIGHT — BENTO ===== */
+    /* ===== SPOTLIGHT: BENTO ===== */
     .bento-cell { isolation: isolate; }
     .bento-cell::before { content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
       background: radial-gradient(circle 220px at var(--bx,-999px) var(--by,-999px),
         rgba(99,91,255,0.12), rgba(224,120,64,0.08) 60%, transparent 100%); }
 
-    /* ===== SPOTLIGHT — TIMELINE ===== */
+    /* ===== SPOTLIGHT: TIMELINE ===== */
     .tl-item { isolation: isolate; }
     .tl-item::before { content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
       background: radial-gradient(circle 280px at var(--bx,-999px) var(--by,-999px),
@@ -826,6 +826,18 @@
       transition: background 0.2s, border-color 0.2s;
     }
     .see-all-link:hover { background: var(--bg-card); border-color: var(--accent); color: var(--accent); }
+
+    /* ===== SPLIT SECTION (heading left, list right; stacks below 960px) ===== */
+    .split {
+      display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: 4rem; align-items: start;
+    }
+    .split-body { min-width: 0; padding-top: 2.4rem; }
+    .split .wlist, .split .plist { max-width: none; margin-top: 0; }
+    @media (max-width: 960px) {
+      .split { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+      .split-body { padding-top: 0; }
+    }
     @media (max-width: 600px) {
       .wrow { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
       .wtitle { flex: none; width: 100%; }

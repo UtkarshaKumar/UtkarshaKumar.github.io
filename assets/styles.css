@@ -843,3 +843,40 @@
       .wtitle { flex: none; width: 100%; }
       .wdate, .wsource { order: 3; }
     }
+
+    /* Site search */
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .site-search { position: relative; margin-left: auto; margin-right: 0.5rem; }
+    .site-search input {
+      width: 11rem; font: inherit; font-size: 0.82rem; color: var(--text);
+      background: transparent; border: 1px solid var(--border-hi); border-radius: 6px;
+      padding: 0.38rem 1.8rem 0.38rem 0.65rem; transition: border-color .2s, width .2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .site-search input:focus { outline: none; border-color: var(--accent); width: 14rem; }
+    .site-search input::-webkit-search-cancel-button { display: none; }
+    .site-search-key {
+      position: absolute; right: 0.45rem; top: 50%; transform: translateY(-50%);
+      font: 0.7rem/1 inherit; color: var(--text-2); border: 1px solid var(--border);
+      border-radius: 4px; padding: 0.12rem 0.32rem; pointer-events: none;
+    }
+    .site-search input:focus + .site-search-key { display: none; }
+    .site-search-results {
+      position: absolute; right: 0; top: calc(100% + 0.4rem); width: min(26rem, 92vw);
+      max-height: 70vh; overflow-y: auto; margin: 0; padding: 0.35rem; list-style: none;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.25); z-index: 200;
+    }
+    .site-search-results a { display: block; padding: 0.55rem 0.65rem; border-radius: 6px; color: var(--text); text-decoration: none; }
+    .site-search-results li.active a, .site-search-results a:hover { background: var(--border); }
+    .ss-title { display: block; font-weight: 600; font-size: 0.9rem; }
+    .ss-meta { display: block; font-size: 0.72rem; color: var(--accent); margin: 0.1rem 0 0.25rem; }
+    .ss-snip { display: block; font-size: 0.8rem; line-height: 1.45; color: var(--text-2); }
+    .ss-snip mark { background: rgba(224,120,64,0.25); color: inherit; border-radius: 2px; }
+    .site-search-empty { padding: 0.6rem 0.65rem; font-size: 0.85rem; color: var(--text-2); }
+    @media (max-width: 768px) {
+      .site-search { margin-right: 0.4rem; }
+      .site-search input, .site-search input:focus { width: 8.5rem; font-size: 16px; }
+      .site-search-key { display: none; }
+      .site-search-results { position: fixed; left: 0.75rem; right: 0.75rem; top: 3.6rem; width: auto; }
+    }

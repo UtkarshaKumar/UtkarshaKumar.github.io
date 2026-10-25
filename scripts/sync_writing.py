@@ -452,7 +452,9 @@ ARTICLE_TEMPLATE = Template("""<!--
   <script type="application/ld+json">
 $jsonld
   </script>
-  <link rel="icon" type="image/jpeg" href="../profile.jpg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <title>$title, Utkarsha Kumar</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -648,6 +650,7 @@ $body_html
     })();
   </script>
 
+<script src="../assets/search.js" defer></script>
 </body>
 </html>
 """)

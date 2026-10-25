@@ -33,10 +33,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/sync_projects_and_llms.py
 
+      - name: Rebuild the site search index
+        run: python3 scripts/build_search_index.py
+
       - name: Commit and push
         run: |
           git config --global user.name "Utkarsha Kumar"
           git config --global user.email "utkarshsinghinbox@gmail.com"
-          git add index.html writing.html writing/ projects.html llms.txt
+          git add index.html writing.html writing/ projects.html llms.txt search-index.json
           git commit -m "Automated Sync: Update writing from Notion and Medium" || exit 0
           git push origin main

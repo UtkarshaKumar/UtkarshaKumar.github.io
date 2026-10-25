@@ -53,9 +53,9 @@ Education: Bachelor of Engineering, Information Technology, Chhattisgarh Swami V
 - [Copy the Rule, Not the Screen](https://utkarshakumar.github.io/writing/copy-the-rule-not-the-screen.html): published 2026-08
 - [Evals Are the New Requirements Doc](https://utkarshakumar.github.io/writing/evals-are-the-new-requirements-doc.html): published 2026-07
 - [The Loop Was Never About Checkout](https://utkarshakumar.github.io/writing/the-loop-was-never-about-checkout.html): published 2026-07
+- [Why Understanding How Agents Think Makes You a Better Product Manager](https://utkarshakumar.github.io/writing/why-understanding-how-agents-think-makes-you-a-better-product-manager.html): published 2026-07
+- [I Built a Tool That Writes Action Items of My Meetings So I Don't Have To](https://utkarshakumar.github.io/writing/i-built-a-tool-that-writes-action-items-of-my-meetings-so-i-don-t-have.html): published 2026-07
 - [The Invisible Hand: From Active Transactions to Outcome-Based Agentic Commerce](https://utkarshakumar.github.io/writing/the-invisible-hand-from-active-transactions-to-outcome-based-agentic-c.html): published 2026-03
-- [Why Understanding How Agents Think Makes You a Better Product Manager](https://utkarshakumar.github.io/writing/why-understanding-how-agents-think-makes-you-a-better-product-manager.html)
-- [I Built a Tool That Writes Action Items of My Meetings So I Don't Have To](https://utkarshakumar.github.io/writing/i-built-a-tool-that-writes-action-items-of-my-meetings-so-i-don-t-have.html)
 <!-- WRITING_LIST_END -->
 
 ## Projects
@@ -63,11 +63,10 @@ Education: Bachelor of Engineering, Information Technology, Chhattisgarh Swami V
 Personal projects on GitHub.
 
 <!-- PROJECT_LIST_START -->
-- [ShopSense AI](https://github.com/UtkarshaKumar/shopsense-ai): Shopping advisor demo for consumer electronics: a ReAct agent searches a catalog based on the SAP Spartacus sample data and answers as a product grid, comparison, or bundle.
-- [CloudNest](https://github.com/UtkarshaKumar/cloudnest): macOS app for recovering accidentally deleted iCloud Drive files and folders in bulk, something Apple's own recovery tool fails at nearly every time. Restores items back to their original folder structure. Built with Tauri 2, Rust, and Vite.
-- [PageSmith](https://github.com/UtkarshaKumar/pagesmith): Microsoft Word for HTML files. Mac app (Tauri 2 + Rust) that opens any .html, edits visually, and saves back cleanly.
-- [Swift Computer Use](https://github.com/UtkarshaKumar/swift-computer-use): macOS OS extension for real-time semantic computer use by AI agents
-- [Nudge Pro](https://github.com/UtkarshaKumar/nudge-pro): A macOS meeting recording app that records, transcribes, and generates AI-powered meeting notes.
+- [ShopSense AI](https://github.com/UtkarshaKumar/shopsense-ai): A shopping assistant demo. An agent searches an electronics catalog and answers with products, comparisons, or bundles.
+- [CloudNest](https://github.com/UtkarshaKumar/cloudnest): A Mac app that restores deleted iCloud Drive files in bulk, back into their original folders.
+- [PageSmith](https://github.com/UtkarshaKumar/pagesmith): A Mac app that opens any HTML file, lets you edit it like a document, and saves it back cleanly.
+- [Nudge Pro](https://github.com/UtkarshaKumar/nudge-pro): A Mac app that records meetings, transcribes them, and writes the notes.
 <!-- PROJECT_LIST_END -->
 
 ## Contact

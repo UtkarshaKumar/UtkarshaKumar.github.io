@@ -815,6 +815,23 @@ def write_sitemap(items):
     )
 
 
+def writing_jsonld(items):
+    """ItemList for writing.html: the essays in the list, plus the guide."""
+    entries = [(it["title"], SITE_URL + (it.get("local_path") or it["url"])) if it.get("local_path")
+               else (it["title"], it["url"]) for it in items]
+    entries.append(("How to build a B2B buying stack on composable or SAP Commerce",
+                    SITE_URL + "case-studies/b2b-buying-stack.html"))
+    data = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Writing by Utkarsha Kumar",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i, "name": n, "url": u} for i, (n, u) in enumerate(entries, 1)
+        ],
+    }
+    return json.dumps(data, ensure_ascii=False, indent=2)
+
+
 # How many recent posts to teaser on the homepage (full list stays on writing.html).
 HOMEPAGE_LATEST_COUNT = 5
 
@@ -835,6 +852,9 @@ def main():
 
     inject(ROOT / "writing.html", "<!-- WRITING_LIST_START -->", "<!-- WRITING_LIST_END -->", full_block)
     inject(ROOT / "index.html", "<!-- LATEST_WRITING_START -->", "<!-- LATEST_WRITING_END -->", latest_block)
+    if merged:
+        inject(ROOT / "writing.html", "<!-- WRITING_JSONLD_START -->", "<!-- WRITING_JSONLD_END -->",
+               writing_jsonld(merged))
 
     if merged:
         write_sitemap(merged)

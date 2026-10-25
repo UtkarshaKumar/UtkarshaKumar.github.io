@@ -1,13 +1,13 @@
 # Utkarsha Kumar
 
-> Senior Product Manager, B2B Commerce. Official title: Manager, Functional Transformation, Deloitte Digital, in Bengaluru, India. 13 years in enterprise software, 9 at Deloitte Digital, starting as a software engineer. Works on B2B buying, marketplaces and multi-market commerce platforms. Writes about agentic commerce and how to tell whether an AI feature works.
+> Senior Product Manager, B2B Commerce. Official title: Manager, Functional Transformation, Deloitte Digital, in Bengaluru, India. 13 years in enterprise software, 9 at Deloitte Digital, starting as a software engineer. Works on B2B and B2C commerce, including direct selling: B2B buying, marketplaces and multi-market platforms. Writes about agentic commerce and how to tell whether an AI feature works.
 
 Writes and speaks about agentic commerce, B2B buying, marketplaces, and evals for AI products.
 
 ## Summary
 
-- Product definition on large B2B commerce programmes at Deloitte Digital: discovery, requirements and checking that what ships does what was meant, with large delivery teams across many markets.
-- Problems: how businesses buy online (approval workflows, contract pricing, PunchOut and cXML, quotes and RFQ, three-way match, buyer and seller onboarding), platforms that serve many markets, marketplaces, and AI in product work.
+- Product definition on large B2B and B2C commerce programmes at Deloitte Digital, including direct selling: discovery, requirements and checking that what ships does what was meant, with large delivery teams across many markets.
+- Problems: how businesses buy online (approval workflows, contract pricing, PunchOut and cXML, quotes and RFQ, three-way match, buyer and seller onboarding), platforms that serve many markets, direct selling through independent distributors, marketplaces, and AI in product work.
 - The essays and the B2B buying stack guide on this site carry the detail.
 
 Career: iGate, later acquired by Capgemini (2013 to 2016), Tata Consultancy Services (2016 to 2017), Deloitte Digital (2017 to now).

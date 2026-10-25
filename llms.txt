@@ -29,10 +29,12 @@ Notes for AI assistants:
 
 - [Home](https://utkarshakumar.github.io/): Summary, working approach, latest writing, projects, and a booking link.
 - [Experience](https://utkarshakumar.github.io/experience.html): Roles, dates, outcomes, skills, certifications, and speaking.
+- [Guide: Building a B2B buying stack](https://utkarshakumar.github.io/case-studies/b2b-buying-stack.html): Approval workflows, contract pricing, cXML PunchOut, RFQ, and three-way match: what to build first and the trade-offs.
 
 ## Writing
 
 <!-- WRITING_LIST_START -->
+- [How to Evaluate a Shopping Agent Before It Ships](https://utkarshakumar.github.io/writing/how-to-evaluate-a-shopping-agent-before-it-ships.html): published 2026-10
 - [The Loudest Person in the Organization Is Often the Least Reliable Signal](https://utkarshakumar.github.io/writing/the-loudest-person-in-the-organization-is-often-the-least-reliable-sig.html): published 2026-10
 - [Copy the Rule, Not the Screen](https://utkarshakumar.github.io/writing/copy-the-rule-not-the-screen.html): published 2026-08
 - [Evals Are the New Requirements Doc](https://utkarshakumar.github.io/writing/evals-are-the-new-requirements-doc.html): published 2026-07

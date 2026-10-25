@@ -1,0 +1,319 @@
+<!--
+  © 2026 Utkarsha Kumar. All rights reserved.
+  This source code and design are the original work of Utkarsha Kumar.
+  Cloning, copying, or reusing this code or design without credit is a
+  copyright violation. If you use any part of this work, you must attribute
+  the original author and link back to https://utkarshakumar.github.io/
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How to build business accounts, multi-tier approval workflows, contract pricing, cXML PunchOut L1/L2, RFQ/quote and three-way match on composable or SAP Commerce.">
+  <meta property="og:title" content="Guide: Building a B2B buying stack">
+  <meta property="og:description" content="How to build business accounts, multi-tier approval workflows, contract pricing, cXML PunchOut L1/L2, RFQ/quote and three-way match on composable or SAP Commerce.">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://utkarshakumar.github.io/case-studies/b2b-buying-stack.html">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Guide: Building a B2B buying stack">
+  <link rel="canonical" href="https://utkarshakumar.github.io/case-studies/b2b-buying-stack.html">
+  <link rel="icon" type="image/jpeg" href="../profile.jpg" />
+  <title>Guide: Building a B2B buying stack — Utkarsha Kumar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>
+    .subpage-hero {
+      background: #0C0B09; color: #EDE8DE;
+      padding: 9rem 2rem 3.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .subpage-hero .section-title, .subpage-hero .section-desc { color: inherit; }
+    .nav-current { color: var(--text) !important; }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Guide: Building a B2B buying stack",
+  "description": "How to build business accounts, multi-tier approval workflows, contract pricing, cXML PunchOut L1/L2, RFQ/quote and three-way match on composable or SAP Commerce.",
+  "url": "https://utkarshakumar.github.io/case-studies/b2b-buying-stack.html",
+  "author": {
+    "@type": "Person",
+    "name": "Utkarsha Kumar",
+    "url": "https://utkarshakumar.github.io/"
+  },
+  "datePublished": "2026-10-25"
+}
+</script>
+</head>
+
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav id="top">
+    <div class="nav-inner">
+      <div class="nav-brand-group">
+        <a href="../index.html" class="nav-brand">Utkarsha Kumar</a>
+        <span class="nav-role">Bengaluru, India</span>
+      </div>
+      <div class="nav-links">
+        <a href="../experience.html">Experience</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../projects.html" class="nav-current">Projects</a>
+        <a href="https://github.com/UtkarshaKumar" target="_blank" rel="noopener" class="nav-btn" title="GitHub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        </a>
+        <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener" class="nav-btn" title="Medium">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+        </a>
+        <button class="nav-btn" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <a href="https://linkedin.com/in/utkkumar" target="_blank" rel="noopener" class="nav-btn nav-cta">Connect</a>
+      </div>
+      <button class="nav-toggle" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+          <path class="toggle-line line-top" d="M2,7 L22,7"/>
+          <path class="toggle-line line-mid" d="M5,12 L22,12"/>
+          <path class="toggle-line line-bot" d="M2,17 L22,17"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu">
+      <div class="mobile-role">Bengaluru, India</div>
+      <div class="mobile-theme-row">
+        <span>Theme</span>
+        <button class="mobile-theme-btn" id="mobileThemeToggle" aria-label="Toggle theme">
+          <svg class="icon-moon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+          <span id="mobileThemeLabel">Light</span>
+        </button>
+      </div>
+      <a href="../experience.html">Experience</a>
+      <a href="../writing.html">Writing</a>
+      <a href="../projects.html">Projects</a>
+      <a href="https://linkedin.com/in/utkkumar" target="_blank" rel="noopener" class="m-accent">LinkedIn &#8599;</a>
+      <a href="https://github.com/UtkarshaKumar" target="_blank" rel="noopener" class="m-accent">GitHub &#8599;</a>
+      <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener" class="m-accent">Medium &#8599;</a>
+      <a href="mailto:utkarshsinghinbox@gmail.com" class="m-accent">Email</a>
+    </div>
+  </nav>
+
+  <main class="subpage-hero"><div class="container"><article class="case-study" style="max-width:720px;line-height:1.7;">
+<span class="section-label" style="color:#E07840;">Guide</span>
+<h1 class="impact-title">How to build a B2B buying stack on composable or SAP Commerce</h1>
+<p><em>Practitioner's guide · B2B commerce · about 5 minutes</em></p>
+<p>Most B2B commerce programmes start by copying a consumer storefront and then bolting on "B2B features". That order is backwards. A business buyer doesn't shop like a consumer. Someone requests, someone approves, a negotiated price applies, a procurement system wants control, and finance reconciles every invoice. If the platform can't model that, buyers go back to email and phone. This guide is how I think about building that buying stack on SAP Commerce Cloud or a composable platform such as Commercetools.</p>
+<h2>Start with business accounts and buyer roles</h2>
+<p><strong>Why it matters.</strong> Every feature below depends on knowing who the buyer is and what they're allowed to do. Approval, pricing and PunchOut all read from the account model.</p>
+<p><strong>Build first.</strong> A business account (the company) with a hierarchy of units, users attached to units, and a small set of roles: buyer, approver, account administrator, and an internal sales role that can act for the customer.</p>
+<p><strong>Trade-offs.</strong> A deep, flexible hierarchy fits large groups but makes every permission check and every report harder. Start shallow and allow one or two levels until real customers need more.</p>
+<p><strong>Pitfalls.</strong> Inventing roles per customer. Letting sales reps impersonate buyers without an audit trail.</p>
+<p><strong>Metrics.</strong> Share of orders placed by self-service users rather than sales reps; time to onboard a new business account.</p>
+<h2>Multi-tier approval workflows</h2>
+<p><strong>Why it matters.</strong> For many buyers, approval is the deciding requirement. Without it, a finance team won't let staff order online at all.</p>
+<p><strong>Build first.</strong> Threshold-based approval on order value. A user who needs approval submits an order, and it routes to an approver. Support linear chains (each tier in turn) and direct routing (straight to the tier that matches the amount). Define who is exempt, typically account administrators and internal sales roles.</p>
+<p><strong>Threshold design.</strong> Make thresholds properties of the account or unit, not code. Express them in the order's currency, and decide early whether tax and shipping count toward the threshold.</p>
+<p><strong>Delegation.</strong> Approvers go on holiday. Build delegation and an escalation timeout from the start, or orders will sit in a queue nobody watches.</p>
+<p><strong>Trade-offs.</strong> Rule engines that approve by category, cost centre or supplier are powerful but hard for customers to administer. Value thresholds plus roles cover most needs.</p>
+<p><strong>Pitfalls.</strong> Editing an order after approval without re-approval. Notifications that never arrive. Approvers who can't see why an order reached them.</p>
+<p><strong>Metrics.</strong> Median time from submission to approval, the share of orders that need approval, rejection rate, and how many orders sit pending for more than a day.</p>
+<h2>Contract pricing versus list and best price</h2>
+<p><strong>Why it matters.</strong> B2B buyers expect their negotiated price on every line, every time. One wrong price undoes months of trust.</p>
+<p><strong>Build first.</strong> An explicit price precedence model, written down before anyone configures it. A typical stack: list price (sometimes split by division), then web, managed and promotional prices on top. The default rule is best price wins. Contract pricing then overrides best price for accounts that want price predictability over the lowest price.</p>
+<p><strong>Trade-offs.</strong> Best-price-wins is simple for customers to understand but makes margins hard to predict. Contract-first is predictable but means promotions may not apply. Make the choice per account, not globally.</p>
+<p><strong>Pitfalls.</strong> Calculating prices differently on the product page, in the cart and on the invoice. Prorating discounts badly: order-level discounts should be spread across line items, product-level discounts should stay on the product, and returns must reverse the same way.</p>
+<p><strong>Metrics.</strong> Price-dispute rate, credit notes issued for pricing errors, and the gap between cart price and invoiced price.</p>
+<h2>cXML PunchOut: Level 1 versus Level 2</h2>
+<p><strong>Why it matters.</strong> Large buyers buy through their e-procurement system (Ariba, Coupa, Jaggaer and others), not your storefront. PunchOut lets them shop your catalogue from inside that system and return the cart for their own approval.</p>
+<p><strong>Level 1.</strong> The buyer punches out to your site from the procurement system's generic entry point, shops, and the cart is returned via cXML. Build this first: it covers the most customers for the least integration work.</p>
+<p><strong>Level 2.</strong> The buyer searches a catalogue inside the procurement system and punches into a specific product or category on your site. It's a better experience but means you must keep catalogue content synced with each procurement platform.</p>
+<p><strong>Trade-offs.</strong> Level 2 improves conversion for heavy users but adds catalogue-sync work for every procurement network. Offer it to the accounts with the most volume.</p>
+<p><strong>Pitfalls.</strong> Contract prices that don't carry into the PunchOut session. Purchase orders (cXML OrderRequest) that don't match the returned cart. Session timeouts that silently lose carts.</p>
+<p><strong>Metrics.</strong> PunchOut session-to-PO conversion, PO match rate on the first attempt, and failed cXML messages per week.</p>
+<h2>RFQ and quote flows</h2>
+<p><strong>Why it matters.</strong> Large or unusual orders need a negotiated price before the buyer commits. Without a quote flow, that negotiation happens in email and the order never touches your platform.</p>
+<p><strong>Build first.</strong> The buyer turns a cart into a quote request. A sales user adjusts prices and sets an expiry. The buyer accepts, and the accepted quote becomes an order at the quoted price.</p>
+<p><strong>Trade-offs.</strong> Full back-and-forth negotiation in the platform is attractive but rarely used. A single round with a comment thread is usually enough at first.</p>
+<p><strong>Pitfalls.</strong> Quotes that ignore contract pricing, quotes with no expiry, and quoted prices that change at checkout.</p>
+<p><strong>Metrics.</strong> Quote turnaround time, quote-to-order conversion, and the share of quotes that expire.</p>
+<h2>Three-way match</h2>
+<p><strong>Why it matters.</strong> Finance teams reconcile the purchase order, the goods receipt and the invoice. If your data doesn't match, invoices get held and you get paid late.</p>
+<p><strong>Build first.</strong> Consistent identifiers and quantities across order, shipment and invoice, including partial shipments and backorders.</p>
+<p><strong>Trade-offs.</strong> Matching at line level is precise but strict. Allowing tolerances (small price or quantity differences) reduces holds but needs clear rules agreed with the customer's finance team.</p>
+<p><strong>Pitfalls.</strong> Order numbers that collide across systems, and invoice lines that don't map back to PO lines.</p>
+<p><strong>Metrics.</strong> Invoices matched on the first pass, invoices on hold, and days sales outstanding for PunchOut customers.</p>
+<h2>Build sequence</h2>
+<ol>
+<li>Business accounts, units and buyer roles.</li>
+<li>Price precedence: list, best price and contract pricing, with proration rules.</li>
+<li>Multi-tier approval workflows, with delegation and escalation.</li>
+<li>cXML PunchOut Level 1.</li>
+<li>RFQ and quote flows on top of contract pricing.</li>
+<li>Three-way-match data quality across order, shipment and invoice.</li>
+<li>PunchOut Level 2 for the highest-volume accounts.</li>
+</ol>
+<p>Hold one global core and let regions extend it rather than fork it. Every fork multiplies the cost of every later release.</p>
+<h2>Glossary</h2>
+<ul>
+<li><strong>Business account:</strong> the customer company, with units, users and roles.</li>
+<li><strong>Multi-tier approval:</strong> routing an order through one or more approvers based on rules such as order value.</li>
+<li><strong>Contract pricing:</strong> a negotiated price for a specific account that can override list and promotional prices.</li>
+<li><strong>Best-price-wins:</strong> the default rule that applies the lowest eligible price.</li>
+<li><strong>cXML PunchOut:</strong> a protocol that lets a procurement system open a supplier's catalogue and receive a cart back.</li>
+<li><strong>RFQ / quote:</strong> a request for a negotiated price before ordering.</li>
+<li><strong>Three-way match:</strong> reconciling the purchase order, goods receipt and invoice before payment.</li>
+</ul>
+<p style="margin-top:2rem;"><a href="../writing.html">&#8592; Back to Writing</a></p>
+</article></div></main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-name">Utkarsha Kumar</p>
+        <p class="footer-role">Senior Product Manager &middot; Deloitte Digital &middot; B2B Commerce &amp; AI</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/utkkumar" target="_blank" rel="noopener" class="footer-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:utkarshsinghinbox@gmail.com" class="footer-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          Email
+        </a>
+        <a href="https://github.com/UtkarshaKumar" target="_blank" rel="noopener" class="footer-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub
+        </a>
+        <a href="https://medium.com/@utkarshsingh_96177" target="_blank" rel="noopener" class="footer-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          Medium
+        </a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Utkarsha Kumar &middot; All rights reserved &middot; Cloning or reusing without credit is a copyright violation</p>
+    </div>
+  </footer>
+
+  <!-- Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <script>
+    // ===== THEME =====
+    (function () {
+      var html = document.documentElement;
+      var label = document.getElementById('mobileThemeLabel');
+
+      function applyTheme(t) {
+        if (t === 'light') { html.classList.add('light'); if (label) label.textContent = 'Dark'; }
+        else { html.classList.remove('light'); if (label) label.textContent = 'Light'; }
+      }
+      function toggle() {
+        var next = html.classList.contains('light') ? 'dark' : 'light';
+        applyTheme(next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      }
+      var saved; try { saved = localStorage.getItem('theme'); } catch (e) {}
+      var sysLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      applyTheme(saved || (sysLight ? 'light' : 'dark'));
+
+      var btn = document.getElementById('themeToggle');
+      var mbtn = document.getElementById('mobileThemeToggle');
+      if (btn) btn.addEventListener('click', toggle);
+      if (mbtn) mbtn.addEventListener('click', toggle);
+
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function (e) {
+        var hasSaved; try { hasSaved = !!localStorage.getItem('theme'); } catch (ex) {}
+        if (!hasSaved) applyTheme(e.matches ? 'light' : 'dark');
+      });
+    })();
+
+    // ===== HAMBURGER =====
+    var burger = document.getElementById('hamburger');
+    var mMenu = document.getElementById('mobile-menu');
+    burger.addEventListener('click', function () {
+      var isOpen = burger.classList.toggle('open');
+      mMenu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen);
+    });
+    mMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        burger.classList.remove('open');
+        mMenu.classList.remove('open');
+      });
+    });
+
+    // ===== CURSOR =====
+    (function () {
+      if (!window.matchMedia('(pointer: fine)').matches) return;
+      var dot = document.getElementById('cursorDot');
+      var ring = document.getElementById('cursorRing');
+      if (!dot || !ring) return;
+      var mx = -200, my = -200, rx = -200, ry = -200, entered = false;
+
+      document.addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+        if (!entered) {
+          entered = true; rx = mx; ry = my;
+          dot.classList.add('on'); ring.classList.add('on');
+        }
+      });
+      document.addEventListener('mouseleave', function () {
+        dot.classList.remove('on'); ring.classList.remove('on'); entered = false;
+      });
+      document.addEventListener('mouseover', function (e) {
+        var t = e.target.closest('a, button, [role="button"], input, textarea, select, .prow');
+        if (t) { dot.classList.add('hov'); ring.classList.add('hov'); }
+        else { dot.classList.remove('hov'); ring.classList.remove('hov'); }
+      });
+      document.addEventListener('mousedown', function () { dot.classList.add('dn'); });
+      document.addEventListener('mouseup', function () { dot.classList.remove('dn'); });
+
+      (function animRing() {
+        rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+        ring.style.left = Math.round(rx * 10) / 10 + 'px';
+        ring.style.top = Math.round(ry * 10) / 10 + 'px';
+        requestAnimationFrame(animRing);
+      })();
+    })();
+
+    // ===== GITHUB PROJECTS =====
+    (function () {
+      var API = 'https://api.github.com/users/UtkarshaKumar/repos?type=owner&sort=updated&per_page=100';
+      var c = document.getElementById('github-projects-container');
+      var COLORS = { Swift: '#f05138', Python: '#3572A5', JavaScript: '#f1e05a', TypeScript: '#3178c6', HTML: '#e34c26', CSS: '#563d7c', 'Jupyter Notebook': '#DA5B0B' };
+
+      fetch(API).then(function (r) {
+        if (!r.ok) throw new Error('rate limit');
+        return r.json();
+      }).then(function (repos) {
+        var featured = repos.filter(function (r) { return r.homepage && r.homepage.includes('utkarshakumar.github.io'); });
+        if (!featured.length) { c.innerHTML = '<div class="wlist-empty">No featured projects at this time.</div>'; return; }
+        c.innerHTML = featured.map(function (repo) {
+          var name = repo.name.replace(/-/g, ' ').replace(/\b\w/g, function (l) { return l.toUpperCase(); });
+          var lang = repo.language ? '<span class="plang"><span class="lang-dot" style="background:' + (COLORS[repo.language] || '#888') + '"></span>' + repo.language + '</span>' : '<span></span>';
+          return '<a href="../' + repo.html_url + '" target="_blank" rel="noopener" class="prow">' +
+            '<span class="pname">' + name + '</span>' +
+            '<span class="pdesc">' + (repo.description || 'No description provided.') + '</span>' +
+            lang +
+            '</a>';
+        }).join('');
+      }).catch(function () {
+        c.innerHTML = '<div class="wlist-empty">Unable to load projects from GitHub. Please check back later.</div>';
+      });
+    })();
+  </script>
+
+</body>
+</html>

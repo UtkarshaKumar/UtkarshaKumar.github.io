@@ -77,10 +77,19 @@ BODY_FIXES = {
 }
 
 
+def de_dash(html):
+    """Site copy rule: no em or en dashes in synced bodies (Notion and Medium alike)."""
+    html = html.replace("<p>\u2014 -</p>", "")
+    html = html.replace("\u2013", "-")
+    html = re.sub(r"</strong>\s*\u2014\s*", "</strong>: ", html)
+    html = re.sub(r"\s*\u2014\s*", ", ", html)
+    return html
+
+
 def apply_body_fixes(title, body_html):
     for old, new in BODY_FIXES.get(title, []):
         body_html = body_html.replace(old, new)
-    return body_html
+    return de_dash(body_html)
 
 NOTION_HEADERS = {
     "Authorization": f"Bearer {NOTION_TOKEN}",

@@ -84,7 +84,7 @@ def fetch_featured_projects():
         resp.raise_for_status()
         repos = resp.json()
     except Exception as e:
-        print(f"WARNING: GitHub repo fetch failed: {e}")
+        print(f"::warning::GitHub repo fetch failed; project lists left unchanged: {e}")
         return None
     featured = [r for r in repos if "utkarshakumar.github.io" in (r.get("homepage") or "")]
     newest = sorted(featured, key=lambda r: r["created_at"], reverse=True)
@@ -130,7 +130,7 @@ def main():
     if writing:
         inject(LLMS, "<!-- WRITING_LIST_START -->", "<!-- WRITING_LIST_END -->", "\n".join(writing))
     else:
-        print("WARNING: no writing rows parsed from writing.html; llms.txt writing list left unchanged")
+        print("::warning::No writing rows parsed from writing.html; llms.txt writing list left unchanged")
 
     projects = fetch_featured_projects()
     if projects is not None:

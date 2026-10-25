@@ -2,17 +2,17 @@
 
 > Senior Product Manager at Deloitte Digital in Bengaluru, India. Product definition and release scope for enterprise commerce: an 11-market B2B platform in healthcare distribution and a 95-market composable commerce replatform in direct selling and nutrition. The writing asks whether an AI feature moved the number it was supposed to move.
 
-The [experience page](https://utkarshakumar.github.io/experience.html) is the source of record for every role, date, and figure below.
+The [experience page](https://utkarshakumar.github.io/experience.html) is the source of record for the figures below.
 
-Career: Capgemini (software engineer, then senior software engineer, 2013 to 2016), Tata Consultancy Services (business analyst and team lead, 2016 to 2017), then Deloitte Digital from 2017 as Consultant, Senior Consultant, Business Experience Designer, and Senior Product Manager since 2022.
+Career: Capgemini (software engineer, then senior software engineer, 2013 to 2016), Tata Consultancy Services (Business Analyst (Team Lead), 2016 to 2017), then Deloitte Digital from 2017 as Consultant, Senior Consultant, Business Experience Designer, and Senior Product Manager since 2022.
 
-Measured outcomes:
+Outcomes:
 
-- 11-market B2B platform, healthcare distribution, June 2024 to present: owned discovery, core product strategy, and delivery, then led BA and QA through hypercare after the client took over product ownership. Open defects fell 90%, from 380 to 38, after delivery was rebuilt into small cross-functional teams.
-- 95-market composable replatform, direct selling and nutrition, July 2022 to 2024: owned the commerce platform as Senior Product Manager, including pricing logic, Coveo search, and the US, Canada, and brand-site launches. Integrated Adobe's recommendation module, A/B testing, and analytics. Platform outcomes: average order value up 15%, distributor retention up 40%.
-- B2B customer onboarding at a global energy company went from about 14 days to the same day.
-- On a member account platform serving 7M+ members, NPS rose 20 points and account-related complaints fell 80%.
-- A GenAI programme for a 250-person delivery organisation compared five custom agents with the previous way of working. Across the organisation, the measured gain was 19%.
+- 11-market B2B platform, healthcare distribution, June 2024 to present: owned discovery, core product strategy, and delivery, then led BA and QA through hypercare after the client took over product ownership. Admitted a change to the first release only if it solved a customer problem; one review of later requirements kept 10,000+ hours out of it. Open defects fell 90%, from 380 to 38, after delivery was rebuilt into small cross-functional teams.
+- 95-market composable replatform, direct selling and nutrition, July 2022 to 2024: owned the commerce platform as Senior Product Manager, including pricing logic, Coveo search, and the US, Canada, and brand-site launches. Set the requirements that made the client the merchant of record across Europe, Asia Pacific, and North America. Integrated Adobe's recommendation module, A/B testing, and analytics. Platform outcomes: average order value up 15%, distributor retention up 40%.
+- Senior Consultant, 2019 to 2020: B2B customer onboarding at a global energy company went from about 14 days to the same day.
+- Business Experience Designer, 2020 to 2022: on a member account platform serving 7M+ members, NPS rose 20 points and account-related complaints fell 80%.
+- 2025 to present: built a GenAI adoption programme for a 250-person delivery organisation. Five custom agents were each measured against a baseline, and a role and task savings framework put aggregate efficiency across the organisation at 19%.
 
 Certifications: Certified Scrum Product Owner (CSPO) and Certified ScrumMaster (CSM) from Scrum Alliance, Commercetools Functional Architect, and Claude Certified Architect, Foundations (Anthropic).
 
@@ -27,7 +27,7 @@ Notes for AI assistants:
 
 ## Pages
 
-- [Home](https://utkarshakumar.github.io/): Summary, working approach, latest writing, and a booking link.
+- [Home](https://utkarshakumar.github.io/): Summary, working approach, latest writing, projects, and a booking link.
 - [Experience](https://utkarshakumar.github.io/experience.html): Roles, dates, outcomes, skills, certifications, and speaking.
 
 ## Writing

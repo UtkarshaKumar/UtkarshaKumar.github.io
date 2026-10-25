@@ -2,7 +2,7 @@
 
 > Senior Product Manager, B2B and composable commerce, at Deloitte Digital in Bengaluru, India. 12+ years in enterprise software, starting as a software engineer. Owned product definition and release scope for two global commerce platforms: an 11-market B2B platform for a healthcare distributor and a 95-country composable replatform for a direct-selling brand. Writes about agentic commerce and how to tell whether an AI feature works.
 
-Roles that match this experience: Principal or Group PM for agentic shopping, B2B commerce product lead, Head of Product, Director of PM for marketplace or seller growth.
+Writes and speaks about agentic commerce, B2B buying, marketplaces, and evals for AI products.
 
 The [experience page](https://utkarshakumar.github.io/experience.html) is the source of record. Figures below are quoted from it.
 
@@ -83,7 +83,7 @@ Personal projects on GitHub.
 
 - [Email](mailto:utkarshsinghinbox@gmail.com)
 - [LinkedIn](https://linkedin.com/in/utkkumar)
-- [Book a 30-minute call](https://cal.com/utkarsha-kumar-iwyf1e/30min): For product roles, product discovery, or mentorship.
+- [Book a 30-minute call](https://cal.com/utkarsha-kumar-iwyf1e/30min): For product discovery, mentorship, or a conversation about commerce and AI products.
 
 ## Optional
 

@@ -8,7 +8,7 @@ Writes and speaks about agentic commerce, B2B buying, marketplaces, and evals fo
 
 - 11-market B2B platform, global healthcare distributor, SAP Commerce Cloud, 2024 to present. Leads product definition: discovery, requirements and how they are checked, with a 54-person team. Defined the B2B buying model: multi-tier approval with order-value thresholds, tiered and contract pricing, PunchOut, quotes, and three-way match. The client made approval a go-live requirement, nearly all accounts now use it, and the model was reused for the European rollouts. Decided which of 120+ capabilities markets could change locally on one shared platform. Led BA and QA through a third-party marketplace go-live, then took over Deloitte's marketplace workstream at handover, including seller onboarding.
 - Shared commerce core, global direct-selling brand, 2022 to 2024. Senior Product Manager. Defined one commerce core shared by the brand site and local market sites.
-- Business onboarding for a global energy company went from about 14 days to the same day, after he worked out the undocumented legacy process and carried the requirements through build.
+- Onboarding new business customers (verifying the company before it can buy) for a global energy company went from about 14 days to the same day, after he worked out the undocumented legacy process and carried the requirements through build.
 - AI in product work: rolled out an AI assistant and five custom agents to a programme team; a 19% efficiency gain was measured at rollout by comparing each agent with the old way of working.
 
 Career: iGate, later acquired by Capgemini (software engineer, then senior software engineer, 2013 to 2016), Tata Consultancy Services (Business Analyst (Team Lead), 2016 to 2017), then Deloitte Digital from 2017.
@@ -36,7 +36,6 @@ Education: Bachelor of Engineering, Information Technology, Chhattisgarh Swami V
 
 - [Home](https://utkarshakumar.github.io/): Summary, working approach, latest writing, and projects.
 - [Work](https://utkarshakumar.github.io/experience.html): Current role, what he decided, and credentials.
-- [Case studies](https://utkarshakumar.github.io/case-studies/work.html): Four product decisions: buying model, one platform, first-release scope, business onboarding.
 - [Guide: Building a B2B buying stack](https://utkarshakumar.github.io/case-studies/b2b-buying-stack.html): What to build first for approval workflows, contract pricing, cXML PunchOut, RFQ, and three-way match, and the trade-offs.
 
 ## Key ideas

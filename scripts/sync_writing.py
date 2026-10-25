@@ -18,6 +18,7 @@ whole sync.
 """
 
 import html as html_lib
+import json
 import os
 import re
 import sys
@@ -39,9 +40,47 @@ NOTION_DATABASE_ID = os.environ.get("NOTION_DATABASE_ID", "")
 MEDIUM_FEED = "https://medium.com/feed/@utkarshsingh_96177"
 
 # Titles kept on their original platform but not mirrored or listed on the site.
+# Applies to Notion and Medium. Removing a posts/*.md file removes a local post.
 HIDDEN_FROM_SITE = {
     "Decoding AI Productivity Paradox in Modern Enterprise IT",
+    "How Decentralized Compute Co-ops Could Replace SaaS in the Age of AI Agents",
+    "The B2B Competitive Intelligence Agent That Runs on Your Machine",
 }
+
+# Fallback dates (YYYY-MM-DD) for Notion pages with no PublishedAt: the date the
+# page first reached this site. Setting PublishedAt in Notion takes precedence.
+DATE_FALLBACKS = {
+    "Why Understanding How Agents Think Makes You a Better Product Manager": "2026-07-19",
+    "I Built a Tool That Writes Action Items of My Meetings So I Don't Have To": "2026-07-19",
+}
+
+# Small copy fixes applied to synced bodies, by title: (old, new) pairs.
+BODY_FIXES = {
+    "Why Understanding How Agents Think Makes You a Better Product Manager": [
+        ('Github: <a href="https://github.com/UtkarshaKumar/shopsense-ai" target="_blank" rel="noopener">link</a>',
+         'Code: <a href="https://github.com/UtkarshaKumar/shopsense-ai" target="_blank" rel="noopener">github.com/UtkarshaKumar/shopsense-ai</a>'),
+        ("the tools we had\u2014static pages, predefined filters, rigid category hierarchies\u2014couldn", "the tools we had (static pages, predefined filters, rigid category hierarchies) couldn"),
+        ("<strong>ShopSense AI</strong>\u2014a proof-of-concept agent for consumer electronics\u2014to", "<strong>ShopSense AI</strong>, a proof-of-concept agent for consumer electronics, to"),
+        ("the first part\u2014the reasoning\u2014and", "the first part, the reasoning, and"),
+        ("under $1000\u2014they need", "under $1000. They need"),
+        ("($199.99)\u2014not telephoto", "($199.99), not telephoto"),
+        ("honestly\u2014even when", "honestly, even when"),
+        ("</em>\u2014they don&#x27;t want", "</em>, they don&#x27;t want"),
+        ("just buying\u2014they&#x27;re learning", "just buying. They&#x27;re learning"),
+        ("</em>\u2014this is explainability", "</em> This is explainability"),
+        ("The next question\u2014<em>Can this scale to production?</em>\u2014requires", "The next question, <em>Can this scale to production?</em>, requires"),
+        ("search filters\u2014they&#x27;re inputs", "search filters. They&#x27;re inputs"),
+        ("</a>\u2014Yao et al., 2022", "</a>: Yao et al., 2022"),
+        ("</a>\u2014The proof of concept", "</a>: the proof of concept"),
+        ("</a>\u2014The electronics sample data foundation", "</a>: the electronics sample data foundation"),
+    ],
+}
+
+
+def apply_body_fixes(title, body_html):
+    for old, new in BODY_FIXES.get(title, []):
+        body_html = body_html.replace(old, new)
+    return body_html
 
 NOTION_HEADERS = {
     "Authorization": f"Bearer {NOTION_TOKEN}",
@@ -283,9 +322,11 @@ def fetch_notion_items(taken_slugs):
         title_prop = props.get("Title", props.get("Name", {}))
         title_arr = title_prop.get("title", [])
         title = title_arr[0]["plain_text"] if title_arr else "Untitled"
+        if title in HIDDEN_FROM_SITE:
+            continue
 
         date_obj = props.get("PublishedAt", {}).get("date") or {}
-        date_str = date_obj.get("start", "")
+        date_str = date_obj.get("start", "") or DATE_FALLBACKS.get(title, "")
 
         original_url = page.get("url", "#")
         item = {
@@ -302,9 +343,9 @@ def fetch_notion_items(taken_slugs):
             slug = unique_slug(slugify(title), taken_slugs)
             img_counter = [0]
             blocks = fetch_block_children(page["id"])
-            body_html = render_blocks(blocks, slug, img_counter)
+            body_html = apply_body_fixes(title, render_blocks(blocks, slug, img_counter))
             if body_html.strip():
-                write_article_page(slug, title, item["date_disp"], "Notion", original_url, body_html)
+                write_article_page(slug, title, item["date_disp"], "Notion", original_url, body_html, item["sort_key"])
                 item["local_path"] = f"writing/{slug}.html"
             else:
                 item["excerpt"] = get_excerpt(page["id"])
@@ -359,10 +400,10 @@ def fetch_medium_items(taken_slugs, limit=20):
 
         try:
             enc = entry.find("content:encoded", XML_NS)
-            body_html = clean_medium_html(enc.text if enc is not None else "")
+            body_html = apply_body_fixes(title, clean_medium_html(enc.text if enc is not None else ""))
             if body_html.strip():
                 slug = unique_slug(slugify(title), taken_slugs)
-                write_article_page(slug, title, date_disp, "Medium", link, body_html)
+                write_article_page(slug, title, date_disp, "Medium", link, body_html, sort_key)
                 item["local_path"] = f"writing/{slug}.html"
         except Exception as e:
             print(f"WARNING: Medium render failed for '{title}': {e}")
@@ -386,8 +427,18 @@ ARTICLE_TEMPLATE = Template("""<!--
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="$desc">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Utkarsha Kumar">
+  <link rel="canonical" href="$canonical">
   <meta property="og:title" content="$title">
+  <meta property="og:description" content="$desc">
   <meta property="og:type" content="article">
+  <meta property="og:url" content="$canonical">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="$title">
+  <script type="application/ld+json">
+$jsonld
+  </script>
   <link rel="icon" type="image/jpeg" href="../profile.jpg">
   <title>$title, Utkarsha Kumar</title>
 
@@ -477,7 +528,7 @@ ARTICLE_TEMPLATE = Template("""<!--
   <header class="subpage-hero">
     <div class="container">
       <span class="section-label" style="color:#E07840;">$source</span>
-      <h2 class="impact-title">$title</h2>
+      <h1 class="impact-title">$title</h1>
       <p class="article-meta">$meta_line</p>
     </div>
   </header>
@@ -589,9 +640,45 @@ $body_html
 """)
 
 
-def write_article_page(slug, title, date_disp, source, original_url, body_html):
+SITE_URL = "https://utkarshakumar.github.io/"
+PERSON_ID = SITE_URL + "#person"
+
+
+def article_jsonld(title, desc, canonical, date_iso, original_url):
+    article = {
+        "@type": "Article",
+        "headline": title,
+        "description": desc,
+        "url": canonical,
+        "mainEntityOfPage": canonical,
+        "inLanguage": "en",
+        "author": {"@type": "Person", "@id": PERSON_ID, "name": "Utkarsha Kumar", "url": SITE_URL},
+        "publisher": {"@type": "Person", "@id": PERSON_ID, "name": "Utkarsha Kumar"},
+        "image": SITE_URL + "profile.jpg",
+    }
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", date_iso or ""):
+        article["datePublished"] = date_iso
+    if original_url:
+        article["sameAs"] = original_url
+    crumbs = {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL},
+            {"@type": "ListItem", "position": 2, "name": "Writing", "item": SITE_URL + "writing.html"},
+            {"@type": "ListItem", "position": 3, "name": title, "item": canonical},
+        ],
+    }
+    data = {"@context": "https://schema.org", "@graph": [article, crumbs]}
+    # "</" cannot appear inside a script block.
+    return json.dumps(data, ensure_ascii=False, indent=2).replace("</", "<\\/")
+
+
+def write_article_page(slug, title, date_disp, source, original_url, body_html, date_iso=""):
     WRITING_DIR.mkdir(parents=True, exist_ok=True)
-    desc = re.sub(r"<[^>]+>", "", body_html)[:160].strip()
+    plain = html_lib.unescape(re.sub(r"<[^>]+>", " ", body_html))
+    plain = re.sub(r"\s+", " ", plain).strip()
+    desc = plain[:157].rsplit(" ", 1)[0] + "..." if len(plain) > 160 else plain
+    canonical = f"{SITE_URL}writing/{slug}.html"
     safe_date = html_lib.escape(date_disp or "")
     if original_url:
         meta_line = (
@@ -605,6 +692,8 @@ def write_article_page(slug, title, date_disp, source, original_url, body_html):
     html_out = ARTICLE_TEMPLATE.substitute(
         title=html_lib.escape(title),
         desc=html_lib.escape(desc),
+        canonical=canonical,
+        jsonld=article_jsonld(title, desc, canonical, date_iso, original_url),
         source=html_lib.escape(source),
         meta_line=meta_line,
         body_html=body_html,
@@ -642,7 +731,7 @@ def fetch_local_items(taken_slugs):
             if not body_html.strip():
                 continue
             slug = unique_slug(slugify(title), taken_slugs)
-            write_article_page(slug, title, date_str[:7] if date_str else "", "Site", None, body_html)
+            write_article_page(slug, title, date_str[:7] if date_str else "", "Site", None, body_html, date_str[:10])
             items.append({
                 "title": title,
                 "url": f"writing/{slug}.html",
@@ -686,6 +775,46 @@ def inject(path, start_marker, end_marker, block):
     path.write_text(new_content, encoding="utf-8")
 
 
+STATIC_PAGES = [
+    ("", "monthly", "1.0"),
+    ("experience.html", "monthly", "0.8"),
+    ("writing.html", "weekly", "0.8"),
+    ("projects.html", "monthly", "0.6"),
+    ("case-studies/b2b-buying-stack.html", "monthly", "0.7"),
+]
+
+
+def file_lastmod(rel):
+    """Last commit date of a file, or today if it has none yet."""
+    import subprocess
+    from datetime import date
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", rel], cwd=ROOT,
+                             capture_output=True, text=True, timeout=20).stdout.strip()
+    except Exception:
+        out = ""
+    return out or date.today().isoformat()
+
+
+def write_sitemap(items):
+    """Every public page and every article rendered on this site, with lastmod."""
+    urls = [(SITE_URL + rel, file_lastmod(rel or "index.html"), freq, pri) for rel, freq, pri in STATIC_PAGES]
+    for it in items:
+        rel = it.get("local_path")
+        if rel:
+            urls.append((SITE_URL + rel, file_lastmod(rel), "yearly", "0.6"))
+    rows = "\n".join(
+        f"  <url>\n    <loc>{html_lib.escape(u)}</loc>\n    <lastmod>{m}</lastmod>\n"
+        f"    <changefreq>{f}</changefreq>\n    <priority>{p}</priority>\n  </url>"
+        for u, m, f, p in urls
+    )
+    (ROOT / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + rows + "\n</urlset>\n",
+        encoding="utf-8",
+    )
+
+
 # How many recent posts to teaser on the homepage (full list stays on writing.html).
 HOMEPAGE_LATEST_COUNT = 5
 
@@ -706,6 +835,9 @@ def main():
 
     inject(ROOT / "writing.html", "<!-- WRITING_LIST_START -->", "<!-- WRITING_LIST_END -->", full_block)
     inject(ROOT / "index.html", "<!-- LATEST_WRITING_START -->", "<!-- LATEST_WRITING_END -->", latest_block)
+
+    if merged:
+        write_sitemap(merged)
 
     rendered = sum(1 for it in merged if it.get("local_path"))
     print(f"Synced {len(merged)} item(s): {len(notion_items)} Notion, {len(medium_items)} Medium, "

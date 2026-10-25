@@ -10,9 +10,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Most &quot;AI agent for commerce&quot; builds today are the same shape: an agent handles a support ticket, closing a loop — sense the request, take an action, check the r">
+  <meta name="description" content="Most &quot;AI agent for commerce&quot; builds today are the same shape: an agent handles a support ticket, closing a loop: sense the request, take an action, check...">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Utkarsha Kumar">
+  <link rel="canonical" href="https://utkarshakumar.github.io/writing/the-loop-was-never-about-checkout.html">
   <meta property="og:title" content="The Loop Was Never About Checkout">
+  <meta property="og:description" content="Most &quot;AI agent for commerce&quot; builds today are the same shape: an agent handles a support ticket, closing a loop: sense the request, take an action, check...">
   <meta property="og:type" content="article">
+  <meta property="og:url" content="https://utkarshakumar.github.io/writing/the-loop-was-never-about-checkout.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Loop Was Never About Checkout">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "The Loop Was Never About Checkout",
+      "description": "Most \"AI agent for commerce\" builds today are the same shape: an agent handles a support ticket, closing a loop: sense the request, take an action, check...",
+      "url": "https://utkarshakumar.github.io/writing/the-loop-was-never-about-checkout.html",
+      "mainEntityOfPage": "https://utkarshakumar.github.io/writing/the-loop-was-never-about-checkout.html",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Person",
+        "@id": "https://utkarshakumar.github.io/#person",
+        "name": "Utkarsha Kumar",
+        "url": "https://utkarshakumar.github.io/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "@id": "https://utkarshakumar.github.io/#person",
+        "name": "Utkarsha Kumar"
+      },
+      "image": "https://utkarshakumar.github.io/profile.jpg",
+      "datePublished": "2026-07-20"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://utkarshakumar.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Writing",
+          "item": "https://utkarshakumar.github.io/writing.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The Loop Was Never About Checkout",
+          "item": "https://utkarshakumar.github.io/writing/the-loop-was-never-about-checkout.html"
+        }
+      ]
+    }
+  ]
+}
+  </script>
   <link rel="icon" type="image/jpeg" href="../profile.jpg">
   <title>The Loop Was Never About Checkout, Utkarsha Kumar</title>
 
@@ -102,29 +160,29 @@
   <header class="subpage-hero">
     <div class="container">
       <span class="section-label" style="color:#E07840;">Site</span>
-      <h2 class="impact-title">The Loop Was Never About Checkout</h2>
+      <h1 class="impact-title">The Loop Was Never About Checkout</h1>
       <p class="article-meta">2026-07</p>
     </div>
   </header>
 
   <article class="article-body">
-<p>Most "AI agent for commerce" builds today are the same shape: an agent handles a support ticket, closing a loop — sense the request, take an action, check the result, repeat until resolved. It's a sound pattern. The question worth asking is where else that loop belongs, and 2026 has given a fairly precise answer already.</p>
+<p>Most "AI agent for commerce" builds today are the same shape: an agent handles a support ticket, closing a loop: sense the request, take an action, check the result, repeat until resolved. It's a sound pattern. The question worth asking is where else that loop belongs, and 2026 has given a fairly precise answer already.</p>
 <h2>Two loops, not one</h2>
-<p>Anthropic's own description of how their agents work is a useful starting point: an agent runs a loop of <strong>gather context, take action, verify work, repeat</strong> — a tight cycle scoped to a single task. Call this the inner loop. It's what happens inside one customer's session: understand what they're asking for, propose something, see how they respond, adjust.</p>
-<p>But an inner loop on its own doesn't get better over time — it resolves the task in front of it and starts over from zero with the next one. What makes a system improve is a second loop wrapped around many inner loops: aggregate what happened across sessions, evaluate it against a goal, optimize whatever the inner loop draws on, publish the update. This is close to Anthropic's evaluator-optimizer pattern, just applied at the system level instead of within a single generation — a generator (the inner loop) produces outcomes, an evaluator scores them in aggregate, and the correction feeds back in. Call this the outer loop.</p>
+<p>Anthropic's own description of how their agents work is a useful starting point: an agent runs a loop of <strong>gather context, take action, verify work, repeat</strong>, a tight cycle scoped to a single task. Call this the inner loop. It's what happens inside one customer's session: understand what they're asking for, propose something, see how they respond, adjust.</p>
+<p>But an inner loop on its own doesn't get better over time. It resolves the task in front of it and starts over from zero with the next one. What makes a system improve is a second loop wrapped around many inner loops: aggregate what happened across sessions, evaluate it against a goal, optimize whatever the inner loop draws on, publish the update. This is close to Anthropic's evaluator-optimizer pattern, just applied at the system level instead of within a single generation. A generator (the inner loop) produces outcomes, an evaluator scores them in aggregate, and the correction feeds back in. Call this the outer loop.</p>
 <p>The diagram below is the argument in one picture:</p>
-<p><img alt="Inner loop, outer loop — applied to commerce discovery" src="img/inner-outer-loop-diagram.svg" /></p>
-<p>Every commerce surface that uses agents — support, checkout, discovery — runs both loops. The difference between them isn't whether they compound. It's where the outer loop's improvements land, and how much of the customer base they touch.</p>
+<p><img alt="Inner loop, outer loop, applied to commerce discovery" src="img/inner-outer-loop-diagram.svg" /></p>
+<p>Every commerce surface that uses agents (support, checkout, discovery) runs both loops. The difference between them isn't whether they compound. It's where the outer loop's improvements land, and how much of the customer base they touch.</p>
 <h2>Where each outer loop lands</h2>
-<p>A support loop's outer cycle improves how the next ticket gets handled — better macros, better routing, a model that's seen more edge cases. Real value, but it only ever touches customers who already converted and already ran into a problem. That's a narrow, late slice of the funnel.</p>
-<p>A checkout loop's outer cycle improves conversion at the transaction — less friction, better-timed prompts, smarter fallback when a card fails. It only touches customers who have already decided to buy and reached the last step. Narrower still.</p>
+<p>A support loop's outer cycle improves how the next ticket gets handled: better macros, better routing, a model that's seen more edge cases. Real value, but it only ever touches customers who already converted and already ran into a problem. That's a narrow, late slice of the funnel.</p>
+<p>A checkout loop's outer cycle improves conversion at the transaction: less friction, better-timed prompts, smarter fallback when a card fails. It only touches customers who have already decided to buy and reached the last step. Narrower still.</p>
 <p>OpenAI's Instant Checkout is a live example of what happens when the loop is built at that layer. Launched in February on the Agentic Commerce Protocol it built with Stripe, it let ChatGPT users buy directly inside the chat. By <a href="https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html">its own account six months later</a>, roughly 30 merchants were actually live on it, well short of what was originally described. Walmart measured checkout inside ChatGPT converting about three times worse than a click-through to walmart.com, even as ChatGPT sent them roughly twice the new-customer rate of search. OpenAI's stated response was to let merchants keep their own checkout experiences and shift its effort to product discovery instead.</p>
-<p>A discovery loop's outer cycle improves ranking, matching, and merchandising — what gets surfaced at all. It runs for every visitor, before purchase intent has hardened into a decision, which means its outer loop has the widest population to learn from and the earliest point in the funnel to act on. Google's Universal Commerce Protocol, which Gap adopted in March for <a href="https://www.cnbc.com/2026/03/24/gap-google-gemini-checkout-ai-platform.html">agentic checkout inside Gemini</a>, makes the ordering explicit: product data is a feed the retailer submits in advance, and a product that isn't surfaced in the AI conversation can't be purchased through it at all. The protocol enables the transaction; it doesn't guarantee the recommendation. Discovery decides what checkout ever gets a chance to close.</p>
+<p>A discovery loop's outer cycle improves ranking, matching, and merchandising: what gets surfaced at all. It runs for every visitor, before purchase intent has hardened into a decision, which means its outer loop has the widest population to learn from and the earliest point in the funnel to act on. Google's Universal Commerce Protocol, which Gap adopted in March for <a href="https://www.cnbc.com/2026/03/24/gap-google-gemini-checkout-ai-platform.html">agentic checkout inside Gemini</a>, makes the ordering explicit: product data is a feed the retailer submits in advance, and a product that isn't surfaced in the AI conversation can't be purchased through it at all. The protocol enables the transaction; it doesn't guarantee the recommendation. Discovery decides what checkout ever gets a chance to close.</p>
 <h2>What the outer loop actually runs on</h2>
-<p>The outer loop's optimize step is only as good as what it's optimizing over — structured, machine-readable product data: attributes, use-case descriptions, real-time price and inventory. That's the layer I've spent twelve years in: B2B catalogs, complex contract pricing, account hierarchies — the plumbing that determines whether an agent can reason about a catalog or is guessing from a stale title.</p>
-<p>This is the part most loop pitches skip. An inner loop acting on bad catalog data doesn't improve with repetition — it gets confidently wrong, faster. The outer loop compounds on data quality before it compounds on anything else. Get the feed wrong and the result isn't a discovery loop; it's a fast way to recommend the wrong thing to more people.</p>
+<p>The outer loop's optimize step is only as good as what it's optimizing over: structured, machine-readable product data: attributes, use-case descriptions, real-time price and inventory. That's the layer I've spent 13 years in: B2B catalogs, complex contract pricing, account hierarchies. It's the plumbing that determines whether an agent can reason about a catalog or is guessing from a stale title.</p>
+<p>This is the part most loop pitches skip. An inner loop acting on bad catalog data doesn't improve with repetition. It gets confidently wrong, faster. The outer loop compounds on data quality before it compounds on anything else. Get the feed wrong and the result isn't a discovery loop; it's a fast way to recommend the wrong thing to more people.</p>
 <h2>Where this points</h2>
-<p>Support and checkout loops are worth having — they're just narrow, late, and downstream. The discovery loop is the one with the earliest, widest outer cycle: it touches every customer, not the unhappy or the already-decided ones, and its output changes what the next customer even sees. If I were prioritizing a year of agent-loop investment in commerce, it's there — and in the catalog and pricing infrastructure the outer loop depends on to be right in the first place.</p>
+<p>Support and checkout loops are worth having. They're just narrow, late, and downstream. The discovery loop is the one with the earliest, widest outer cycle: it touches every customer, not the unhappy or the already-decided ones, and its output changes what the next customer even sees. If I were prioritizing a year of agent-loop investment in commerce, it's there, and in the catalog and pricing infrastructure the outer loop depends on to be right in the first place.</p>
 <hr />
 <p><em>Sources: <a href="https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html">OpenAI's Instant Checkout pivot, CNBC</a> · <a href="https://www.cnbc.com/2026/03/24/gap-google-gemini-checkout-ai-platform.html">Gap's Google Gemini checkout launch, CNBC</a> · <a href="https://openai.com/index/buy-it-in-chatgpt/">Buy It in ChatGPT, OpenAI</a> · <a href="https://www.anthropic.com/research/building-effective-agents">Building Effective Agents, Anthropic</a> · <a href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents">Effective Harnesses for Long-Running Agents, Anthropic</a></em></p>
   </article>

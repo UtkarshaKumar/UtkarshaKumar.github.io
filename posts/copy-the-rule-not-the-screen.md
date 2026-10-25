@@ -35,7 +35,7 @@ That is ending. AI writes the prototype, the tests, and a growing share of the r
 
 ![Two checks before copying a mechanism: does it cause the behaviour you want, and are its conditions true in your product](img/two-checks-before-copying.svg)
 
-First, name the behaviour you want. Not the missing feature — the thing you want people to do more of. Airbnb needed strangers to trust each other enough to sleep in each other's houses, and every part of that review rule follows from it. Without that sentence, every mechanism looks equally worth having.
+First, name the behaviour you want. Not the missing feature. The thing you want people to do more of. Airbnb needed strangers to trust each other enough to sleep in each other's houses, and every part of that review rule follows from it. Without that sentence, every mechanism looks equally worth having.
 
 Second, check what the rule needs in order to work. Simultaneous reveal only matters where both sides review each other and both can retaliate. In a marketplace where only buyers rate sellers, it protects nobody; it's just a delay.
 

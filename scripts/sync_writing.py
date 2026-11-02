@@ -57,7 +57,9 @@ DATE_FALLBACKS = {
 # Display-title overrides for synced posts: source title -> shown title.
 # Slug, dates and BODY_FIXES still key off the source title, so URLs stay the same.
 TITLE_OVERRIDES = {
-    "I Built a Tool That Writes Action Items of My Meetings So I Don't Have To": "I Built a Tool That Writes Action Items from My Meetings So I Don't Have To",
+    "I Built a Tool That Writes Action Items of My Meetings So I Don't Have To": "I built a tool that writes action items from my meetings so I don't have to",
+    "Why Understanding How Agents Think Makes You a Better Product Manager": "Why understanding how agents think makes you a better product manager",
+    "The Invisible Hand: From Active Transactions to Outcome-Based Agentic Commerce": "The invisible hand: from active transactions to outcome-based agentic commerce",
 }
 
 # Small copy fixes applied to synced bodies, by title: (old, new) pairs.
@@ -69,15 +71,30 @@ BODY_FIXES = {
         ('in about 5 minutes, BlackHole setup, model downloads, audio routing, and asks 5 questions.', 'in about 5 minutes (BlackHole setup, model downloads, audio routing) and asks 5 questions.'),
     ],
     "The Invisible Hand: From Active Transactions to Outcome-Based Agentic Commerce": [
+        ('>What This Means If You Are Building Today<', '>What this means if you are building today<'),
         ('Humans set the rules, budget limits, supplier preferences, quality thresholds, and agents execute', 'Humans set the rules (budget limits, supplier preferences, quality thresholds) and agents execute'),
         ('1. Protocol-ready data, every', '1. Protocol-ready data: every'),
         ('2. Constraint modeling, conditional', '2. Constraint modeling: conditional'),
         ('3. Trust by design, explainability', '3. Trust by design: explainability'),
         ('complex procurement, capital goods, professional services, custom manufacturing still need', 'complex procurement: capital goods, professional services and custom manufacturing still need'),
         ('<p>Utkarsh works at the intersection of enterprise commerce and AI infrastructure.</p>', '<p>Utkarsha Kumar works at the intersection of enterprise commerce and AI infrastructure.</p>'),
-        ('<h4><em>In the next 24-36 months, commerce will cease to be a destination. It will become a background process.</em></h4>', '<p class="callout"><em>Note, October 2026: written in March 2026, before agent checkout launched in ChatGPT and other assistants. Some predictions here have since been tested; see <a href="the-loop-was-never-about-checkout.html">The Loop Was Never About Checkout</a>.</em></p><h4><em>In the next 24-36 months, commerce will cease to be a destination. It will become a background process.</em></h4>'),
+        ('<h4><em>In the next 24-36 months, commerce will cease to be a destination. It will become a background process.</em></h4>', '<p class="callout"><em>Note, October 2026: written in March 2026, before agent checkout launched in ChatGPT and other assistants. Some predictions here have since been tested; see <a href="the-loop-was-never-about-checkout.html">The loop was never about checkout</a>.</em></p><h4><em>In the next 24-36 months, commerce will cease to be a destination. It will become a background process.</em></h4>'),
     ],
     "Why Understanding How Agents Think Makes You a Better Product Manager": [
+        ('>The Realization<', '>The realization<'),
+        ('>One Core Insight: Intent Beats Interface<', '>One core insight: intent beats interface<'),
+        ('>How the Agent Thinks: The ReAct Pattern<', '>How the agent thinks: the ReAct pattern<'),
+        ('>Intent Classification: 8 Types of Shopping Goals<', '>Intent classification: 8 types of shopping goals<'),
+        ('>Solution Building: The Real Innovation<', '>Solution building: the real innovation<'),
+        ('>The Generative UI: Adapting to Intent<', '>The generative UI: adapting to intent<'),
+        ('>Why This Matters for Product Strategy<', '>Why this matters for product strategy<'),
+        ('>1. Problem-Solving Over Product-Pushing<', '>1. Problem-solving over product-pushing<'),
+        ('>2. Constraint Handling Builds Trust<', '>2. Constraint handling builds trust<'),
+        ('>3. Transparency in Limitations<', '>3. Transparency in limitations<'),
+        ('>What I Got Wrong (And Fixed)<', '>What I got wrong (and fixed)<'),
+        ('>The Limitations (This Is a Proof of Concept)<', '>The limitations (this is a proof of concept)<'),
+        ('>The Product Manager&#x27;s Dilemma<', '>The product manager&#x27;s dilemma<'),
+        ('>The Strategic Takeaway<', '>The strategic takeaway<'),
         ('None of these cameras alone are ideal', 'None of these cameras alone is ideal'),
         ('The reasoning is”', 'The reasoning is.”'),
         ('Github: <a href="https://github.com/UtkarshaKumar/shopsense-ai" target="_blank" rel="noopener">link</a>',
@@ -446,7 +463,7 @@ def fetch_medium_items(taken_slugs, limit=20):
             sort_key, date_disp = "0000-00-00", ""
 
         item = {
-            "title": title,
+            "title": TITLE_OVERRIDES.get(title, title),
             "url": link,
             "sort_key": sort_key,
             "date_disp": date_disp,
@@ -459,7 +476,7 @@ def fetch_medium_items(taken_slugs, limit=20):
             body_html = apply_body_fixes(title, clean_medium_html(enc.text if enc is not None else ""))
             if body_html.strip():
                 slug = unique_slug(slugify(title), taken_slugs)
-                write_article_page(slug, title, date_disp, "Medium", link, body_html, sort_key)
+                write_article_page(slug, item["title"], date_disp, "Medium", link, body_html, sort_key)
                 item["local_path"] = f"writing/{slug}.html"
         except Exception as e:
             print(f"WARNING: Medium render failed for '{title}': {e}")

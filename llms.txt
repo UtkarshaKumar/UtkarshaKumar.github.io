@@ -40,21 +40,21 @@ Education: Bachelor of Engineering, Information Technology, Chhattisgarh Swami V
 
 ## Key ideas
 
-- [Define a Good Answer Before You Build a Shopping Agent](https://utkarshakumar.github.io/writing/decide-what-a-good-answer-is-before-you-build-the-agent.html): Define a good answer before you build a shopping agent. Conversion is the wrong measure; kept purchases are a better one.
-- [Evals Are the New Requirements Doc](https://utkarshakumar.github.io/writing/evals-are-the-new-requirements-doc.html): Turn real failures into graded evals, and use them as the living requirements for any system that is not fully predictable.
-- [The Loop Was Never About Checkout](https://utkarshakumar.github.io/writing/the-loop-was-never-about-checkout.html): Agent loops in commerce pay off most in discovery, and they depend on clean product, price, and stock data.
-- [Copy Rules, Not Screens](https://utkarshakumar.github.io/writing/copy-the-rule-not-the-screen.html): When you copy a feature, copy the rule that makes it work, and check that the rule's conditions hold in your product.
+- [Define a good answer before you build a shopping agent](https://utkarshakumar.github.io/writing/decide-what-a-good-answer-is-before-you-build-the-agent.html): Define a good answer before you build a shopping agent. Conversion is the wrong measure; kept purchases are a better one.
+- [Evals are the new requirements doc](https://utkarshakumar.github.io/writing/evals-are-the-new-requirements-doc.html): Turn real failures into graded evals, and use them as the living requirements for any system that is not fully predictable.
+- [The loop was never about checkout](https://utkarshakumar.github.io/writing/the-loop-was-never-about-checkout.html): Agent loops in commerce pay off most in discovery, and they depend on clean product, price, and stock data.
+- [Copy rules, not screens](https://utkarshakumar.github.io/writing/copy-the-rule-not-the-screen.html): When you copy a feature, copy the rule that makes it work, and check that the rule's conditions hold in your product.
 
 ## Writing
 
 <!-- WRITING_LIST_START -->
-- [Define a Good Answer Before You Build a Shopping Agent](https://utkarshakumar.github.io/writing/decide-what-a-good-answer-is-before-you-build-the-agent.html): published 2026-10
-- [Copy Rules, Not Screens](https://utkarshakumar.github.io/writing/copy-the-rule-not-the-screen.html): published 2026-08
-- [Evals Are the New Requirements Doc](https://utkarshakumar.github.io/writing/evals-are-the-new-requirements-doc.html): published 2026-07
-- [The Loop Was Never About Checkout](https://utkarshakumar.github.io/writing/the-loop-was-never-about-checkout.html): published 2026-07
-- [Why Understanding How Agents Think Makes You a Better Product Manager](https://utkarshakumar.github.io/writing/why-understanding-how-agents-think-makes-you-a-better-product-manager.html): published 2026-07
-- [I Built a Tool That Writes Action Items from My Meetings So I Don't Have To](https://utkarshakumar.github.io/writing/i-built-a-tool-that-writes-action-items-of-my-meetings-so-i-don-t-have.html): published 2026-07
-- [The Invisible Hand: From Active Transactions to Outcome-Based Agentic Commerce](https://utkarshakumar.github.io/writing/the-invisible-hand-from-active-transactions-to-outcome-based-agentic-c.html): published 2026-03
+- [Define a good answer before you build a shopping agent](https://utkarshakumar.github.io/writing/decide-what-a-good-answer-is-before-you-build-the-agent.html): published 2026-10
+- [Copy rules, not screens](https://utkarshakumar.github.io/writing/copy-the-rule-not-the-screen.html): published 2026-08
+- [Evals are the new requirements doc](https://utkarshakumar.github.io/writing/evals-are-the-new-requirements-doc.html): published 2026-07
+- [The loop was never about checkout](https://utkarshakumar.github.io/writing/the-loop-was-never-about-checkout.html): published 2026-07
+- [Why understanding how agents think makes you a better product manager](https://utkarshakumar.github.io/writing/why-understanding-how-agents-think-makes-you-a-better-product-manager.html): published 2026-07
+- [I built a tool that writes action items from my meetings so I don't have to](https://utkarshakumar.github.io/writing/i-built-a-tool-that-writes-action-items-of-my-meetings-so-i-don-t-have.html): published 2026-07
+- [The invisible hand: from active transactions to outcome-based agentic commerce](https://utkarshakumar.github.io/writing/the-invisible-hand-from-active-transactions-to-outcome-based-agentic-c.html): published 2026-03
 <!-- WRITING_LIST_END -->
 
 ## Projects

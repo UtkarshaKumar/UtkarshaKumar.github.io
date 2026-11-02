@@ -1,5 +1,6 @@
 ---
-title: The Loop Was Never About Checkout
+title: The loop was never about checkout
+slug: the-loop-was-never-about-checkout
 date: 2026-07-20
 ---
 

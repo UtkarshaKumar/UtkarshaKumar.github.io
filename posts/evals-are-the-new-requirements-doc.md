@@ -1,5 +1,6 @@
 ---
-title: Evals Are the New Requirements Doc
+title: Evals are the new requirements doc
+slug: evals-are-the-new-requirements-doc
 date: 2026-07-27
 ---
 

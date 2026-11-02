@@ -1,5 +1,5 @@
 ---
-title: Define a Good Answer Before You Build a Shopping Agent
+title: Define a good answer before you build a shopping agent
 slug: decide-what-a-good-answer-is-before-you-build-the-agent
 date: 2026-10-25
 ---

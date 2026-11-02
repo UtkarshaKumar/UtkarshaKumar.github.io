@@ -1,5 +1,6 @@
 ---
-title: Copy the Rule, Not the Screen
+title: Copy Rules, Not Screens
+slug: copy-the-rule-not-the-screen
 date: 2026-08-16
 ---
 

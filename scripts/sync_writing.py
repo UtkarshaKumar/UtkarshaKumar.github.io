@@ -888,6 +888,11 @@ def main():
         full_block = "\n".join(render_row(it) for it in merged)
         homepage_items = [it for it in merged if it.get("homepage", True)]
         latest_block = "\n".join(render_row(it) for it in homepage_items[:HOMEPAGE_LATEST_COUNT])
+        guide_row = '<a class="wrow" href="case-studies/b2b-buying-stack.html"><span class="wdate">2026-10</span><span class="wtitle">Guide: How to build a B2B buying stack on composable or SAP Commerce</span><span class="wsource">Site</span></a>'
+        rows = latest_block.split("\n")
+        at = next((i for i, r in enumerate(rows) if "the-loop-was-never-about-checkout" in r), len(rows))
+        rows.insert(at, guide_row)
+        latest_block = "\n".join(rows)
     else:
         full_block = latest_block = '<div class="wlist-empty">Nothing published yet.</div>'
 

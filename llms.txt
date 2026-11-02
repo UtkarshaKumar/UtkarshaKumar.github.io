@@ -62,18 +62,18 @@ Education: Bachelor of Engineering, Information Technology, Chhattisgarh Swami V
 Personal projects on GitHub.
 
 <!-- PROJECT_LIST_START -->
-- [ShopSense AI](https://github.com/UtkarshaKumar/shopsense-ai): A shopping assistant demo. An agent searches an electronics catalog and answers with products, comparisons, or bundles.
+- [ShopSense AI](https://github.com/UtkarshaKumar/shopsense-ai): A shopping assistant demo. An agent searches an electronics catalogue and answers with products, comparisons, or bundles.
 - [B2B Commerce SEO Lab](https://github.com/UtkarshaKumar/b2b-commerce-seo-best-practices): A working B2B store with 360 products in English and French that shows SEO for category and product pages.
 - [CloudNest](https://github.com/UtkarshaKumar/cloudnest): A Mac app that restores deleted iCloud Drive files in bulk, back into their original folders.
 - [PageSmith](https://github.com/UtkarshaKumar/pagesmith): A Mac app that opens any HTML file, lets you edit it like a document, and saves it back cleanly.
-- [Nudge Pro](https://github.com/UtkarshaKumar/nudge-pro): A Mac app that records meetings, transcribes them, and writes the notes.
+- [Nudge Pro](https://github.com/UtkarshaKumar/nudge-pro): A Mac app that records meetings, transcribes them, and writes notes.
 <!-- PROJECT_LIST_END -->
 
 ## Contact
 
 - [Email](mailto:utkarshsinghinbox@gmail.com)
 - [LinkedIn](https://linkedin.com/in/utkkumar)
-- [Request the resume](https://drive.google.com/file/d/1wA6Lo5_EdVx6DJPucSAOlEfs99Z-GG0A/view?usp=sharing)
+- [Request resume](https://drive.google.com/file/d/1wA6Lo5_EdVx6DJPucSAOlEfs99Z-GG0A/view?usp=sharing)
 
 ## Optional
 

@@ -29,7 +29,7 @@ HOMEPAGE_PROJECT_COUNT = 3
 FEATURED = ["shopsense-ai", "b2b-commerce-seo-best-practices", "cloudnest", "pagesmith", "nudge-pro"]
 # One plain line per project. Repos without one fall back to the GitHub description.
 DESCRIPTIONS = {
-    "shopsense-ai": "A shopping assistant demo. An agent searches an electronics catalog and answers with products, comparisons, or bundles.",
+    "shopsense-ai": "A shopping assistant demo. An agent searches an electronics catalogue and answers with products, comparisons, or bundles.",
     "b2b-commerce-seo-best-practices": "A working B2B store with 360 products in English and French that shows SEO for category and product pages.",
     "cloudnest": "A Mac app that restores deleted iCloud Drive files in bulk, back into their original folders.",
     "pagesmith": "A Mac app that opens any HTML file, lets you edit it like a document, and saves it back cleanly.",

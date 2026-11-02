@@ -56,11 +56,24 @@ DATE_FALLBACKS = {
 
 # Small copy fixes applied to synced bodies, by title: (old, new) pairs.
 BODY_FIXES = {
+    "I Built a Tool That Writes Action Items of My Meetings So I Don't Have To": [
+        ('discipline problem, it&#x27;s a physics problem.', 'discipline problem. It&#x27;s a physics problem.'),
+        ('Notion AI meeting recorder, they&#x27;re all useful', 'Notion AI meeting recorder: they&#x27;re all useful'),
+        ('it&#x27;s there, summary, decisions,', 'it&#x27;s there: summary, decisions,'),
+        ('in about 5 minutes, BlackHole setup, model downloads, audio routing, and asks 5 questions.', 'in about 5 minutes (BlackHole setup, model downloads, audio routing) and asks 5 questions.'),
+    ],
     "The Invisible Hand: From Active Transactions to Outcome-Based Agentic Commerce": [
+        ('Humans set the rules, budget limits, supplier preferences, quality thresholds, and agents execute', 'Humans set the rules (budget limits, supplier preferences, quality thresholds) and agents execute'),
+        ('1. Protocol-ready data, every', '1. Protocol-ready data: every'),
+        ('2. Constraint modeling, conditional', '2. Constraint modeling: conditional'),
+        ('3. Trust by design, explainability', '3. Trust by design: explainability'),
+        ('complex procurement, capital goods, professional services, custom manufacturing still need', 'complex procurement: capital goods, professional services and custom manufacturing still need'),
         ('<p>Utkarsh works at the intersection of enterprise commerce and AI infrastructure.</p>', '<p>Utkarsha Kumar works at the intersection of enterprise commerce and AI infrastructure.</p>'),
         ('<h4><em>In the next 24-36 months, commerce will cease to be a destination. It will become a background process.</em></h4>', '<p class="callout"><em>Note, October 2026: written in March 2026, before agent checkout launched in ChatGPT and other assistants. Some predictions here have since been tested; see <a href="the-loop-was-never-about-checkout.html">The Loop Was Never About Checkout</a>.</em></p><h4><em>In the next 24-36 months, commerce will cease to be a destination. It will become a background process.</em></h4>'),
     ],
     "Why Understanding How Agents Think Makes You a Better Product Manager": [
+        ('None of these cameras alone are ideal', 'None of these cameras alone is ideal'),
+        ('The reasoning is”', 'The reasoning is.”'),
         ('Github: <a href="https://github.com/UtkarshaKumar/shopsense-ai" target="_blank" rel="noopener">link</a>',
          'Code: <a href="https://github.com/UtkarshaKumar/shopsense-ai" target="_blank" rel="noopener">github.com/UtkarshaKumar/shopsense-ai</a>'),
         ("the tools we had\u2014static pages, predefined filters, rigid category hierarchies\u2014couldn", "the tools we had (static pages, predefined filters, rigid category hierarchies) couldn"),
@@ -113,7 +126,11 @@ def apply_body_fixes(title, body_html):
     for old, new in BODY_FIXES.get(title, []):
         body_html = body_html.replace(old, new)
     body_html = re.sub(r"<pre(?![^>]*tabindex)", '<pre tabindex="0"', body_html)
-    return img_attrs(de_dash(body_html))
+    body_html = de_dash(body_html)
+    # Second pass so fixes can also target text as it reads after de_dash.
+    for old, new in BODY_FIXES.get(title, []):
+        body_html = body_html.replace(old, new)
+    return img_attrs(body_html)
 
 NOTION_HEADERS = {
     "Authorization": f"Bearer {NOTION_TOKEN}",

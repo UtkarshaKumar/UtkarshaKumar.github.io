@@ -152,9 +152,9 @@
 <p><strong>Why it matters.</strong> Large buyers buy through their e-procurement system (Ariba, Coupa, Jaggaer and others), not your storefront. PunchOut lets them shop your catalogue from inside that system and return the cart for their own approval.</p>
 <p><strong>Level 1.</strong> The buyer punches out to your site from the procurement system's generic entry point, shops, and the cart is returned via cXML. Build this first: it covers the most customers for the least integration work.</p>
 <p><strong>Level 2.</strong> The buyer searches a catalogue inside the procurement system and punches into a specific product or category on your site. It's a better experience but means you must keep catalogue content synced with each procurement platform.</p>
-<p><strong>Trade-offs.</strong> Level 2 improves conversion for heavy users but adds catalogue-sync work for every procurement network. Offer it to the accounts with the most volume.</p>
+<p><strong>Trade-offs.</strong> Level 2 improves conversion for heavy users but adds catalogue-sync work for every procurement network. Offer it to accounts with the most volume.</p>
 <p><strong>Pitfalls.</strong> Contract prices that don't carry into the PunchOut session. Purchase orders (cXML OrderRequest) that don't match the returned cart. Session timeouts that silently lose carts.</p>
-<p><strong>Metrics.</strong> PunchOut session-to-PO conversion, PO match rate on the first attempt, and failed cXML messages per week.</p>
+<p><strong>Metrics.</strong> PunchOut session-to-PO conversion, PO match rate on first attempt, and failed cXML messages per week.</p>
 <h2>RFQ and quote flows</h2>
 <p><strong>Why it matters.</strong> Large or unusual orders need a negotiated price before the buyer commits. Without a quote flow, that negotiation happens in email and the order never touches your platform.</p>
 <p><strong>Build first.</strong> The buyer turns a cart into a quote request. A sales user adjusts prices and sets an expiry. The buyer accepts, and the accepted quote becomes an order at the quoted price.</p>
@@ -162,11 +162,11 @@
 <p><strong>Pitfalls.</strong> Quotes that ignore contract pricing, quotes with no expiry, and quoted prices that change at checkout.</p>
 <p><strong>Metrics.</strong> Quote turnaround time, quote-to-order conversion, and the share of quotes that expire.</p>
 <h2>Three-way match</h2>
-<p><strong>Why it matters.</strong> Finance teams reconcile the purchase order, the goods receipt and the invoice. If your data doesn't match, invoices get held and you get paid late.</p>
+<p><strong>Why it matters.</strong> Finance teams reconcile the purchase order, goods receipt and invoice. If your data doesn't match, invoices get held and you get paid late.</p>
 <p><strong>Build first.</strong> Consistent identifiers and quantities across order, shipment and invoice, including partial shipments and backorders.</p>
 <p><strong>Trade-offs.</strong> Matching at line level is precise but strict. Allowing tolerances (small price or quantity differences) reduces holds but needs clear rules agreed with the customer's finance team.</p>
 <p><strong>Pitfalls.</strong> Order numbers that collide across systems, and invoice lines that don't map back to PO lines.</p>
-<p><strong>Metrics.</strong> Invoices matched on the first pass, invoices on hold, and days sales outstanding for PunchOut customers.</p>
+<p><strong>Metrics.</strong> Invoices matched on first pass, invoices on hold, and days sales outstanding for PunchOut customers.</p>
 <h2>Build sequence</h2>
 <ol>
 <li>Business accounts, units and buyer roles.</li>
@@ -175,7 +175,7 @@
 <li>cXML PunchOut Level 1.</li>
 <li>RFQ and quote flows on top of contract pricing.</li>
 <li>Three-way-match data quality across order, shipment and invoice.</li>
-<li>PunchOut Level 2 for the highest-volume accounts.</li>
+<li>PunchOut Level 2 for highest-volume accounts.</li>
 </ol>
 <p>Hold one global core and let regions extend it rather than fork it. Every fork multiplies the cost of every later release.</p>
 <h2>Glossary</h2>

@@ -33,7 +33,7 @@ DESCRIPTIONS = {
     "b2b-commerce-seo-best-practices": "A working B2B store with 360 products in English and French that shows SEO for category and product pages.",
     "cloudnest": "A Mac app that restores deleted iCloud Drive files in bulk, back into their original folders.",
     "pagesmith": "A Mac app that opens any HTML file, lets you edit it like a document, and saves it back cleanly.",
-    "nudge-pro": "A Mac app that records meetings, transcribes them, and writes the notes.",
+    "nudge-pro": "A Mac app that records meetings, transcribes them, and writes notes.",
 }
 
 # Product names as the GitHub profile README writes them. Other repos fall back to title case.

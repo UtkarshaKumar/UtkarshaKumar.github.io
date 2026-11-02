@@ -27,7 +27,7 @@ OpenAI's Instant Checkout is a live example of what happens when the loop is bui
 
 A discovery loop's outer cycle improves ranking, matching, and merchandising: what gets surfaced at all. It runs for every visitor, before purchase intent has hardened into a decision, which means its outer loop has the widest population to learn from and the earliest point in the funnel to act on. Google's Universal Commerce Protocol, which Gap adopted in March for [agentic checkout inside Gemini](https://www.cnbc.com/2026/03/24/gap-google-gemini-checkout-ai-platform.html), makes the ordering explicit: product data is a feed the retailer submits in advance, and a product that isn't surfaced in the AI conversation can't be purchased through it at all. The protocol enables the transaction; it doesn't guarantee the recommendation. Discovery decides what checkout ever gets a chance to close.
 
-## What the outer loop actually runs on
+## What outer loops actually run on
 
 The outer loop's optimize step is only as good as what it's optimizing over: structured, machine-readable product data: attributes, use-case descriptions, real-time price and inventory. That's the layer I've spent 13 years in: B2B catalogs, complex contract pricing, account hierarchies. It's the plumbing that determines whether an agent can reason about a catalog or is guessing from a stale title.
 

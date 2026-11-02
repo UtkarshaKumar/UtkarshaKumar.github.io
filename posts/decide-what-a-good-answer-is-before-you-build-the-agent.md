@@ -12,7 +12,7 @@ That is hard, because shopping agents fail quietly. The answers sound confident 
 
 Most teams measure an agent the way they measure a website, with clicks and conversion. Those numbers can go up while the advice gets worse. This happens because no one wrote down what a good answer looks like before they started.
 
-## The core message
+## Core message
 
 A shopping agent is only as good as your definition of a good answer. Conversion is the wrong definition.
 

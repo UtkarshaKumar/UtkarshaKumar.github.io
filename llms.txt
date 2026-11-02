@@ -40,7 +40,7 @@ Education: Bachelor of Engineering, Information Technology, Chhattisgarh Swami V
 
 ## Key ideas
 
-- [Decide What a Good Answer Is Before You Build the Agent](https://utkarshakumar.github.io/writing/decide-what-a-good-answer-is-before-you-build-the-agent.html): Define a good answer before you build a shopping agent. Conversion is the wrong measure; kept purchases are a better one.
+- [Define a Good Answer Before You Build a Shopping Agent](https://utkarshakumar.github.io/writing/decide-what-a-good-answer-is-before-you-build-the-agent.html): Define a good answer before you build a shopping agent. Conversion is the wrong measure; kept purchases are a better one.
 - [Evals Are the New Requirements Doc](https://utkarshakumar.github.io/writing/evals-are-the-new-requirements-doc.html): Turn real failures into graded evals, and use them as the living requirements for any system that is not fully predictable.
 - [The Loop Was Never About Checkout](https://utkarshakumar.github.io/writing/the-loop-was-never-about-checkout.html): Agent loops in commerce pay off most in discovery, and they depend on clean product, price, and stock data.
 - [Copy the Rule, Not the Screen](https://utkarshakumar.github.io/writing/copy-the-rule-not-the-screen.html): When you copy a feature, copy the rule that makes it work, and check that the rule's conditions hold in your product.
@@ -48,7 +48,7 @@ Education: Bachelor of Engineering, Information Technology, Chhattisgarh Swami V
 ## Writing
 
 <!-- WRITING_LIST_START -->
-- [Decide What a Good Answer Is Before You Build the Agent](https://utkarshakumar.github.io/writing/decide-what-a-good-answer-is-before-you-build-the-agent.html): published 2026-10
+- [Define a Good Answer Before You Build a Shopping Agent](https://utkarshakumar.github.io/writing/decide-what-a-good-answer-is-before-you-build-the-agent.html): published 2026-10
 - [Copy the Rule, Not the Screen](https://utkarshakumar.github.io/writing/copy-the-rule-not-the-screen.html): published 2026-08
 - [Evals Are the New Requirements Doc](https://utkarshakumar.github.io/writing/evals-are-the-new-requirements-doc.html): published 2026-07
 - [The Loop Was Never About Checkout](https://utkarshakumar.github.io/writing/the-loop-was-never-about-checkout.html): published 2026-07

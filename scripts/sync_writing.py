@@ -770,7 +770,7 @@ def fetch_local_items(taken_slugs):
             body_html = md_lib.markdown(body_md, extensions=["fenced_code", "tables"])
             if not body_html.strip():
                 continue
-            slug = unique_slug(slugify(title), taken_slugs)
+            slug = unique_slug(meta.get("slug") or slugify(title), taken_slugs)
             write_article_page(slug, title, date_str[:7] if date_str else "", "Site", None, body_html, date_str[:10])
             items.append({
                 "title": title,

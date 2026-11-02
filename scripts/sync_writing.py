@@ -602,7 +602,7 @@ $body_html
           Medium
         </a>
       </div>
-      <p class="footer-copy">&copy; 2026 Utkarsha Kumar &middot; All rights reserved &middot; Cloning or reusing without credit is a copyright violation</p>
+      <p class="footer-copy">&copy; 2026 Utkarsha Kumar &middot; All rights reserved</p>
     </div>
   </footer>
 

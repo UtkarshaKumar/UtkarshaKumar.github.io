@@ -54,6 +54,12 @@ DATE_FALLBACKS = {
     "I Built a Tool That Writes Action Items of My Meetings So I Don't Have To": "2026-07-19",
 }
 
+# Display-title overrides for synced posts: source title -> shown title.
+# Slug, dates and BODY_FIXES still key off the source title, so URLs stay the same.
+TITLE_OVERRIDES = {
+    "I Built a Tool That Writes Action Items of My Meetings So I Don't Have To": "I Built a Tool That Writes Action Items from My Meetings So I Don't Have To",
+}
+
 # Small copy fixes applied to synced bodies, by title: (old, new) pairs.
 BODY_FIXES = {
     "I Built a Tool That Writes Action Items of My Meetings So I Don't Have To": [
@@ -380,7 +386,7 @@ def fetch_notion_items(taken_slugs):
 
         original_url = page.get("url", "#")
         item = {
-            "title": title,
+            "title": TITLE_OVERRIDES.get(title, title),
             "url": original_url,
             "sort_key": date_str[:10] if date_str else "0000-00-00",
             "date_disp": date_str[:7] if date_str else "",
@@ -395,7 +401,7 @@ def fetch_notion_items(taken_slugs):
             blocks = fetch_block_children(page["id"])
             body_html = apply_body_fixes(title, render_blocks(blocks, slug, img_counter))
             if body_html.strip():
-                write_article_page(slug, title, item["date_disp"], "Notion", original_url, body_html, item["sort_key"])
+                write_article_page(slug, item["title"], item["date_disp"], "Notion", original_url, body_html, item["sort_key"])
                 item["local_path"] = f"writing/{slug}.html"
             else:
                 item["excerpt"] = get_excerpt(page["id"])

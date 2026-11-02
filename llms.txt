@@ -53,7 +53,7 @@ Education: Bachelor of Engineering, Information Technology, Chhattisgarh Swami V
 - [Evals Are the New Requirements Doc](https://utkarshakumar.github.io/writing/evals-are-the-new-requirements-doc.html): published 2026-07
 - [The Loop Was Never About Checkout](https://utkarshakumar.github.io/writing/the-loop-was-never-about-checkout.html): published 2026-07
 - [Why Understanding How Agents Think Makes You a Better Product Manager](https://utkarshakumar.github.io/writing/why-understanding-how-agents-think-makes-you-a-better-product-manager.html): published 2026-07
-- [I Built a Tool That Writes Action Items of My Meetings So I Don't Have To](https://utkarshakumar.github.io/writing/i-built-a-tool-that-writes-action-items-of-my-meetings-so-i-don-t-have.html): published 2026-07
+- [I Built a Tool That Writes Action Items from My Meetings So I Don't Have To](https://utkarshakumar.github.io/writing/i-built-a-tool-that-writes-action-items-of-my-meetings-so-i-don-t-have.html): published 2026-07
 - [The Invisible Hand: From Active Transactions to Outcome-Based Agentic Commerce](https://utkarshakumar.github.io/writing/the-invisible-hand-from-active-transactions-to-outcome-based-agentic-c.html): published 2026-03
 <!-- WRITING_LIST_END -->
 

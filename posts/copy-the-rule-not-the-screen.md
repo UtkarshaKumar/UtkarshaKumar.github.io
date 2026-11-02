@@ -26,11 +26,11 @@ Airbnb's rule survives that: hold two judgments until both are committed, then r
 
 If you can't describe it without saying hosts or listings or tickets, you're holding the screen.
 
-## Cheap building removed the thing that used to stop you
+## Faster prototypes removed the thing that used to stop you
 
 This mistake used to correct itself. Building was slow, you had more ideas than engineers, and weak copies died before anyone had to argue against them.
 
-That is ending. AI writes the prototype, the tests, and a growing share of the real thing. When building is nearly free, "someone else did this" becomes enough reason to ship. The failure won't look like failure. It looks like a team shipping constantly and getting nowhere.
+That is ending. AI now helps write the prototype and the tests, so a first version arrives much sooner. Making it work for real still takes serious engineering. But once starting is fast, "someone else did this" becomes enough reason to start. The failure won't look like failure. It looks like a team shipping constantly and getting nowhere.
 
 ## Two checks before you copy anything
 
